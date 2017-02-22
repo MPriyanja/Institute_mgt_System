@@ -5,7 +5,13 @@
  */
 package com.institute_management.user_mgt.UI;
 
+import com.institute_management.main.Main;
 import com.institute_management.user_mgt.DB.DbConnection;
+import com.institute_management.user_mgt.bean.userBean;
+import com.institute_management.util.CommonMethods;
+import com.institute_management.util.Configurations;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,23 +38,22 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnChangePassword = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Username");
 
         jLabel2.setText("Password");
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
+        btnLogin.setBackground(new java.awt.Color(204, 255, 255));
         btnLogin.setText("Login");
+        btnLogin.setNextFocusableComponent(btnLogin);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -73,8 +78,8 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                    .addComponent(txtPassword))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(txtUserName))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(65, Short.MAX_VALUE)
@@ -109,30 +114,42 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
         try {
-            boolean permission = dbClass.validateUser(txtUserName.getText(), txtPassword.getText());
+            boolean validUser = dbClass.validateUser(txtUserName.getText(), txtPassword.getText());
 
-            if (permission) {
-                mainFrame mf = new mainFrame();
-                privilegeAssign pa = new privilegeAssign();
-                pa.setVisible(true);
+            if (validUser) {
+                userBean userbean = dbClass.getUserDetails(txtUserName.getText());
+                Configurations.user_name = userbean.getUserName();
+                Configurations.user_id = userbean.getUserID();
+                Configurations.role_id = userbean.getRoleID();
+                Configurations.privilegeGrantedPageList = userbean.getPrivilegeGrantedPageList();
+
+                if (CommonMethods.check_user_access(Configurations.Main_Page)) {
+                    mainFrame mf = new mainFrame();
+                    mf.setVisible(true);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(new JFrame(),"You have no access to this page");
+                }
+
             } else {
-
+                JOptionPane.showMessageDialog(new JFrame(), "Username or Password invalid");
+                this.dispose();
+                Login login = new Login();
+                login.setVisible(true);
             }
         } catch (Exception ex) {
-            
+
         }
 
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -182,7 +199,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
