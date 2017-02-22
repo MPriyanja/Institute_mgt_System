@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package institute_management.main;
+package com.institute_management.main;
+
+import com.institute_management.subject_mgt.UI.addSubject;
 
 /**
  *
@@ -16,7 +18,8 @@ public class Institute_Management {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Hello wORLD");
+        addSubject aa=new addSubject();
+        aa.setVisible(true);
     }
     
 }

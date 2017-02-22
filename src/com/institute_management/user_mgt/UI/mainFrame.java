@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package institute_management.user_mgt.UI;
+package com.institute_management.user_mgt.UI;
 
 /**
  *

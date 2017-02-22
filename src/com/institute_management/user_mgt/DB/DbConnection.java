@@ -1,4 +1,4 @@
-package institute_management.user_mgt.DB;
+package com.institute_management.user_mgt.DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,18 +9,18 @@ import java.util.ArrayList;
 
 public class DbConnection {
 
-    Connection con = getConnection();
+        Connection con = getConnection();
 
-    public Connection getConnection() {
-        Connection conn = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/institute_management", "root", "");
-        } catch (Exception ex) {
+        public Connection getConnection() {
+            Connection conn = null;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/institute_management", "root", "");
+            } catch (Exception ex) {
 
+            }
+            return conn;
         }
-        return conn;
-    }
 
     public boolean validateUser(String userName, String password) throws SQLException {
         
