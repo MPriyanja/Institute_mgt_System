@@ -5,7 +5,8 @@
  */
 package com.institute_management.main;
 
-import com.institute_management.subject_mgt.UI.addSubject;
+import com.institute_management.subject_mgt.UI.AddSubject;
+import com.institute_management.subject_mgt.UI.Ass;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Institute_Management {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        addSubject aa=new addSubject();
+        AddSubject aa=new AddSubject();
         aa.setVisible(true);
     }
     
