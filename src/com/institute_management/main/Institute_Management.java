@@ -6,7 +6,6 @@
 package com.institute_management.main;
 
 import com.institute_management.subject_mgt.UI.AddSubject;
-import com.institute_management.subject_mgt.UI.Ass;
 
 /**
  *
