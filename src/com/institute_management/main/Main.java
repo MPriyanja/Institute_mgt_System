@@ -2,6 +2,7 @@
 package com.institute_management.main;
 
 import com.institute_management.user_mgt.UI.Login;
+import com.institute_management.user_mgt.UI.privilegeAssign;
 import java.util.ArrayList;
 import javax.swing.UIManager;
 
@@ -15,6 +16,7 @@ public class Main {
      UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
      Login login = new Login();
      login.setVisible(true);
+     
      
     }   
 
