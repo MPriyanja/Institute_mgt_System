@@ -122,7 +122,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-
+        
         try {
             boolean validUser = dbClass.validateUser(txtUserName.getText(), txtPassword.getText());
 

@@ -13,7 +13,7 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
        
-     UIManager.setLookAndFeel("com.jtattoo.plaf.aero.AeroLookAndFeel");
+     UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
      Login login = new Login();
      login.setVisible(true);
      
