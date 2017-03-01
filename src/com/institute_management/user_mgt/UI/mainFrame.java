@@ -103,7 +103,8 @@ public class mainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(new JFrame(), "You have no access to this page");
             }
         } catch (Exception ex) {
-
+            JOptionPane.showMessageDialog(new JFrame(), "You have no access to this page");
+            
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

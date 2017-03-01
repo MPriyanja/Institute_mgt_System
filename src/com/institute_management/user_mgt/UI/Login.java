@@ -10,8 +10,10 @@ import com.institute_management.user_mgt.DB.DbConnection;
 import com.institute_management.user_mgt.bean.userBean;
 import com.institute_management.util.CommonMethods;
 import com.institute_management.util.Configurations;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -20,6 +22,7 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     DbConnection dbClass = new DbConnection();
+    
 
     public Login() {
         initComponents();
@@ -51,8 +54,16 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
-        btnLogin.setBackground(new java.awt.Color(204, 255, 255));
+        btnLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnLogin.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(51, 153, 255));
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/login/Login-128.png"))); // NOI18N
         btnLogin.setText("Login");
+        btnLogin.setAlignmentY(0.0F);
+        btnLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLogin.setIconTextGap(8);
+        btnLogin.setMargin(new java.awt.Insets(2, 0, 2, 0));
         btnLogin.setNextFocusableComponent(btnLogin);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,11 +93,11 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(txtUserName))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addComponent(btnChangePassword)
-                .addGap(73, 73, 73)
-                .addComponent(btnLogin)
-                .addGap(86, 86, 86))
+                .addGap(101, 101, 101)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +114,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin)
                     .addComponent(btnChangePassword))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,6 +133,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        
+        
         
         try {
             boolean validUser = dbClass.validateUser(txtUserName.getText(), txtPassword.getText());
@@ -184,11 +197,12 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+                
             }
         });
     }
