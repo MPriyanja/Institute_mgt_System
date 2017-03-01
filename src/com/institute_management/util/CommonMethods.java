@@ -5,6 +5,9 @@
  */
 package com.institute_management.util;
 
+import com.institute_management.main.Main;
+import java.util.ArrayList;
+
 /**
  *
  * @author mihiran_p
@@ -20,13 +23,27 @@ public class CommonMethods {
         }
         return flag;
     }
-     public static boolean isEmpty(String text) throws Exception {
+
+    public static boolean isEmpty(String text) throws Exception {
         boolean flag = true;
 
-        if (!"".equals(text.trim())) {
+        if (text.trim() != "") {
             flag = false;
         }
         return flag;
+    }
+    
+    /*
+     * @author malinda_r
+     * @date Feb 22, 2017
+     */
+    public static boolean check_user_access(int pageID) throws Exception {
+        boolean accessStatus = false;
+        ArrayList<Integer> pageAccessList = Configurations.privilegeGrantedPageList;
+        if (pageAccessList.contains(pageID)) {
+            accessStatus = true;
+        }
+        return accessStatus;
     }
 
 }
