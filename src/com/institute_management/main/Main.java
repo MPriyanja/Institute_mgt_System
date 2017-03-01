@@ -1,6 +1,7 @@
 
 package com.institute_management.main;
 
+import com.institute_management.subject_mgt.UI.addSubject;
 import com.institute_management.user_mgt.UI.Login;
 import com.institute_management.user_mgt.UI.privilegeAssign;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
        
      UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-     Login login = new Login();
+        addSubject login = new addSubject();
      login.setVisible(true);
      
      

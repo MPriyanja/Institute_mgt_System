@@ -6,6 +6,11 @@
 package com.institute_management.subject_mgt.UI;
 
 import com.institute_management.subject_mgt.BEAN.SubjectBean;
+import com.institute_management.subject_mgt.DB.DbConnection;
+import com.institute_management.user_mgt.UI.Login;
+import com.institute_management.user_mgt.UI.mainFrame;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -129,7 +134,7 @@ public class addSubject extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 187, Short.MAX_VALUE)
+            .addGap(0, 191, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +151,19 @@ public class addSubject extends javax.swing.JFrame {
 
         btnclear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnclear.setText("Clear");
+        btnclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclearActionPerformed(evt);
+            }
+        });
 
         btncancel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btncancel.setText("Cancel");
+        btncancel.setText("Home");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,15 +198,47 @@ public class addSubject extends javax.swing.JFrame {
 
     private void txtscodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtscodeActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtscodeActionPerformed
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        // TODO add your handling code here:
-        SubjectBean sb =new SubjectBean();
-        
-        
+
+        try {
+            int count = 0;
+            SubjectBean sb = new SubjectBean();
+            sb.setSubjectCode(txtscode.getText().trim());
+            sb.setSubjectMedium(txtsmedium.getText().trim());
+            sb.setSubjectName(txtsname.getText().trim());
+
+            DbConnection dbCon = new DbConnection();
+            count = dbCon.insertIntoSubject(sb);
+            if (count > 0) {
+                viewSubject vs = new viewSubject();
+                vs.setVisible(true);
+                this.dispose();
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error Occured " + e);
+        }
+
+
     }//GEN-LAST:event_btnaddActionPerformed
+
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+        // TODO add your handling code here:
+        txtscode.setText(null);
+        txtsmedium.setText(null);
+        txtsname.setText(null);
+    }//GEN-LAST:event_btnclearActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+        // TODO add your handling code here:
+        mainFrame mf = new mainFrame();
+        mf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btncancelActionPerformed
 
     /**
      * @param args the command line arguments
