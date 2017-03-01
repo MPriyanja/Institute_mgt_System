@@ -23,7 +23,7 @@ public class CommonMethods {
      public static boolean isEmpty(String text) throws Exception {
         boolean flag = true;
 
-        if (text.trim() != "") {
+        if (!"".equals(text.trim())) {
             flag = false;
         }
         return flag;
