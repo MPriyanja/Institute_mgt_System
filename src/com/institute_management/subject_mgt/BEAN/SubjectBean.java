@@ -12,6 +12,7 @@ package com.institute_management.subject_mgt.BEAN;
  * @date Feb 22, 2017
  */
 public class SubjectBean {
+    private String SubjectCode;
     private String SubjectId;
     private String SubjectName;
     private String SubjectMedium;
@@ -38,6 +39,14 @@ public class SubjectBean {
 
     public void setSubjectMedium(String SubjectMedium) {
         this.SubjectMedium = SubjectMedium;
+    }
+
+    public String getSubjectCode() {
+        return SubjectCode;
+    }
+
+    public void setSubjectCode(String SubjectCode) {
+        this.SubjectCode = SubjectCode;
     }
     
 }

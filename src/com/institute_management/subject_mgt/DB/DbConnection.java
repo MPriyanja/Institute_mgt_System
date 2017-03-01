@@ -37,13 +37,14 @@ public class DbConnection {
 
     public int insertIntoSubject(SubjectBean sb) throws Exception {
         int count = 0;
-        PreparedStatement pst=null;
+        PreparedStatement pst = null;
 
         try {
-            query = "insert into subject(SUBJECT_NAME,SUBJECT_MEDIUM) values (?,?)";
+            query = "insert into subject(SUBJECT_NAME,SUBJECT_MEDIUM,SUBJECT_CODE) values (?,?,?)";
             pst = connection.prepareStatement(query);
             pst.setString(1, sb.getSubjectName());
             pst.setString(2, sb.getSubjectMedium());
+            pst.setString(3, sb.getSubjectCode());
             count = pst.executeUpdate();
 
         } catch (Exception e) {
