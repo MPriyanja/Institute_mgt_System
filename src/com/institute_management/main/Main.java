@@ -14,8 +14,8 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
        
-     UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        addSubject login = new addSubject();
+     UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+        Login login = new Login();
      login.setVisible(true);
      
      
