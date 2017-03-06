@@ -6,7 +6,7 @@
 package com.institute_management.user_mgt.UI;
 
 import com.institute_management.user_mgt.BL.Business_Logic;
-import com.institute_management.user_mgt.DB.DbConnection;
+import com.institute_management.user_mgt.DB.UserDbConnection;
 import com.institute_management.util.Configurations;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,7 +56,7 @@ public class privilegeAssign extends javax.swing.JFrame {
         try{
             String query = "SELECT `DESCRIPTION` FROM `user_role`";
 
-            stmt = new DbConnection().getConnection().prepareStatement(query);
+            stmt = new UserDbConnection().getConnection().prepareStatement(query);
             result = stmt.executeQuery();
 
             while(result.next()){
@@ -182,8 +182,8 @@ public class privilegeAssign extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblePagePrivilege.getModel();
         model.setRowCount(0);
         String selectedRole = (String) cmbUserRoles.getSelectedItem();
-        ArrayList<Integer> accessGrantedPageList = new DbConnection().getPageListForRole(selectedRole);
-        HashMap<Integer, String> allPages = new DbConnection().getAllPages();
+        ArrayList<Integer> accessGrantedPageList = new UserDbConnection().getPageListForRole(selectedRole);
+        HashMap<Integer, String> allPages = new UserDbConnection().getAllPages();
         HashMap<Integer, Object[]> tableData = new Business_Logic().loadPrivilagesAssignTableData(allPages, accessGrantedPageList);
 
         for (int i = 1; i <= tableData.size(); i++) {
@@ -199,7 +199,7 @@ public class privilegeAssign extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int role_id = cmbUserRoles.getSelectedIndex() + 1;
          //delete all data for perticular role
-        new DbConnection().deletePagePrivilages(role_id);
+        new UserDbConnection().deletePagePrivilages(role_id);
 
         for (int i = 0; i < tblePagePrivilege.getRowCount(); i++) {
             Boolean isChecked = Boolean.valueOf(tblePagePrivilege.getValueAt(i, 0).toString());
@@ -207,7 +207,7 @@ public class privilegeAssign extends javax.swing.JFrame {
            
             if (isChecked) {
                 // here i is the current row number. since it shows pages in sort oder , that i+1 value gives the page id
-                new DbConnection().addPagePrivilages(role_id, i + 1);
+                new UserDbConnection().addPagePrivilages(role_id, i + 1);
             } else {
 
             }

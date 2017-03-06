@@ -17,7 +17,7 @@ import java.util.Date;
  *
  * @author acer
  */
-public class DbConnection {
+public class CourseDbConnection {
 
     Connection con = getConnection();
 

@@ -223,7 +223,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="PreparedStatement stmt = null;&#xa;        ResultSet result = null;&#xa;        int noOfRole = 0;&#xa;        &#xa;        try{&#xa;        String query = &quot;SELECT `SUBJECT_NAME` FROM `subject`&quot;;&#xa;        &#xa;        stmt = new DbConnection().getConnection().prepareStatement(query);&#xa;        result = stmt.executeQuery();&#xa;        &#xa;        while(result.next()){&#xa;            String subject = result.getString(&quot;SUBJECT_NAME&quot;);&#xa;            cmbSubject.addItem(subject);&#xa;        }&#xa;        &#xa;        result.close();&#xa;        stmt.close();&#xa;        &#xa;        }catch(Exception ex){&#xa;        &#xa;        }"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="PreparedStatement stmt = null;&#xa;        ResultSet result = null;&#xa;        int noOfRole = 0;&#xa;        &#xa;        try{&#xa;        String query = &quot;SELECT `SUBJECT_NAME` FROM `subject`&quot;;&#xa;        &#xa;        stmt = new com.institute_management.lecture_mgt.LectureDbConnection().getConnection().prepareStatement(query);&#xa;        result = stmt.executeQuery();&#xa;        &#xa;        while(result.next()){&#xa;            String subject = result.getString(&quot;SUBJECT_NAME&quot;);&#xa;            cmbSubject.addItem(subject);&#xa;        }&#xa;        &#xa;        result.close();&#xa;        stmt.close();&#xa;        &#xa;        }catch(Exception ex){&#xa;        &#xa;        }"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtContact">

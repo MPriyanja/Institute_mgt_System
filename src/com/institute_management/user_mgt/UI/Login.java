@@ -6,7 +6,7 @@
 package com.institute_management.user_mgt.UI;
 
 import com.institute_management.main.Main;
-import com.institute_management.user_mgt.DB.DbConnection;
+import com.institute_management.user_mgt.DB.UserDbConnection;
 import com.institute_management.user_mgt.bean.userBean;
 import com.institute_management.util.CommonMethods;
 import com.institute_management.util.Configurations;
@@ -22,7 +22,7 @@ import javax.swing.SwingConstants;
  */
 public class Login extends javax.swing.JFrame {
 
-    DbConnection dbClass = new DbConnection();
+    UserDbConnection dbClass = new UserDbConnection();
     
 
     public Login() {

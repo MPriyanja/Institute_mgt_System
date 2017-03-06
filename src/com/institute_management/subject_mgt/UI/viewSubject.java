@@ -5,7 +5,7 @@
  */
 package com.institute_management.subject_mgt.UI;
 
-import com.institute_management.subject_mgt.DB.DbConnection;
+import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -27,7 +27,7 @@ public class viewSubject extends javax.swing.JFrame {
             model.setRowCount(0);
 
             ArrayList<Object[]> tableData;//=new Object[3];
-            DbConnection dbCon = new DbConnection();
+            SubjectDbConnection dbCon = new SubjectDbConnection();
             tableData = dbCon.selectAllSubject();
 
             for (Object[] subjectList : tableData) {

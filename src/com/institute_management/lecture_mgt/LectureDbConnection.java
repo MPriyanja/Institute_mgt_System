@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  * @author tharindu_m
  */
-public class DbConnection {
+public class LectureDbConnection {
 
     Connection con = getConnection();
 

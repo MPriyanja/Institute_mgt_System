@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @author mihiran_p
  * @date Feb 22, 2017
  */
-public class DbConnection {
+public class SubjectDbConnection {
 
     String query;
     PreparedStatement pst;

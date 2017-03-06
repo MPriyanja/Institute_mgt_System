@@ -6,7 +6,7 @@
 package com.institute_management.subject_mgt.UI;
 
 import com.institute_management.subject_mgt.BEAN.SubjectBean;
-import com.institute_management.subject_mgt.DB.DbConnection;
+import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import com.institute_management.user_mgt.UI.Login;
 import com.institute_management.user_mgt.UI.mainFrame;
 import javax.swing.JFrame;
@@ -210,7 +210,7 @@ public class addSubject extends javax.swing.JFrame {
             sb.setSubjectMedium(txtsmedium.getText().trim());
             sb.setSubjectName(txtsname.getText().trim());
 
-            DbConnection dbCon = new DbConnection();
+            SubjectDbConnection dbCon = new SubjectDbConnection();
             count = dbCon.insertIntoSubject(sb);
             if (count > 0) {
                 viewSubject vs = new viewSubject();

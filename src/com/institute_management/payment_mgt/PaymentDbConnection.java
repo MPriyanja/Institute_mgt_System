@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author acer
  */
-public class DbConnection {
+public class PaymentDbConnection {
 
     Connection con = getConnection();
 
