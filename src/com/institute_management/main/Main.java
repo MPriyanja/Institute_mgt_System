@@ -2,8 +2,10 @@
 package com.institute_management.main;
 
 import com.institute_management.subject_mgt.UI.addSubject;
+
 import com.institute_management.user_mgt.UI.Login;
 import com.institute_management.user_mgt.UI.privilegeAssign;
+
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JSpinner;
@@ -17,14 +19,11 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
        
-//     UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
-//        Login login = new Login();
-//     login.setVisible(true);
+     UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+    Login login = new Login();
+     login.setVisible(true);
      
-     JSpinner timeSpinner = new JSpinner( new SpinnerDateModel() );
-JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(timeSpinner, "HH:mm:ss");
-timeSpinner.setEditor(timeEditor);
-timeSpinner.setValue(new Date());
+
     }   
 
     
