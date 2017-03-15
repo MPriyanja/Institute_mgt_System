@@ -1,0 +1,182 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.institute_management.course_mgt;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import javax.print.attribute.standard.DateTimeAtCompleted;
+
+
+public class courseBean {
+    private String courseDescription;
+    private String lecturerName;
+    private String courseMedium;
+    private String subject;
+    private double totalCourseFee;
+    private double monthlyFee;
+    private String grade;
+    private String courseDuration;
+    private String courseType;// theory/revision/paperclass
+    private String LectureHole;
+    private ArrayList<classDaysBean> classDaysList;
+
+    /**
+     * @return the courseDescription
+     */
+    public String getCourseDescription() {
+        return courseDescription;
+    }
+
+    /**
+     * @param courseDescription the courseDescription to set
+     */
+    public void setCourseDescription(String courseDescription) {
+        this.courseDescription = courseDescription;
+    }
+
+    /**
+     * @return the lecturerName
+     */
+    public String getLecturerName() {
+        return lecturerName;
+    }
+
+    /**
+     * @param lecturerName the lecturerName to set
+     */
+    public void setLecturerName(String lecturerName) {
+        this.lecturerName = lecturerName;
+    }
+
+    /**
+     * @return the courseMedium
+     */
+    public String getCourseMedium() {
+        return courseMedium;
+    }
+
+    /**
+     * @param courseMedium the courseMedium to set
+     */
+    public void setCourseMedium(String courseMedium) {
+        this.courseMedium = courseMedium;
+    }
+
+    /**
+     * @return the subject
+     */
+    public String getSubject() {
+        return subject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    /**
+     * @return the totalCourseFee
+     */
+    public double getTotalCourseFee() {
+        return totalCourseFee;
+    }
+
+    /**
+     * @param totalCourseFee the totalCourseFee to set
+     */
+    public void setTotalCourseFee(double totalCourseFee) {
+        this.totalCourseFee = totalCourseFee;
+    }
+
+    /**
+     * @return the monthlyFee
+     */
+    public double getMonthlyFee() {
+        return monthlyFee;
+    }
+
+    /**
+     * @param monthlyFee the monthlyFee to set
+     */
+    public void setMonthlyFee(double monthlyFee) {
+        this.monthlyFee = monthlyFee;
+    }
+
+    /**
+     * @return the grade
+     */
+    public String getGrade() {
+        return grade;
+    }
+
+    /**
+     * @param grade the grade to set
+     */
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    /**
+     * @return the courseDuration
+     */
+    public String getCourseDuration() {
+        return courseDuration;
+    }
+
+    /**
+     * @param courseDuration the courseDuration to set
+     */
+    public void setCourseDuration(String courseDuration) {
+        this.courseDuration = courseDuration;
+    }
+
+    /**
+     * @return the courseType
+     */
+    public String getCourseType() {
+        return courseType;
+    }
+
+    /**
+     * @param courseType the courseType to set
+     */
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
+    }
+
+    /**
+     * @return the LectureHole
+     */
+    public String getLectureHole() {
+        return LectureHole;
+    }
+
+    /**
+     * @param LectureHole the LectureHole to set
+     */
+    public void setLectureHole(String LectureHole) {
+        this.LectureHole = LectureHole;
+    }
+
+    /**
+     * @return the classDaysList
+     */
+    public ArrayList<classDaysBean> getClassDaysList() {
+        return classDaysList;
+    }
+
+    /**
+     * @param classDaysList the classDaysList to set
+     */
+    public void setClassDaysList(ArrayList<classDaysBean> classDaysList) {
+        this.classDaysList = classDaysList;
+    }
+
+  
+}
