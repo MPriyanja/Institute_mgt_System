@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-
-
 /**
  *
  * @author acer
@@ -40,7 +38,7 @@ public class CourseDbConnection {
 
         Statement stmt;
         ResultSet result;
-        int x=0;
+        int x = 0;
         try {
             Date date = new Date();
             String year = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
@@ -78,47 +76,50 @@ public class CourseDbConnection {
         }
         return x;//if x is 0 , that mean successfully created that table
     }
-    
-    public void insertCourseData(courseBean bean){
+
+    public void insertCourseData(courseBean bean) {
         PreparedStatement stmt;
         ResultSet result;
-        
-        try{
-           String query = "INSERT INTO `course`(`course_description`,subject_code,lecturer_id, "
-                   + " `total_course_fee`, `monthly_fee`, `course_duration`, `grade`, `class_type`, `Medium`) VALUES "
-                   + " (?,(Select SUBJECT_CODE from subject where SUBJECT_NAME=?),(SELECT ID FROM LECTURER WHERE NAME = ?),?,?,?)";
-           
-           stmt = con.prepareStatement(query);
-           stmt.setString(1, bean.getCourseDescription());
-           stmt.setString(2, bean.getSubject());
-           stmt.setString(3, bean.getLecturerName());
-           stmt.setDouble(4, bean.getTotalCourseFee());
-           stmt.setDouble(5, bean.getMonthlyFee());
-           stmt.setString(6, bean.getCourseDuration());
-           stmt.setString(7, bean.getGrade());
-           stmt.setString(8, bean.getCourseType());
-           stmt.setString(9, bean.getCourseMedium());
-           
-           stmt.executeUpdate();
-            
-        }catch (Exception ex){
-            
+
+        try {
+            String query = "INSERT INTO `course`(`course_description`,subject_code,lecturer_id, "
+                    + " `total_course_fee`, `monthly_fee`, `course_duration`, `grade`, `class_type`, `Medium`) VALUES "
+                    + " (?,(Select SUBJECT_CODE from subject where SUBJECT_NAME=?),(SELECT ID FROM LECTURER WHERE NAME = ?),?,?,?)";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, bean.getCourseDescription());
+            stmt.setString(2, bean.getSubject());
+            stmt.setString(3, bean.getLecturerName());
+            stmt.setDouble(4, bean.getTotalCourseFee());
+            stmt.setDouble(5, bean.getMonthlyFee());
+            stmt.setString(6, bean.getCourseDuration());
+            stmt.setString(7, bean.getGrade());
+            stmt.setString(8, bean.getCourseType());
+            stmt.setString(9, bean.getCourseMedium());
+
+            stmt.executeUpdate();
+
+        } catch (Exception ex) {
+
         }
     }
-    
-    public void insertClassDays(ArrayList<classDaysBean> beanList){
+
+    public void insertClassDays(ArrayList<classDaysBean> beanList) {
         PreparedStatement stmt;
         ResultSet result;
+        classDaysBean bean = new classDaysBean();
         
         String fields = "";// (`monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) 
         String values = "";//       VALUES (?,?,?,?,?,?,?,?)
-        try{
+        try {
             for (int i = 0; i < beanList.size(); i++) {
-                fields = fields+"`"+beanList.get(i).getDay();
+                bean = beanList.get(i);
+                //String Start&EndTime = ;
+               // String query = "Insert into courses_dates ("+bean.getDay()+") values ("+)";
             }
-        }catch(Exception ex){
-            
+        } catch (Exception ex) {
+
         }
     }
-    
+
 }
