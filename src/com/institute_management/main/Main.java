@@ -1,9 +1,9 @@
-
 package com.institute_management.main;
 
 import com.institute_management.subject_mgt.UI.addSubject;
 
 import com.institute_management.user_mgt.UI.Login;
+import com.institute_management.user_mgt.UI.mainFrame;
 import com.institute_management.user_mgt.UI.privilegeAssign;
 
 import java.util.ArrayList;
@@ -12,21 +12,16 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.UIManager;
 
-
 public class Main {
-    
-    
-    
+
     public static void main(String[] args) throws Exception {
-       
-     UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
-    Login login = new Login();
-     login.setVisible(true);
-     
 
-    }   
+        UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+        mainFrame login = new mainFrame();
+        login.setVisible(true);
 
-    
+    }
+
 }
 /*
 TextureLookAndFeel – “com.jtattoo.plaf.texture.TextureLookAndFeel”
