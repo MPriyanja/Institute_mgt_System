@@ -44,9 +44,13 @@ public class privilegeAssign extends javax.swing.JFrame {
         tblePagePrivilege = new javax.swing.JTable();
         btnConfirm = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Select User Role");
 
         PreparedStatement stmt = null;
@@ -56,7 +60,7 @@ public class privilegeAssign extends javax.swing.JFrame {
         try{
             String query = "SELECT `DESCRIPTION` FROM `user_role`";
 
-            stmt = new UserDbConnection().getConnection().prepareStatement(query);
+            stmt = new com.institute_management.user_mgt.DB.UserDbConnection().getConnection().prepareStatement(query);
             result = stmt.executeQuery();
 
             while(result.next()){
@@ -113,10 +117,19 @@ public class privilegeAssign extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setText("Save Changes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnHome.setBackground(new java.awt.Color(153, 153, 153));
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
             }
         });
 
@@ -137,7 +150,10 @@ public class privilegeAssign extends javax.swing.JFrame {
                         .addContainerGap(15, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnHome)
+                                .addGap(44, 44, 44)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -151,7 +167,9 @@ public class privilegeAssign extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnHome))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -170,6 +188,7 @@ public class privilegeAssign extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbUserRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUserRolesActionPerformed
@@ -214,6 +233,13 @@ public class privilegeAssign extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+        mainFrame mF=new mainFrame();
+        mF.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnHomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,6 +277,7 @@ public class privilegeAssign extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnHome;
     private javax.swing.JComboBox cmbUserRoles;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

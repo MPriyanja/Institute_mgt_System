@@ -16,8 +16,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
-        mainFrame login = new mainFrame();
+        UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+        Login login = new Login();
         login.setVisible(true);
 
     }

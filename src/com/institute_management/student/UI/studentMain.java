@@ -6,6 +6,7 @@
 package com.institute_management.student.UI;
 
 import com.institute_management.student.BEAN.Student;
+import com.institute_management.student.BL.StudentDetails;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import com.institute_management.user_mgt.UI.mainFrame;
 import java.util.ArrayList;
@@ -24,24 +25,21 @@ public class studentMain extends javax.swing.JFrame {
      * Creates new form studentMain
      */
     ArrayList<Student> stList;
-    ArrayList<Object[]> tableData;//=new Object[3];
+    //  ArrayList<Object[]> tableData;//=new Object[3];
+    SubjectDbConnection dbCon = new SubjectDbConnection();
+//           
 
     public studentMain() {
         initComponents();
         try {
-            DefaultTableModel model = (DefaultTableModel) tblViewStudent.getModel();
-            model.setRowCount(0);
-
-            SubjectDbConnection dbCon = new SubjectDbConnection();
-            tableData = dbCon.selectAllStudent();
-
-            for (Object[] subjectList : tableData) {
-                model.addRow(subjectList);
-            }
+            stList = dbCon.selectAllStudent();
+            StudentDetails sd = new StudentDetails(stList);
+            tblViewStudent.setModel(sd);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new JFrame(), "Error Occured");
+            JOptionPane.showMessageDialog(new JFrame(), "Error Occured in data loading");
         }
+
     }
 
     /**
@@ -65,6 +63,9 @@ public class studentMain extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Student Management");
@@ -98,6 +99,9 @@ public class studentMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setText("Add Student");
         jButton1.setPreferredSize(new java.awt.Dimension(105, 23));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,9 +110,11 @@ public class studentMain extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
         jButton3.setText("View Student");
         jButton3.setPreferredSize(new java.awt.Dimension(105, 23));
 
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setText("Update Student");
         jButton2.setPreferredSize(new java.awt.Dimension(105, 23));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -117,8 +123,15 @@ public class studentMain extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setText("Delete Student");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
+        jButton5.setBackground(new java.awt.Color(153, 153, 153));
         jButton5.setText("Home");
         jButton5.setMinimumSize(new java.awt.Dimension(105, 23));
         jButton5.setPreferredSize(new java.awt.Dimension(105, 23));
@@ -148,6 +161,7 @@ public class studentMain extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,7 +169,7 @@ public class studentMain extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,12 +183,12 @@ public class studentMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -197,12 +211,30 @@ public class studentMain extends javax.swing.JFrame {
         try {
             updateStudent us = new updateStudent();
             us.setVisible(true);
+            tblViewStudent.getSelectedRow();
             us.setField(stList.get(tblViewStudent.getSelectedRow()));
         } catch (Exception e) {
-            System.out.println("error"+e);
+            JOptionPane.showMessageDialog(new JFrame(), "Error Occured.Data Not Saved");
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            int count = dbCon.deleteStudent(stList.get(tblViewStudent.getSelectedRow()));
+            if (count > 0) {
+                JOptionPane.showMessageDialog(new JFrame(), "Successfully Deleted");
+                this.dispose();
+                studentMain n=new studentMain();
+                        n.setVisible(true);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error Occured " + e);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
