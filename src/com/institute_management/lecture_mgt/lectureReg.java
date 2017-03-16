@@ -92,7 +92,7 @@ public class lectureReg extends javax.swing.JFrame {
         try{
             String query = "SELECT `SUBJECT_NAME` FROM `subject`";
 
-            stmt = new DbConnection().getConnection().prepareStatement(query);
+            stmt = new LectureDbConnection().getConnection().prepareStatement(query);
             result = stmt.executeQuery();
 
             while(result.next()){
@@ -236,7 +236,7 @@ public class lectureReg extends javax.swing.JFrame {
         lecBean.setEmail(txtEmail.getText());
         lecBean.setAddress(txtAddress.getText());
         
-        boolean x = new DbConnection().addLecture(lecBean);
+        boolean x = new LectureDbConnection().addLecture(lecBean);
         if(x){
             JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
         }

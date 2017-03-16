@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class DbConnection {
+public class UserDbConnection {
 
     Connection con = getConnection();
 

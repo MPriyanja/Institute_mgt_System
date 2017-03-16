@@ -6,7 +6,7 @@
 package com.institute_management.user_mgt.BL;
 
 import com.institute_management.main.Main;
-import com.institute_management.user_mgt.DB.DbConnection;
+import com.institute_management.user_mgt.DB.UserDbConnection;
 import com.institute_management.user_mgt.bean.userBean;
 import java.util.ArrayList;
 import java.util.HashMap;
