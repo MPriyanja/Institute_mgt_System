@@ -12,6 +12,7 @@ import com.institute_management.util.CommonMethods;
 import com.institute_management.util.Configurations;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 

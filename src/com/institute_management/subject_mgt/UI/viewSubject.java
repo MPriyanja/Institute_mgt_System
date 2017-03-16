@@ -5,7 +5,7 @@
  */
 package com.institute_management.subject_mgt.UI;
 
-import com.institute_management.subject_mgt.DB.DbConnection;
+import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -27,7 +27,7 @@ public class viewSubject extends javax.swing.JFrame {
             model.setRowCount(0);
 
             ArrayList<Object[]> tableData;//=new Object[3];
-            DbConnection dbCon = new DbConnection();
+            SubjectDbConnection dbCon = new SubjectDbConnection();
             tableData = dbCon.selectAllSubject();
 
             for (Object[] subjectList : tableData) {
@@ -54,8 +54,8 @@ public class viewSubject extends javax.swing.JFrame {
         tblViewSubject = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btnUpdate = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Subjects");
@@ -109,11 +109,11 @@ public class viewSubject extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setText("Delete");
+        btndelete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btndelete.setText("Delete");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("Back");
+        btnback.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnback.setText("Back");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,9 +123,9 @@ public class viewSubject extends javax.swing.JFrame {
                 .addContainerGap(166, Short.MAX_VALUE)
                 .addComponent(btnUpdate)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btndelete)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnback)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -133,8 +133,8 @@ public class viewSubject extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btndelete)
+                    .addComponent(btnback))
                 .addGap(0, 77, Short.MAX_VALUE))
         );
 
@@ -158,7 +158,8 @@ public class viewSubject extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        
         
         
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -200,8 +201,8 @@ public class viewSubject extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnback;
+    private javax.swing.JButton btndelete;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
