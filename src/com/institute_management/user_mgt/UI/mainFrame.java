@@ -6,28 +6,23 @@
 package com.institute_management.user_mgt.UI;
 
 import com.institute_management.course_mgt.createCourse;
-import com.institute_management.main.Main;
-import com.institute_management.payment_mgt.PaymentFrame;
-import com.institute_management.subject_mgt.UI.addSubject;
-import com.institute_management.util.CommonMethods;
-import com.institute_management.util.Configurations;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import com.institute_management.lecture_mgt.lectureBean;
+import com.institute_management.lecture_mgt.lectureReg;
+import com.institute_management.payment_mgt.paymentMain;
+import com.institute_management.student.UI.studentMain;
+import com.institute_management.subject_mgt.UI.viewSubject;
 
 /**
  *
- * @author Malinda Ranabahu
+ * @author mihiran_p
  */
 public class mainFrame extends javax.swing.JFrame {
 
-    int pageID = 1;
-
+    /**
+     * Creates new form mainFrame
+     */
     public mainFrame() {
-
         initComponents();
-
     }
 
     /**
@@ -40,38 +35,75 @@ public class mainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnusermgt = new javax.swing.JButton();
+        btnsub = new javax.swing.JButton();
+        btnstudent = new javax.swing.JButton();
+        btncourse = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        btnprvledge = new javax.swing.JButton();
+        btnlctur = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home");
+        setBackground(new java.awt.Color(51, 51, 51));
 
-        jButton1.setText("Privilege Assign");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        btnusermgt.setBackground(new java.awt.Color(102, 102, 102));
+        btnusermgt.setText("Priviledge Management");
+        btnusermgt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnusermgtActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Subject Management");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnsub.setBackground(new java.awt.Color(102, 102, 102));
+        btnsub.setText("Subject Management");
+        btnsub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnsubActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Add course");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnstudent.setBackground(new java.awt.Color(102, 102, 102));
+        btnstudent.setText("Student Management");
+        btnstudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnstudentActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Paymants");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btncourse.setBackground(new java.awt.Color(102, 102, 102));
+        btncourse.setText("Course Management");
+        btncourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btncourseActionPerformed(evt);
+            }
+        });
+
+        jButton6.setBackground(new java.awt.Color(102, 102, 102));
+        jButton6.setText("Payment Management");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        btnprvledge.setBackground(new java.awt.Color(102, 102, 102));
+        btnprvledge.setText("User Management");
+        btnprvledge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnprvledgeActionPerformed(evt);
+            }
+        });
+
+        btnlctur.setBackground(new java.awt.Color(102, 102, 102));
+        btnlctur.setText("Lecturer Management");
+        btnlctur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlcturActionPerformed(evt);
             }
         });
 
@@ -80,75 +112,126 @@ public class mainFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(257, Short.MAX_VALUE))
+                    .addComponent(btnlctur, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnprvledge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                        .addComponent(btncourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnstudent, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                        .addComponent(btnusermgt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnsub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
+                .addGap(19, 19, 19)
+                .addComponent(btnusermgt)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnsub)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnstudent)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addComponent(btncourse)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addGap(18, 18, 18)
+                .addComponent(btnprvledge)
+                .addGap(18, 18, 18)
+                .addComponent(btnlctur)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/login/Mainframe.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(0, 0, 0))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            System.out.println(Configurations.privilegeGrantedPageList);
-            if (CommonMethods.check_user_access(Configurations.User_Privileges_Assigning_Page)) {
-                privilegeAssign pa = new privilegeAssign();
-                pa.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(new JFrame(), "You have no access to this page");
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(new JFrame(), "You have no access to this page");
-            
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnusermgtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnusermgtActionPerformed
         // TODO add your handling code here:
-        addSubject as=new addSubject();
-        as.setVisible(true);
+        privilegeAssign pA = new privilegeAssign();
+        pA.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnusermgtActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       createCourse cs = new createCourse();
-       cs.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnsubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubActionPerformed
+        // TODO add your handling code here:
+        viewSubject vS = new viewSubject();
+        vS.setVisible(true);
+        this.dispose();
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        PaymentFrame pf = new PaymentFrame();
-        pf.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnsubActionPerformed
+
+    private void btnstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudentActionPerformed
+        // TODO add your handling code here:
+        studentMain sM = new studentMain();
+        sM.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnstudentActionPerformed
+
+    private void btncourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncourseActionPerformed
+        // TODO add your handling code here:
+        createCourse cC = new createCourse();
+        cC.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btncourseActionPerformed
+
+    private void btnprvledgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprvledgeActionPerformed
+        // TODO add your handling code here:
+        CreateUser cU=new CreateUser();
+        cU.setVisible(true);
+    }//GEN-LAST:event_btnprvledgeActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        paymentMain pM=new paymentMain();
+        pM.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void btnlcturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlcturActionPerformed
+        // TODO add your handling code here:
+        lectureReg lR=new lectureReg();
+        lR.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnlcturActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,10 +269,15 @@ public class mainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btncourse;
+    private javax.swing.JButton btnlctur;
+    private javax.swing.JButton btnprvledge;
+    private javax.swing.JButton btnstudent;
+    private javax.swing.JButton btnsub;
+    private javax.swing.JButton btnusermgt;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

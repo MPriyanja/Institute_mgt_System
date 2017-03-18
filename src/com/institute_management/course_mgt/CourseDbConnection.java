@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,14 +77,14 @@ public class CourseDbConnection {
         return x;//if x is 0 , that mean successfully created that table
     }
 
-    public void insertCourseData(courseBean bean) throws Exception {
+    public void insertCourseData(courseBean bean) {
         PreparedStatement stmt;
         ResultSet result;
 
         try {
             String query = "INSERT INTO `course`(`course_description`,subject_code,lecturer_id, "
-                    + " `total_course_fee`, `monthly_fee`, `course_duration`, `grade`, `class_type`, `medium`) VALUES "
-                    + " (?,(Select SUBJECT_ID from subject where SUBJECT_NAME=?),(SELECT ID FROM LECTURER WHERE NAME = ?),?,?,?,?,?,?)";
+                    + " `total_course_fee`, `monthly_fee`, `course_duration`, `grade`, `class_type`, `Medium`) VALUES "
+                    + " (?,(Select SUBJECT_CODE from subject where SUBJECT_NAME=?),(SELECT ID FROM LECTURER WHERE NAME = ?),?,?,?)";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, bean.getCourseDescription());
@@ -93,7 +92,7 @@ public class CourseDbConnection {
             stmt.setString(3, bean.getLecturerName());
             stmt.setDouble(4, bean.getTotalCourseFee());
             stmt.setDouble(5, bean.getMonthlyFee());
-            stmt.setInt(6, bean.getCourseDuration());
+            stmt.setString(6, bean.getCourseDuration());
             stmt.setString(7, bean.getGrade());
             stmt.setString(8, bean.getCourseType());
             stmt.setString(9, bean.getCourseMedium());
@@ -101,32 +100,25 @@ public class CourseDbConnection {
             stmt.executeUpdate();
 
         } catch (Exception ex) {
-            throw ex;
+
         }
     }
 
-    public void insertClassDays(ArrayList<classDaysBean> beanList) throws Exception {
+    public void insertClassDays(ArrayList<classDaysBean> beanList) {
         PreparedStatement stmt;
         ResultSet result;
         classDaysBean bean = new classDaysBean();
-
+        
         String fields = "";// (`monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) 
         String values = "";//       VALUES (?,?,?,?,?,?,?,?)
-        java.util.Date date = new java.util.Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        
         try {
             for (int i = 0; i < beanList.size(); i++) {
                 bean = beanList.get(i);
-                String StartEndTime = sdf.format(bean.getStartTime())+ "-" + sdf.format(bean.getEndTime());
-                String query = "Insert into courses_dates (`" + bean.getDay() + "`) values ('" + StartEndTime + "')";
-                stmt = con.prepareStatement(query);
-                System.out.println(query);
-                stmt.executeUpdate();
-
+                //String Start&EndTime = ;
+               // String query = "Insert into courses_dates ("+bean.getDay()+") values ("+)";
             }
         } catch (Exception ex) {
-            throw ex;
+
         }
     }
 
