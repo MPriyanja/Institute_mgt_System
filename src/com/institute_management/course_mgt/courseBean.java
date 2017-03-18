@@ -19,7 +19,7 @@ public class courseBean {
     private double totalCourseFee;
     private double monthlyFee;
     private String grade;
-    private String courseDuration;
+    private int courseDuration;
     private String courseType;// theory/revision/paperclass
     private String LectureHole;
     private ArrayList<classDaysBean> classDaysList;
@@ -125,14 +125,14 @@ public class courseBean {
     /**
      * @return the courseDuration
      */
-    public String getCourseDuration() {
+    public int getCourseDuration() {
         return courseDuration;
     }
 
     /**
      * @param courseDuration the courseDuration to set
      */
-    public void setCourseDuration(String courseDuration) {
+    public void setCourseDuration(int courseDuration) {
         this.courseDuration = courseDuration;
     }
 
