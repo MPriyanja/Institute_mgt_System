@@ -12,6 +12,7 @@ import javax.print.attribute.standard.DateTimeAtCompleted;
 
 
 public class courseBean {
+    private String courseID;
     private String courseDescription;
     private String lecturerName;
     private String courseMedium;
@@ -19,10 +20,11 @@ public class courseBean {
     private double totalCourseFee;
     private double monthlyFee;
     private String grade;
-    private String courseDuration;
+    private int courseDuration;
     private String courseType;// theory/revision/paperclass
     private String LectureHole;
     private ArrayList<classDaysBean> classDaysList;
+    private int batchNumber;
 
     /**
      * @return the courseDescription
@@ -125,14 +127,14 @@ public class courseBean {
     /**
      * @return the courseDuration
      */
-    public String getCourseDuration() {
+    public int getCourseDuration() {
         return courseDuration;
     }
 
     /**
      * @param courseDuration the courseDuration to set
      */
-    public void setCourseDuration(String courseDuration) {
+    public void setCourseDuration(int courseDuration) {
         this.courseDuration = courseDuration;
     }
 
@@ -176,6 +178,34 @@ public class courseBean {
      */
     public void setClassDaysList(ArrayList<classDaysBean> classDaysList) {
         this.classDaysList = classDaysList;
+    }
+
+    /**
+     * @return the courseID
+     */
+    public String getCourseID() {
+        return courseID;
+    }
+
+    /**
+     * @param courseID the courseID to set
+     */
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+
+    /**
+     * @return the batchNumber
+     */
+    public int getBatchNumber() {
+        return batchNumber;
+    }
+
+    /**
+     * @param batchNumber the batchNumber to set
+     */
+    public void setBatchNumber(int batchNumber) {
+        this.batchNumber = batchNumber;
     }
 
   

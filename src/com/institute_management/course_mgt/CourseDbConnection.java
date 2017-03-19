@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -77,49 +78,92 @@ public class CourseDbConnection {
         return x;//if x is 0 , that mean successfully created that table
     }
 
-    public void insertCourseData(courseBean bean) {
+    public void insertCourseData(courseBean bean) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
 
         try {
-            String query = "INSERT INTO `course`(`course_description`,subject_code,lecturer_id, "
-                    + " `total_course_fee`, `monthly_fee`, `course_duration`, `grade`, `class_type`, `Medium`) VALUES "
-                    + " (?,(Select SUBJECT_CODE from subject where SUBJECT_NAME=?),(SELECT ID FROM LECTURER WHERE NAME = ?),?,?,?)";
+            String query = "INSERT INTO `course`(`course_id`,`course_description`,subject_id,lecturer_id, "
+                    + " `total_course_fee`, `monthly_fee`, `course_duration`, `grade`, `class_type`, `medium`,`batch_number`) VALUES "
+                    + " (?,?,(Select SUBJECT_ID from subject where SUBJECT_NAME=?),(SELECT ID FROM LECTURER WHERE NAME = ?),?,?,?,?,?,?,?)";
 
             stmt = con.prepareStatement(query);
-            stmt.setString(1, bean.getCourseDescription());
-            stmt.setString(2, bean.getSubject());
-            stmt.setString(3, bean.getLecturerName());
-            stmt.setDouble(4, bean.getTotalCourseFee());
-            stmt.setDouble(5, bean.getMonthlyFee());
-            stmt.setString(6, bean.getCourseDuration());
-            stmt.setString(7, bean.getGrade());
-            stmt.setString(8, bean.getCourseType());
-            stmt.setString(9, bean.getCourseMedium());
-
+            stmt.setString(1, bean.getCourseID());
+            stmt.setString(2, bean.getCourseDescription());
+            stmt.setString(3, bean.getSubject());
+            stmt.setString(4, bean.getLecturerName());
+            stmt.setDouble(5, bean.getTotalCourseFee());
+            stmt.setDouble(6, bean.getMonthlyFee());
+            stmt.setInt(7, bean.getCourseDuration());
+            stmt.setString(8, bean.getGrade());
+            stmt.setString(9, bean.getCourseType());
+            stmt.setString(10, bean.getCourseMedium());
+            stmt.setInt(11, bean.getBatchNumber());
+            System.out.println(stmt);
             stmt.executeUpdate();
 
         } catch (Exception ex) {
-
+            throw ex;
         }
     }
 
-    public void insertClassDays(ArrayList<classDaysBean> beanList) {
+    public void insertClassDays(ArrayList<classDaysBean> beanList, String CourseId) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         classDaysBean bean = new classDaysBean();
-        
-        String fields = "";// (`monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) 
+        SimpleDateFormat printFormat = new SimpleDateFormat("HH:mm");
         String values = "";//       VALUES (?,?,?,?,?,?,?,?)
         try {
-            for (int i = 0; i < beanList.size(); i++) {
-                bean = beanList.get(i);
-                //String Start&EndTime = ;
-               // String query = "Insert into courses_dates ("+bean.getDay()+") values ("+)";
+            bean = beanList.get(0);
+            String StartEndTime = printFormat.format(bean.getStartTime()) + "-" + printFormat.format(bean.getEndTime());
+            String query = "Insert into courses_dates (`course_id`," + bean.getDay() + ") values (?,?)";
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, CourseId);
+            stmt.setString(2, StartEndTime);
+            stmt.executeUpdate();
+
+            if (beanList.size() > 1) {
+                for (int i = 1; i < beanList.size(); i++) {
+                    bean = beanList.get(i);
+                    StartEndTime = printFormat.format(bean.getStartTime()) + "-" + printFormat.format(bean.getEndTime());
+                    query = "update courses_dates set `course_id` = ? ," + bean.getDay() + " = ? ";
+                    stmt = con.prepareStatement(query);
+                    stmt.setString(1, CourseId);
+                    stmt.setString(2, StartEndTime);
+                    stmt.executeUpdate();
+                }
             }
         } catch (Exception ex) {
-
+            throw ex;
         }
+    }
+
+    public String GenerateCourseID(String Grade, String subject, String ClassType, String Lecturer, int batchNo) {
+
+        String CourseID = Grade.replace(" ", "") + "/" + subject + "/" + ClassType.charAt(0) + "/" + Lecturer.substring(0, Lecturer.indexOf(" ")) + "/B" + (Integer.toString(batchNo));
+        return CourseID;
+    }
+
+    public boolean checkDuplicateCourseID(String CourseID) throws Exception {
+        PreparedStatement stmt;
+        ResultSet result;
+        boolean isDuplicateID = false;
+
+        try {
+            String query = "SELECT * FROM COURSE WHERE COURSE_ID = ?";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, CourseID);
+            result = stmt.executeQuery();
+            if (result.next()) {
+                isDuplicateID = true;
+            }
+
+            return isDuplicateID;
+        } catch (Exception ex) {
+            throw ex;
+        }
+
     }
 
 }

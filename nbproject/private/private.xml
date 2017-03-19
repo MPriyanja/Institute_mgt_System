@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/subject_mgt/DB/DbConnection.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/user_mgt/BL/Business_Logic.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/subject_mgt/UI/viewSubject.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/META-INF/persistence.xml</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/main/Main.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/user_mgt/UI/privilegeAssign.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/subject_mgt/UI/addSubject.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/util/CommonMethods.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/user_mgt/UI/Login.java</file>
-            <file>file:/D:/GitProject/Institute_mgt_System/src/com/institute_management/util/Configurations.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/payment_mgt/paymentMain.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/user_mgt/UI/Login.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/course_assign.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/createCourse.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/test.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/courseBean.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/main/Main.java</file>
         </group>
     </open-files>
 </project-private>
