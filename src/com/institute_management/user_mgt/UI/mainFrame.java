@@ -5,6 +5,7 @@
  */
 package com.institute_management.user_mgt.UI;
 
+import com.institute_management.course_mgt.coursePopUp;
 import com.institute_management.course_mgt.createCourse;
 import com.institute_management.lecture_mgt.lectureBean;
 import com.institute_management.lecture_mgt.lectureReg;
@@ -42,6 +43,7 @@ public class mainFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         btnprvledge = new javax.swing.JButton();
         btnlctur = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -49,7 +51,12 @@ public class mainFrame extends javax.swing.JFrame {
         setTitle("Home");
         setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jPanel1ComponentHidden(evt);
+            }
+        });
 
         btnusermgt.setBackground(new java.awt.Color(102, 102, 102));
         btnusermgt.setText("Priviledge Management");
@@ -114,8 +121,9 @@ public class mainFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnlctur, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnlctur, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                         .addComponent(btnprvledge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                         .addComponent(btncourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -141,6 +149,8 @@ public class mainFrame extends javax.swing.JFrame {
                 .addComponent(btnprvledge)
                 .addGap(18, 18, 18)
                 .addComponent(btnlctur)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -171,7 +181,7 @@ public class mainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 572, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2))
         );
@@ -209,8 +219,8 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void btncourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncourseActionPerformed
         // TODO add your handling code here:
-        createCourse cC = new createCourse();
-        cC.setVisible(true);
+        coursePopUp cpu = new coursePopUp();
+        cpu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btncourseActionPerformed
 
@@ -232,6 +242,10 @@ public class mainFrame extends javax.swing.JFrame {
         lR.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnlcturActionPerformed
+
+    private void jPanel1ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1ComponentHidden
 
     /**
      * @param args the command line arguments
@@ -276,6 +290,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnsub;
     private javax.swing.JButton btnusermgt;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
