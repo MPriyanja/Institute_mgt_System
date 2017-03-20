@@ -19,6 +19,7 @@ public class Student {
     private String school;
     private String gender;
     private String yearOfReg;
+    private String pContactNo;
 
     public String getName() {
         return name;
@@ -83,5 +84,14 @@ public class Student {
     public void setYearOfReg(String yearOfReg) {
         this.yearOfReg = yearOfReg;
     }
-    
+
+    public String getpContactNo() {
+        return pContactNo;
+    }
+
+    public void setpContactNo(String pContactNo) {
+        this.pContactNo = pContactNo;
+    }
+
+   
 }
