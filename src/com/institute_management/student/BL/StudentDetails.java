@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class StudentDetails extends AbstractTableModel {
 
-    private static final String[] column = {"Name Object",
+    private static final String[] column = {"Name",
         "Date of Birth",
         "Address",
         "Email",
@@ -26,7 +26,7 @@ public class StudentDetails extends AbstractTableModel {
     private static ArrayList<Student> list;
 
     public StudentDetails(ArrayList<Student> stList) {
-        this.list = stList;
+        list = stList;
     }
 
     @Override
@@ -63,6 +63,11 @@ public class StudentDetails extends AbstractTableModel {
 
         }
 
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {
+        return column[columnIndex];
     }
 
 }
