@@ -123,7 +123,7 @@ public class SubjectDbConnection {
         int count = 0;
 
         try {
-            query = "INSERT INTO student(S_NAME, S_DOB, S_ADDRESS, S_EMAIL, S_GENDER, S_YOR, S_TELEPHONE, S_SCHOOL,S_PARENT_CONTACT) VALUES (?,?,?,?,?,?,?,?,?)";
+            query = "INSERT INTO student(S_NAME, S_DOB, S_ADDRESS, S_EMAIL, S_GENDER, S_YOR, S_TELEPHONE, S_SCHOOL,S_PARENT_CONTACT_NO) VALUES (?,?,?,?,?,?,?,?,?)";
             pst = connection.prepareStatement(query);
             pst.setString(1, st.getName());
             pst.setString(2, st.getDob());
