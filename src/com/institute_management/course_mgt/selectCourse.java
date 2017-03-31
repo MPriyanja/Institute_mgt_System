@@ -6,15 +6,18 @@
 
 package com.institute_management.course_mgt;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+
 /**
  *
  * @author tharindu_m
  */
 public class selectCourse extends javax.swing.JFrame {
 
-    /**
-     * Creates new form selectCourse
-     */
+    static courseBean OnlyForCourseEditBean = new courseBean();
+    
     public selectCourse() {
         initComponents();
     }
@@ -30,13 +33,69 @@ public class selectCourse extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbSelectCourse = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblDescription = new javax.swing.JLabel();
+        lblSubject = new javax.swing.JLabel();
+        lblClassType = new javax.swing.JLabel();
+        lblLectureName = new javax.swing.JLabel();
+        lblGrade = new javax.swing.JLabel();
+        lblMedium = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("select course");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try{
+            String query= "SELECT `course_id` FROM `course`";
+
+            stmt = new com.institute_management.user_mgt.DB.UserDbConnection().getConnection().prepareStatement(query);
+            result = stmt.executeQuery();
+
+            while(result.next()){
+                String role = result.getString("course_id");
+                cmbSelectCourse.addItem(role);
+            }
+
+            result.close();
+            stmt.close();
+
+        }catch(Exception ex){
+
+        }
+        cmbSelectCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSelectCourseActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Discription ");
+
+        jLabel3.setText("Subject");
+
+        jLabel4.setText("Class Type");
+
+        jLabel5.setText("Lecturer Name");
+
+        jLabel6.setText("Grade");
+
+        jLabel7.setText("Medium");
+
+        jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,8 +104,35 @@ public class selectCourse extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 240, Short.MAX_VALUE))
+                .addComponent(cmbSelectCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLectureName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblClassType, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblGrade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblMedium, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -54,8 +140,30 @@ public class selectCourse extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                    .addComponent(cmbSelectCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(lblSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7)
+                    .addComponent(lblClassType, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLectureName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -72,6 +180,64 @@ public class selectCourse extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmbSelectCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSelectCourseActionPerformed
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try{
+            String course_id = cmbSelectCourse.getSelectedItem().toString();
+            System.out.println(course_id);
+            String query= "select co.*,su.subject_name,le.name from course co inner join subject su on co.subject_code = su.subject_id inner join lecturer le on co.lecturer_id = le.id where co.course_id ="+course_id;
+
+            stmt =new CourseDbConnection().getConnection().prepareStatement(query);
+            result = stmt.executeQuery();
+
+            while(result.next()){
+                String lecturerName = result.getString("name");
+                String subject = result.getString("subject_name");
+                String grade = result.getString("grade");
+                String Class_type = result.getString("class_type");
+                String course_description = result.getString("course_description");
+                String medium = result.getString("medium");
+                
+                System.out.println(lecturerName);
+                System.out.println(subject);
+                System.out.println(grade);
+                System.out.println(Class_type);
+                System.out.println(course_description);
+                System.out.println(medium);
+                
+                lblDescription.setText(course_description);
+                lblClassType.setText(Class_type);
+                lblGrade.setText(grade);
+                lblLectureName.setText(lecturerName);
+                lblSubject.setText(subject);
+                lblMedium.setText(medium);
+                
+                OnlyForCourseEditBean.setCourseDescription(course_description);
+                OnlyForCourseEditBean.setCourseType(Class_type);
+                OnlyForCourseEditBean.setGrade(grade);
+                OnlyForCourseEditBean.setLecturerName(lecturerName);
+                OnlyForCourseEditBean.setSubject(subject);
+                OnlyForCourseEditBean.setCourseMedium(medium);
+
+
+            }
+
+            result.close();
+            stmt.close();
+
+        }catch(Exception ex){
+
+        }
+    }//GEN-LAST:event_cmbSelectCourseActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         test a  = new test();
+         a.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -79,7 +245,7 @@ public class selectCourse extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -108,8 +274,21 @@ public class selectCourse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cmbSelectCourse;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblClassType;
+    private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblGrade;
+    private javax.swing.JLabel lblLectureName;
+    private javax.swing.JLabel lblMedium;
+    private javax.swing.JLabel lblSubject;
     // End of variables declaration//GEN-END:variables
 }

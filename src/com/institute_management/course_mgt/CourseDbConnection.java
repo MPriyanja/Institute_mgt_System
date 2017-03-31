@@ -166,4 +166,25 @@ public class CourseDbConnection {
 
     }
 
+     public boolean checkstudentExistancy(String studentID) throws Exception {
+        PreparedStatement stmt;
+        ResultSet result;
+        boolean isExist = false;
+
+        try {
+            String query = "SELECT * FROM student WHERE student_id = ?";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, studentID);
+            result = stmt.executeQuery();
+            if (result.next()) {
+                isExist = true;
+            }
+
+            return isExist;
+        } catch (Exception ex) {
+            throw ex;
+        }
+
+    }
 }
