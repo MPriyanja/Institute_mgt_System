@@ -7,6 +7,7 @@
 package com.institute_management.main;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -57,8 +58,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         lblDashboard.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(204, 204, 204));
-        lblDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/dashboard.png"))); // NOI18N
-        lblDashboard.setText("DASH BOARD");
+        lblDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/GRAY DASH BOARD.jpg"))); // NOI18N
         lblDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblDashboard.setIconTextGap(10);
         lblDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,13 +152,13 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseEntered
-        lblDashboard.setBackground(new Color(204, 224, 255));
-        lblDashboard.setOpaque(true);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/LIGHT DASH BOARD2.jpg"));
+        lblDashboard.setIcon(icon);//
     }//GEN-LAST:event_lblDashboardMouseEntered
 
     private void lblDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseExited
-        lblDashboard.setBackground(new Color(102,102,102));
-        lblDashboard.setOpaque(true);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/GRAY DASH BOARD.jpg"));
+        lblDashboard.setIcon(icon);
     }//GEN-LAST:event_lblDashboardMouseExited
 
     /**

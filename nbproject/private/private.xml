@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/payment_mgt/paymentMain.java</file>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/user_mgt/UI/Login.java</file>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/course_assign.java</file>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/createCourse.java</file>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/test.java</file>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/courseBean.java</file>
-            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/main/Main.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

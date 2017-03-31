@@ -140,9 +140,8 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/institute_management/resources/images/MainFrame/dashboard.png"/>
+              <Image iconType="3" name="/com/institute_management/resources/images/MainFrame/GRAY DASH BOARD.jpg"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DASH BOARD"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
