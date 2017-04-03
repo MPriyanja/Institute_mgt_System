@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -330,7 +331,7 @@ public class CourseDbConnection {
     public courseBean classDetailsUpdate(String courseID) throws Exception {
 
         courseBean cb = new courseBean();
-        HashMap<String,classDaysBean> map = new HashMap<String,classDaysBean>();
+        HashMap<String, classDaysBean> map = new HashMap<String, classDaysBean>();
         PreparedStatement stmt;
         ResultSet result;
         int success;
@@ -349,7 +350,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("monday");
-                    map.put("monday",cdays);
+                    map.put("monday", cdays);
                 }
                 if (result.getString("tuesday") != null) {
                     classDaysBean cdays = new classDaysBean();
@@ -358,7 +359,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("tuesday");
-                    map.put("tuesday",cdays);
+                    map.put("tuesday", cdays);
                 }
                 if (result.getString("wednesday") != null) {
                     classDaysBean cdays = new classDaysBean();
@@ -367,7 +368,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("wednesday");
-                    map.put("wednesday",cdays);
+                    map.put("wednesday", cdays);
                 }
                 if (result.getString("thursday") != null) {
                     classDaysBean cdays = new classDaysBean();
@@ -376,7 +377,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("thursday");
-                    map.put("thursday",cdays);
+                    map.put("thursday", cdays);
                 }
                 if (result.getString("friday") != null) {
                     classDaysBean cdays = new classDaysBean();
@@ -385,7 +386,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("friday");
-                    map.put("friday",cdays);
+                    map.put("friday", cdays);
                 }
                 if (result.getString("saturday") != null) {
                     classDaysBean cdays = new classDaysBean();
@@ -394,7 +395,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("saturday");
-                    map.put("saturday",cdays);
+                    map.put("saturday", cdays);
                 }
                 if (result.getString("sunday") != null) {
                     classDaysBean cdays = new classDaysBean();
@@ -403,7 +404,7 @@ public class CourseDbConnection {
                     cdays.setStartTime((java.util.Date) format.parse(parts[0]));
                     cdays.setEndTime((java.util.Date) format.parse(parts[1]));
                     cdays.setDay("sunday");
-                    map.put("sunday",cdays);
+                    map.put("sunday", cdays);
                 }
                 cb.setClassDaysMap(map);
 
@@ -424,19 +425,20 @@ public class CourseDbConnection {
             throw ex;
         }
     }
-    
-    
-    public int addExtraClass(String courseID, Date clzDate , String StartTime,String EndTime) throws Exception {
+
+    public int addExtraClass(String courseID, Date clzDate, String StartTime, String EndTime) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         int success;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        String reportDate = df.format(clzDate);
 
         try {
             String query = "INSERT INTO `extraclasses`(`courseID`, `date`, `startTime`, `endTime`, `status`) VALUES (?,?,?,?,?) ";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, courseID);
-            stmt.setDate(2, (java.sql.Date)clzDate);
+            stmt.setString(2, reportDate);
             stmt.setString(3, StartTime);
             stmt.setString(4, EndTime);
             stmt.setString(5, "ACT");
@@ -448,5 +450,39 @@ public class CourseDbConnection {
             throw ex;
         }
 
+    }
+
+    public HashMap<Integer, Object[]> getExtraClassDetails(String courseID) throws Exception {
+        int count = 0;
+
+        PreparedStatement stmt;
+        ResultSet result;
+        int success;
+        HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
+        
+
+        try {
+            String query = "select * from extraclasses where `course_id`=? ";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, courseID);
+
+            result = stmt.executeQuery();
+            while (result.next()) {
+                Object[] rowData = new Object[5];
+                
+                rowData[0] = result.getString("date");
+                rowData[1] = result.getString("startTime");
+                rowData[2] = result.getString("endTime");
+                rowData[3] = result.getString("status");
+                rowData[4] = (boolean) false;
+                tableData.put(count, rowData);
+                count++;
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
+
+        return tableData;
     }
 }

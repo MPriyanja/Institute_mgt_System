@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,6 +45,17 @@ public class test extends javax.swing.JFrame {
         txtGrade.setText(a.getGrade());
         lblName.setText(a.getLecturerName());
         txtSubject.setText(a.getSubject());
+        // load extra classes
+        try {
+            HashMap<Integer,Object[]> tblData =conn.getExtraClassDetails(a.getCourseID());
+            DefaultTableModel model = (DefaultTableModel) tblExtra.getModel();
+            model.setRowCount(0);
+            for (int i = 0; i <= tblData.size(); i++) {
+                model.addRow(tblData.get(i));
+        }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
 
     }
 
@@ -122,7 +134,7 @@ public class test extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblExtra = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -653,7 +665,7 @@ public class test extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Remove Extra Class"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblExtra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -661,22 +673,21 @@ public class test extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Course ID", "Class Date", "Start Time", "End Time", "Status"
+                "Class Date", "Start Time", "End Time", "Status", "Remove"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(150);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(50);
+        jScrollPane1.setViewportView(tblExtra);
+        if (tblExtra.getColumnModel().getColumnCount() > 0) {
+            tblExtra.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblExtra.getColumnModel().getColumn(4).setPreferredWidth(25);
         }
 
         jButton9.setText("D E L E T E");
@@ -697,9 +708,9 @@ public class test extends javax.swing.JFrame {
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jButton9)
                 .addGap(19, 19, 19))
         );
@@ -1398,9 +1409,15 @@ public class test extends javax.swing.JFrame {
         String extraClassStartTime = printFormat.format((Date) extraStartTime.getValue());
         String extraClassEndTime = printFormat.format((Date) ExtraEndTime.getValue());
         try {
-            conn.addExtraClass(OnlyForCourseEditBean.getCourseID(), extraClassDate, extraClassStartTime, extraClassEndTime);
-        } catch (Exception ex) {
+            int x = conn.addExtraClass(OnlyForCourseEditBean.getCourseID(), extraClassDate, extraClassStartTime, extraClassEndTime);
+            if (x != 1) {
+                JOptionPane.showMessageDialog(new JFrame(), "Something went wrong. try again");
+            } else {
+                JOptionPane.showMessageDialog(new JFrame(), "Extra class Successfully added");
+            }
 
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(new JFrame(), "Database connection fail");
         }
     }//GEN-LAST:event_extraAddActionPerformed
 
@@ -1537,7 +1554,6 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -1551,6 +1567,7 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JRadioButton rIssueFree;
     private javax.swing.JRadioButton rNormal;
     private javax.swing.JRadioButton rhalf;
+    private javax.swing.JTable tblExtra;
     private javax.swing.JButton test;
     private javax.swing.JTextField txtBatchNo;
     private javax.swing.JTextField txtCancel;
