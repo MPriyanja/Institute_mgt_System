@@ -20,6 +20,7 @@ public class Student {
     private String gender;
     private String yearOfReg;
     private String pContactNo;
+    private String studentID;
 
     public String getName() {
         return name;
@@ -91,6 +92,20 @@ public class Student {
 
     public void setpContactNo(String pContactNo) {
         this.pContactNo = pContactNo;
+    }
+
+    /**
+     * @return the studentID
+     */
+    public String getStudentID() {
+        return studentID;
+    }
+
+    /**
+     * @param studentID the studentID to set
+     */
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
    

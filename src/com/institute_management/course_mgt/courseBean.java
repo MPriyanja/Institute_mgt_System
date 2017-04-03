@@ -23,7 +23,7 @@ public class courseBean {
     private int courseDuration;
     private String courseType;// theory/revision/paperclass
     private String LectureHole;
-    private ArrayList<classDaysBean> classDaysList;
+    private HashMap<String,classDaysBean> classDaysMap;
     private int batchNumber;
 
     /**
@@ -169,16 +169,7 @@ public class courseBean {
     /**
      * @return the classDaysList
      */
-    public ArrayList<classDaysBean> getClassDaysList() {
-        return classDaysList;
-    }
-
-    /**
-     * @param classDaysList the classDaysList to set
-     */
-    public void setClassDaysList(ArrayList<classDaysBean> classDaysList) {
-        this.classDaysList = classDaysList;
-    }
+    
 
     /**
      * @return the courseID
@@ -206,6 +197,20 @@ public class courseBean {
      */
     public void setBatchNumber(int batchNumber) {
         this.batchNumber = batchNumber;
+    }
+
+    /**
+     * @return the classDaysMap
+     */
+    public HashMap<String,classDaysBean> getClassDaysMap() {
+        return classDaysMap;
+    }
+
+    /**
+     * @param classDaysMap the classDaysMap to set
+     */
+    public void setClassDaysMap(HashMap<String,classDaysBean> classDaysMap) {
+        this.classDaysMap = classDaysMap;
     }
 
   
