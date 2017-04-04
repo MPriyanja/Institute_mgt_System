@@ -453,7 +453,7 @@ public class CourseDbConnection {
     }
 
     public HashMap<Integer, Object[]> getExtraClassDetails(String courseID) throws Exception {
-        int count = 0;
+        int count = 1;
 
         PreparedStatement stmt;
         ResultSet result;
@@ -462,7 +462,7 @@ public class CourseDbConnection {
         
 
         try {
-            String query = "select * from extraclasses where `course_id`=? ";
+            String query = "select * from extraclasses where `courseID`=? ";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, courseID);
@@ -485,4 +485,6 @@ public class CourseDbConnection {
 
         return tableData;
     }
+    
+    
 }

@@ -352,30 +352,28 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="chkMonday" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jSpinner2" alignment="0" pref="63" max="32767" attributes="0"/>
-                                  <Component id="monSt" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="monSt" pref="77" max="32767" attributes="0"/>
+                              <Component id="monEd" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jSpinner3" min="-2" pref="63" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="chkTuesday" min="-2" max="-2" attributes="0"/>
-                              <Component id="jSpinner4" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="tueSt" pref="78" max="32767" attributes="0"/>
+                              <Component id="tueEd" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="chkWednesday" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jSpinner5" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="jSpinner6" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="wedSt" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="wedEd" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="chkThusday" min="-2" max="-2" attributes="0"/>
-                              <Component id="jSpinner7" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="jSpinner8" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="thuSt" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="thuEd" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -388,23 +386,23 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jSpinner9" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="friSt" min="-2" pref="63" max="-2" attributes="0"/>
                                       <Component id="chkFrday" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jSpinner10" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="friEd" min="-2" pref="63" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jSpinner12" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jSpinner11" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                                          <Component id="satEd" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="satSt" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="chkStaday" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="72" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jSpinner14" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jSpinner13" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                                          <Component id="sunEd" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="sunSt" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="chkSunday" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -439,43 +437,43 @@
                                       <Group type="102" attributes="0">
                                           <Component id="monSt" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jSpinner2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="monEd" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jSpinner3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinner5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tueSt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="wedSt" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jSpinner4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinner6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tueEd" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="wedEd" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jSpinner7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="thuSt" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jSpinner10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinner8" min="-2" max="-2" attributes="0"/>
+                                              <Component id="friEd" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="thuEd" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="jSpinner9" min="-2" max="-2" attributes="0"/>
+                                      <Component id="friSt" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="chkStaday" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jSpinner11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="satSt" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jSpinner12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="satEd" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="chkSunday" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jSpinner13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sunSt" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jSpinner14" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sunEd" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -525,34 +523,52 @@
                 </Component>
                 <Component class="javax.swing.JSpinner" name="monSt">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="SimpleDateFormat sdf = new SimpleDateFormat(&quot;hh:mm&quot;);&#xa;    HashMap monday = editCourseBean.getClassDaysMap();&#xa;        if (monday.containsKey(&quot;monday&quot;)) {&#xa;            chkMonday.setSelected(true);&#xa;            Date monStartTime = ((classDaysBean) monday.get(&quot;monday&quot;)).getStartTime();&#xa;            SpinnerDateModel smMonSt = new SpinnerDateModel(monStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;            monSt = new javax.swing.JSpinner(smMonSt);&#xa;            JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(monSt, &quot;hh:mm a&quot;);&#xa;            monSt.setEditor(deMonSt);&#xa;        }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap monday = editCourseBean.getClassDaysMap();&#xa;            if (monday.containsKey(&quot;monday&quot;)) {&#xa;                chkMonday.setSelected(true);&#xa;                Date monStartTime = ((classDaysBean) monday.get(&quot;monday&quot;)).getStartTime();&#xa;                SpinnerDateModel smMonSt = new SpinnerDateModel(monStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                monSt = new javax.swing.JSpinner(smMonSt);&#xa;                JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(monSt, &quot;hh:mm a&quot;);&#xa;                monSt.setEditor(deMonSt);&#xa;            }&#xa;        }"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner2">
+                <Component class="javax.swing.JSpinner" name="monEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap monday = editCourseBean.getClassDaysMap();&#xa;            if (monday.containsKey(&quot;monday&quot;)) {&#xa;                Date monEndTime = ((classDaysBean) monday.get(&quot;monday&quot;)).getEndTime();&#xa;                SpinnerDateModel smMonEd = new SpinnerDateModel(monEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                monEd = new javax.swing.JSpinner(smMonEd);&#xa;                JSpinner.DateEditor deMonEd = new JSpinner.DateEditor(monEd, &quot;hh:mm a&quot;);&#xa;                monEd.setEditor(deMonEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner3">
+                <Component class="javax.swing.JSpinner" name="tueSt">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap tuesday = editCourseBean.getClassDaysMap();&#xa;            if (tuesday.containsKey(&quot;tuesday&quot;)) {&#xa;                chkTuesday.setSelected(true);&#xa;                Date tueStartTime = ((classDaysBean) tuesday.get(&quot;tuesday&quot;)).getStartTime();&#xa;                SpinnerDateModel smTueSt = new SpinnerDateModel(tueStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                tueSt = new javax.swing.JSpinner(smTueSt);&#xa;                JSpinner.DateEditor deTueSt = new JSpinner.DateEditor(tueSt, &quot;hh:mm a&quot;);&#xa;                tueSt.setEditor(deTueSt);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner4">
+                <Component class="javax.swing.JSpinner" name="tueEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap tuesday = editCourseBean.getClassDaysMap();&#xa;            if (tuesday.containsKey(&quot;tuesday&quot;)) {&#xa;                &#xa;                Date tueEndTime = ((classDaysBean) tuesday.get(&quot;tuesday&quot;)).getEndTime();&#xa;                SpinnerDateModel smTueEd = new SpinnerDateModel(tueEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                tueEd = new javax.swing.JSpinner(smTueEd);&#xa;                JSpinner.DateEditor deTueEd = new JSpinner.DateEditor(tueEd, &quot;hh:mm a&quot;);&#xa;                tueEd.setEditor(deTueEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner5">
+                <Component class="javax.swing.JSpinner" name="wedSt">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap wednesday = editCourseBean.getClassDaysMap();&#xa;            if (wednesday.containsKey(&quot;wednesday&quot;)) {&#xa;                chkWednesday.setSelected(true);&#xa;                Date wedStartTime = ((classDaysBean) wednesday.get(&quot;wednesday&quot;)).getStartTime();&#xa;                SpinnerDateModel smWedSt = new SpinnerDateModel(wedStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                wedSt = new javax.swing.JSpinner(smWedSt);&#xa;                JSpinner.DateEditor deWedSt = new JSpinner.DateEditor(wedSt, &quot;hh:mm a&quot;);&#xa;                wedSt.setEditor(deWedSt);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner6">
+                <Component class="javax.swing.JSpinner" name="wedEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap wednesday = editCourseBean.getClassDaysMap();&#xa;            if (wednesday.containsKey(&quot;wednesday&quot;)) {&#xa;               &#xa;                Date wedEndTime = ((classDaysBean) wednesday.get(&quot;wednesday&quot;)).getStartTime();&#xa;                SpinnerDateModel smWedEd = new SpinnerDateModel(wedEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                wedEd = new javax.swing.JSpinner(smWedEd);&#xa;                JSpinner.DateEditor deWedEd = new JSpinner.DateEditor(wedEd, &quot;hh:mm a&quot;);&#xa;                wedEd.setEditor(deWedEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner7">
+                <Component class="javax.swing.JSpinner" name="thuSt">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap thusday = editCourseBean.getClassDaysMap();&#xa;            if (thusday.containsKey(&quot;thusday&quot;)) {&#xa;                chkThusday.setSelected(true);&#xa;                Date thuStartTime = ((classDaysBean) thusday.get(&quot;thuesday&quot;)).getStartTime();&#xa;                SpinnerDateModel smThuSt = new SpinnerDateModel(thuStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                thuSt = new javax.swing.JSpinner(smThuSt);&#xa;                JSpinner.DateEditor deThuSt = new JSpinner.DateEditor(thuSt, &quot;hh:mm a&quot;);&#xa;                thuSt.setEditor(deThuSt);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner8">
+                <Component class="javax.swing.JSpinner" name="thuEd">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner9">
+                <Component class="javax.swing.JSpinner" name="friSt">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner10">
+                <Component class="javax.swing.JSpinner" name="friEd">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner11">
+                <Component class="javax.swing.JSpinner" name="satSt">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner12">
+                <Component class="javax.swing.JSpinner" name="satEd">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner13">
+                <Component class="javax.swing.JSpinner" name="sunSt">
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner14">
+                <Component class="javax.swing.JSpinner" name="sunEd">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton7">
                   <Properties>
@@ -865,8 +881,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="93" max="-2" attributes="0"/>
-                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="145" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
@@ -884,7 +900,7 @@
                     <Component class="javax.swing.JTable" name="tblExtra">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="Class Date" type="java.lang.Object"/>
                             <Column editable="true" title="Start Time" type="java.lang.Object"/>
                             <Column editable="true" title="End Time" type="java.lang.Object"/>

@@ -34,8 +34,9 @@ public class test extends javax.swing.JFrame {
     courseBean editCourseBean = new courseBean();
 
     public test() {
+        //load data to class details update tab
         try {
-            editCourseBean = conn.classDetailsUpdate("A/L-2017/English/T/Prasanna/B5");
+            editCourseBean = conn.classDetailsUpdate(a.getCourseID());
         } catch (Exception ex) {
         }
 
@@ -46,17 +47,19 @@ public class test extends javax.swing.JFrame {
         lblName.setText(a.getLecturerName());
         txtSubject.setText(a.getSubject());
         // load extra classes
+
         try {
-            HashMap<Integer,Object[]> tblData =conn.getExtraClassDetails(a.getCourseID());
+            HashMap<Integer, Object[]> tblData = conn.getExtraClassDetails(a.getCourseID());
             DefaultTableModel model = (DefaultTableModel) tblExtra.getModel();
             model.setRowCount(0);
-            for (int i = 0; i <= tblData.size(); i++) {
+            for (int i = 1; i <= tblData.size(); i++) {
                 model.addRow(tblData.get(i));
-        }
+            }
         } catch (Exception ex) {
             System.out.println(ex);
         }
 
+       
     }
 
     /**
@@ -99,19 +102,19 @@ public class test extends javax.swing.JFrame {
         chkStaday = new javax.swing.JCheckBox();
         chkSunday = new javax.swing.JCheckBox();
         monSt = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
-        jSpinner3 = new javax.swing.JSpinner();
-        jSpinner4 = new javax.swing.JSpinner();
-        jSpinner5 = new javax.swing.JSpinner();
-        jSpinner6 = new javax.swing.JSpinner();
-        jSpinner7 = new javax.swing.JSpinner();
-        jSpinner8 = new javax.swing.JSpinner();
-        jSpinner9 = new javax.swing.JSpinner();
-        jSpinner10 = new javax.swing.JSpinner();
-        jSpinner11 = new javax.swing.JSpinner();
-        jSpinner12 = new javax.swing.JSpinner();
-        jSpinner13 = new javax.swing.JSpinner();
-        jSpinner14 = new javax.swing.JSpinner();
+        monEd = new javax.swing.JSpinner();
+        tueSt = new javax.swing.JSpinner();
+        tueEd = new javax.swing.JSpinner();
+        wedSt = new javax.swing.JSpinner();
+        wedEd = new javax.swing.JSpinner();
+        thuSt = new javax.swing.JSpinner();
+        thuEd = new javax.swing.JSpinner();
+        friSt = new javax.swing.JSpinner();
+        friEd = new javax.swing.JSpinner();
+        satSt = new javax.swing.JSpinner();
+        satEd = new javax.swing.JSpinner();
+        sunSt = new javax.swing.JSpinner();
+        sunEd = new javax.swing.JSpinner();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
@@ -364,15 +367,87 @@ public class test extends javax.swing.JFrame {
 
         chkSunday.setText("Sunday");
 
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
-        HashMap monday = editCourseBean.getClassDaysMap();
-        if (monday.containsKey("monday")) {
-            chkMonday.setSelected(true);
-            Date monStartTime = ((classDaysBean) monday.get("monday")).getStartTime();
-            SpinnerDateModel smMonSt = new SpinnerDateModel(monStartTime, null, null, Calendar.HOUR_OF_DAY);
-            monSt = new javax.swing.JSpinner(smMonSt);
-            JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(monSt, "hh:mm a");
-            monSt.setEditor(deMonSt);
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap monday = editCourseBean.getClassDaysMap();
+            if (monday.containsKey("monday")) {
+                chkMonday.setSelected(true);
+                Date monStartTime = ((classDaysBean) monday.get("monday")).getStartTime();
+                SpinnerDateModel smMonSt = new SpinnerDateModel(monStartTime, null, null, Calendar.HOUR_OF_DAY);
+                monSt = new javax.swing.JSpinner(smMonSt);
+                JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(monSt, "hh:mm a");
+                monSt.setEditor(deMonSt);
+            }
+        }
+
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap monday = editCourseBean.getClassDaysMap();
+            if (monday.containsKey("monday")) {
+                Date monEndTime = ((classDaysBean) monday.get("monday")).getEndTime();
+                SpinnerDateModel smMonEd = new SpinnerDateModel(monEndTime, null, null, Calendar.HOUR_OF_DAY);
+                monEd = new javax.swing.JSpinner(smMonEd);
+                JSpinner.DateEditor deMonEd = new JSpinner.DateEditor(monEd, "hh:mm a");
+                monEd.setEditor(deMonEd);
+            }
+        }
+
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap tuesday = editCourseBean.getClassDaysMap();
+            if (tuesday.containsKey("tuesday")) {
+                chkTuesday.setSelected(true);
+                Date tueStartTime = ((classDaysBean) tuesday.get("tuesday")).getStartTime();
+                SpinnerDateModel smTueSt = new SpinnerDateModel(tueStartTime, null, null, Calendar.HOUR_OF_DAY);
+                tueSt = new javax.swing.JSpinner(smTueSt);
+                JSpinner.DateEditor deTueSt = new JSpinner.DateEditor(tueSt, "hh:mm a");
+                tueSt.setEditor(deTueSt);
+            }
+        }
+
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap tuesday = editCourseBean.getClassDaysMap();
+            if (tuesday.containsKey("tuesday")) {
+
+                Date tueEndTime = ((classDaysBean) tuesday.get("tuesday")).getEndTime();
+                SpinnerDateModel smTueEd = new SpinnerDateModel(tueEndTime, null, null, Calendar.HOUR_OF_DAY);
+                tueEd = new javax.swing.JSpinner(smTueEd);
+                JSpinner.DateEditor deTueEd = new JSpinner.DateEditor(tueEd, "hh:mm a");
+                tueEd.setEditor(deTueEd);
+            }
+        }
+
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap wednesday = editCourseBean.getClassDaysMap();
+            if (wednesday.containsKey("wednesday")) {
+                chkWednesday.setSelected(true);
+                Date wedStartTime = ((classDaysBean) wednesday.get("wednesday")).getStartTime();
+                SpinnerDateModel smWedSt = new SpinnerDateModel(wedStartTime, null, null, Calendar.HOUR_OF_DAY);
+                wedSt = new javax.swing.JSpinner(smWedSt);
+                JSpinner.DateEditor deWedSt = new JSpinner.DateEditor(wedSt, "hh:mm a");
+                wedSt.setEditor(deWedSt);
+            }
+        }
+
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap wednesday = editCourseBean.getClassDaysMap();
+            if (wednesday.containsKey("wednesday")) {
+
+                Date wedEndTime = ((classDaysBean) wednesday.get("wednesday")).getStartTime();
+                SpinnerDateModel smWedEd = new SpinnerDateModel(wedEndTime, null, null, Calendar.HOUR_OF_DAY);
+                wedEd = new javax.swing.JSpinner(smWedEd);
+                JSpinner.DateEditor deWedEd = new JSpinner.DateEditor(wedEd, "hh:mm a");
+                wedEd.setEditor(deWedEd);
+            }
+        }
+
+        if (editCourseBean.getClassDaysMap() != null) {
+            HashMap thusday = editCourseBean.getClassDaysMap();
+            if (thusday.containsKey("thusday")) {
+                chkThusday.setSelected(true);
+                Date thuStartTime = ((classDaysBean) thusday.get("thuesday")).getStartTime();
+                SpinnerDateModel smThuSt = new SpinnerDateModel(thuStartTime, null, null, Calendar.HOUR_OF_DAY);
+                thuSt = new javax.swing.JSpinner(smThuSt);
+                JSpinner.DateEditor deThuSt = new JSpinner.DateEditor(thuSt, "hh:mm a");
+                thuSt.setEditor(deThuSt);
+            }
         }
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -392,26 +467,25 @@ public class test extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkMonday)
-                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSpinner2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
-                        .addComponent(monSt, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(56, 56, 56)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monSt, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                    .addComponent(monEd))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chkTuesday)
-                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                    .addComponent(tueSt, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(tueEd))
+                .addGap(42, 42, 42)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkWednesday)
-                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wedSt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wedEd, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkThusday)
-                    .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(thuSt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(thuEd, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -422,20 +496,20 @@ public class test extends javax.swing.JFrame {
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(friSt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(chkFrday)
-                            .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(friEd, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(61, 61, 61)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSpinner12, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSpinner11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(satEd, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(satSt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(chkStaday))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSpinner14, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSpinner13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(sunEd, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(sunSt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(chkSunday))
                         .addGap(54, 54, 54))))
         );
@@ -460,34 +534,34 @@ public class test extends javax.swing.JFrame {
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addComponent(monSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(monEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tueSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(wedSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tueEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(wedEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(thuSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(friEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(thuEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(friSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(chkStaday)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(satSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(satEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(chkSunday)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinner13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sunSt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sunEd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7)
@@ -667,10 +741,7 @@ public class test extends javax.swing.JFrame {
 
         tblExtra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Class Date", "Start Time", "End Time", "Status", "Remove"
@@ -709,8 +780,8 @@ public class test extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton9)
                 .addGap(19, 19, 19))
         );
@@ -1416,6 +1487,19 @@ public class test extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(new JFrame(), "Extra class Successfully added");
             }
 
+            // load data into extra class details table
+            try {
+                HashMap<Integer, Object[]> tblData = conn.getExtraClassDetails(a.getCourseID());
+                DefaultTableModel model = (DefaultTableModel) tblExtra.getModel();
+                model.setRowCount(0);
+                for (int i = 1; i <= tblData.size(); i++) {
+                    model.addRow(tblData.get(i));
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+            //end
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(new JFrame(), "Database connection fail");
         }
@@ -1477,6 +1561,8 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkWednesday;
     private javax.swing.JButton extraAdd;
     private javax.swing.JSpinner extraStartTime;
+    private javax.swing.JSpinner friEd;
+    private javax.swing.JSpinner friSt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
@@ -1538,19 +1624,6 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner10;
-    private javax.swing.JSpinner jSpinner11;
-    private javax.swing.JSpinner jSpinner12;
-    private javax.swing.JSpinner jSpinner13;
-    private javax.swing.JSpinner jSpinner14;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JSpinner jSpinner7;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
@@ -1559,6 +1632,7 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private com.toedter.calendar.JDateChooser jdate;
     private javax.swing.JLabel lblName;
+    private javax.swing.JSpinner monEd;
     private javax.swing.JSpinner monSt;
     private javax.swing.JRadioButton rEdit50Free;
     private javax.swing.JRadioButton rEditFree;
@@ -1567,8 +1641,16 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JRadioButton rIssueFree;
     private javax.swing.JRadioButton rNormal;
     private javax.swing.JRadioButton rhalf;
+    private javax.swing.JSpinner satEd;
+    private javax.swing.JSpinner satSt;
+    private javax.swing.JSpinner sunEd;
+    private javax.swing.JSpinner sunSt;
     private javax.swing.JTable tblExtra;
     private javax.swing.JButton test;
+    private javax.swing.JSpinner thuEd;
+    private javax.swing.JSpinner thuSt;
+    private javax.swing.JSpinner tueEd;
+    private javax.swing.JSpinner tueSt;
     private javax.swing.JTextField txtBatchNo;
     private javax.swing.JTextField txtCancel;
     private javax.swing.JTextField txtClassFee;
@@ -1581,5 +1663,7 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JTextField txtStntIDDelete;
     private javax.swing.JTextField txtSubject;
     private javax.swing.JTextField txtTotalStudents;
+    private javax.swing.JSpinner wedEd;
+    private javax.swing.JSpinner wedSt;
     // End of variables declaration//GEN-END:variables
 }
