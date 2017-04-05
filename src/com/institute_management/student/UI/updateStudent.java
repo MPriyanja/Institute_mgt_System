@@ -165,7 +165,7 @@ public class updateStudent extends javax.swing.JFrame {
                                         .addComponent(txtMail)
                                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(txtSchool)))))
-                .addGap(0, 405, Short.MAX_VALUE))
+                .addGap(0, 144, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
