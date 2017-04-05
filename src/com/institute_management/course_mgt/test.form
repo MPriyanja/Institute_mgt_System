@@ -43,7 +43,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -64,27 +66,36 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel7" max="32767" attributes="0"/>
-          <Component id="jTabbedPane1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel19" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jTabbedPane1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Add | Delete Students">
@@ -96,34 +107,58 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
                       <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="194" max="32767" attributes="0"/>
+                      <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
                       <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jLabel16" min="-2" pref="825" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="56" pref="56" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel9" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jLabel16" min="-2" pref="379" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel16">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel16.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/com/institute_management/resources/images/header/body2.jpg&quot;)).getImage().getScaledInstance(830, 380, Image.SCALE_SMOOTH)));"/>
+              </AuxValues>
+            </Component>
             <Container class="javax.swing.JPanel" name="jPanel8">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ef" red="e1" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Add Students"/>
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
+                    </LineBorder>
                   </Border>
                 </Property>
               </Properties>
@@ -131,41 +166,52 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" max="32767" attributes="0"/>
-                      <Component id="txtStdIDReg" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="rNormal" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="7" max="32767" attributes="0"/>
-                                  <Component id="rhalf" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jButton1" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton2" min="-2" pref="109" max="-2" attributes="0"/>
-                              <Component id="rFull" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="326" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
+                                  <Component id="rhalf" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="rFull" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="rNormal" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Component id="txtStdIDReg" min="-2" pref="326" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="10" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="118" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="txtStdIDReg" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="rNormal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rhalf" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rFull" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="rhalf" min="-2" max="-2" attributes="0"/>
+                              <Component id="rFull" min="-2" max="-2" attributes="0"/>
+                              <Component id="rNormal" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -232,10 +278,18 @@
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel9">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ef" red="e1" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Delete Students"/>
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
+                    </LineBorder>
                   </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[342, 232]"/>
                 </Property>
               </Properties>
 
@@ -243,11 +297,21 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtStntIDDelete" alignment="1" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnDelete" min="-2" pref="204" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton4" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtStntIDDelete" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="btnDelete" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                                  <Component id="jButton4" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -258,7 +322,7 @@
                           <Component id="jLabel2" min="-2" pref="22" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="txtStntIDDelete" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="97" max="32767" attributes="0"/>
+                          <EmptySpace pref="100" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -292,12 +356,20 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C L E A R"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Update Class Details">
@@ -306,46 +378,175 @@
             </Constraint>
           </Constraints>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel13" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel13">
+            <Container class="javax.swing.JPanel" name="jPanel11">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ef" red="e1" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Change Class Days"/>
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
+                    </LineBorder>
                   </Border>
                 </Property>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="270" width="330" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="txtMonthlyfee" min="-2" pref="101" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" pref="125" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel4" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="txtTotalFee" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="test" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButton6" min="-2" pref="89" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtTotalFee" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMonthlyfee" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="test" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Monthly Fee"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Total Course Fee"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtMonthlyfee">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtTotalFee">
+                </Component>
+                <Component class="javax.swing.JButton" name="test">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="U P D A T E"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="testActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton6">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="C L E A R"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel12">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
+                    </LineBorder>
+                  </Border>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="560" y="270" width="310" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="308" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="124" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel13">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ef" red="e1" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder>
+                      <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
+                    </LineBorder>
+                  </Border>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="30" width="870" height="190"/>
+                </Constraint>
+              </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -353,62 +554,57 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="chkMonday" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="monSt" pref="77" max="32767" attributes="0"/>
-                              <Component id="monEd" alignment="0" max="32767" attributes="0"/>
+                              <Component id="chkMonday" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="monEd" linkSize="2" alignment="0" pref="80" max="32767" attributes="0"/>
+                              <Component id="monSt" linkSize="2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="chkTuesday" min="-2" max="-2" attributes="0"/>
-                              <Component id="tueSt" pref="78" max="32767" attributes="0"/>
-                              <Component id="tueEd" alignment="0" max="32767" attributes="0"/>
+                              <Component id="chkTuesday" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tueSt" linkSize="2" pref="80" max="32767" attributes="0"/>
+                              <Component id="tueEd" linkSize="2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chkWednesday" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="wedSt" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="wedEd" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="chkWednesday" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="wedSt" linkSize="2" alignment="1" max="32767" attributes="0"/>
+                              <Component id="wedEd" linkSize="2" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chkThusday" min="-2" max="-2" attributes="0"/>
-                              <Component id="thuSt" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="thuEd" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="chkThursday" linkSize="3" max="32767" attributes="0"/>
+                              <Component id="thuSt" linkSize="2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="thuEd" linkSize="2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButton7" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jButton8" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="friSt" min="-2" pref="63" max="-2" attributes="0"/>
-                                      <Component id="chkFrday" min="-2" max="-2" attributes="0"/>
-                                      <Component id="friEd" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="chkFriday" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="friSt" linkSize="2" pref="80" max="32767" attributes="0"/>
+                                      <Component id="friEd" linkSize="2" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="satEd" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="satSt" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="chkStaday" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="chkSaturday" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="satSt" linkSize="2" alignment="0" pref="80" max="32767" attributes="0"/>
+                                      <Component id="satEd" linkSize="2" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                                  <EmptySpace pref="53" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="sunEd" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="sunSt" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="chkSunday" min="-2" max="-2" attributes="0"/>
+                                      <Component id="sunSt" linkSize="2" alignment="1" pref="80" max="32767" attributes="0"/>
+                                      <Component id="sunEd" linkSize="2" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="chkSunday" linkSize="3" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -427,8 +623,8 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="chkTuesday" alignment="1" min="-2" max="-2" attributes="0"/>
                                               <Component id="chkWednesday" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkThusday" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkFrday" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="chkThursday" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="chkFriday" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -442,12 +638,12 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="tueSt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="wedSt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="wedSt" alignment="3" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="tueEd" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="wedEd" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tueEd" min="-2" max="-2" attributes="0"/>
+                                              <Component id="wedEd" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" attributes="0">
@@ -461,26 +657,32 @@
                                       <Component id="friSt" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="chkStaday" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="satSt" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="satEd" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="chkSunday" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="sunSt" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="sunEd" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="chkSaturday" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="satSt" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="satEd" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="chkSunday" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="sunSt" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="sunEd" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="18" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="34" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -501,17 +703,17 @@
                     <Property name="text" type="java.lang.String" value="Wednesday"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="chkThusday">
+                <Component class="javax.swing.JCheckBox" name="chkThursday">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Thursday"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="chkFrday">
+                <Component class="javax.swing.JCheckBox" name="chkFriday">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Friday"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="chkStaday">
+                <Component class="javax.swing.JCheckBox" name="chkSaturday">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Saturday"/>
                   </Properties>
@@ -548,27 +750,48 @@
                 </Component>
                 <Component class="javax.swing.JSpinner" name="wedEd">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap wednesday = editCourseBean.getClassDaysMap();&#xa;            if (wednesday.containsKey(&quot;wednesday&quot;)) {&#xa;               &#xa;                Date wedEndTime = ((classDaysBean) wednesday.get(&quot;wednesday&quot;)).getStartTime();&#xa;                SpinnerDateModel smWedEd = new SpinnerDateModel(wedEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                wedEd = new javax.swing.JSpinner(smWedEd);&#xa;                JSpinner.DateEditor deWedEd = new JSpinner.DateEditor(wedEd, &quot;hh:mm a&quot;);&#xa;                wedEd.setEditor(deWedEd);&#xa;            }&#xa;        }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap wednesday = editCourseBean.getClassDaysMap();&#xa;            if (wednesday.containsKey(&quot;wednesday&quot;)) {&#xa;               &#xa;                Date wedEndTime = ((classDaysBean) wednesday.get(&quot;wednesday&quot;)).getEndTime();&#xa;                SpinnerDateModel smWedEd = new SpinnerDateModel(wedEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                wedEd = new javax.swing.JSpinner(smWedEd);&#xa;                JSpinner.DateEditor deWedEd = new JSpinner.DateEditor(wedEd, &quot;hh:mm a&quot;);&#xa;                wedEd.setEditor(deWedEd);&#xa;            }&#xa;        }"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="thuSt">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap thusday = editCourseBean.getClassDaysMap();&#xa;            if (thusday.containsKey(&quot;thusday&quot;)) {&#xa;                chkThusday.setSelected(true);&#xa;                Date thuStartTime = ((classDaysBean) thusday.get(&quot;thuesday&quot;)).getStartTime();&#xa;                SpinnerDateModel smThuSt = new SpinnerDateModel(thuStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                thuSt = new javax.swing.JSpinner(smThuSt);&#xa;                JSpinner.DateEditor deThuSt = new JSpinner.DateEditor(thuSt, &quot;hh:mm a&quot;);&#xa;                thuSt.setEditor(deThuSt);&#xa;            }&#xa;        }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap thursday = editCourseBean.getClassDaysMap();&#xa;            if (thursday.containsKey(&quot;thursday&quot;)) {&#xa;                chkThursday.setSelected(true);&#xa;                Date thuStartTime = ((classDaysBean) thursday.get(&quot;thursday&quot;)).getStartTime();&#xa;                SpinnerDateModel smThuSt = new SpinnerDateModel(thuStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                thuSt = new javax.swing.JSpinner(smThuSt);&#xa;                JSpinner.DateEditor deThuSt = new JSpinner.DateEditor(thuSt, &quot;hh:mm a&quot;);&#xa;                thuSt.setEditor(deThuSt);&#xa;            }&#xa;        }"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="thuEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap thursday = editCourseBean.getClassDaysMap();&#xa;            if (thursday.containsKey(&quot;thursday&quot;)) {&#xa;              &#xa;                Date thuEndTime = ((classDaysBean) thursday.get(&quot;thursday&quot;)).getEndTime();&#xa;                SpinnerDateModel smThuEd = new SpinnerDateModel(thuEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                thuEd = new javax.swing.JSpinner(smThuEd);&#xa;                JSpinner.DateEditor deThuEd = new JSpinner.DateEditor(thuEd, &quot;hh:mm a&quot;);&#xa;                thuEd.setEditor(deThuEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="friSt">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap friday = editCourseBean.getClassDaysMap();&#xa;            if (friday.containsKey(&quot;friday&quot;)) {&#xa;                chkFriday.setSelected(true);&#xa;                Date friStartTime = ((classDaysBean) friday.get(&quot;friday&quot;)).getStartTime();&#xa;                SpinnerDateModel smFriSt = new SpinnerDateModel(friStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                friSt = new javax.swing.JSpinner(smFriSt);&#xa;                JSpinner.DateEditor deFriSt = new JSpinner.DateEditor(friSt, &quot;hh:mm a&quot;);&#xa;                friSt.setEditor(deFriSt);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="friEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap friday = editCourseBean.getClassDaysMap();&#xa;            if (friday.containsKey(&quot;friday&quot;)) {&#xa;                &#xa;                Date friEndTime = ((classDaysBean) friday.get(&quot;friday&quot;)).getEndTime();&#xa;                SpinnerDateModel smFriEd = new SpinnerDateModel(friEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                friEd = new javax.swing.JSpinner(smFriEd);&#xa;                JSpinner.DateEditor deFriEd = new JSpinner.DateEditor(friEd, &quot;hh:mm a&quot;);&#xa;                friEd.setEditor(deFriEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="satSt">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap saturday = editCourseBean.getClassDaysMap();&#xa;            if (saturday.containsKey(&quot;saturday&quot;)) {&#xa;                chkSaturday.setSelected(true);&#xa;                Date satStartTime = ((classDaysBean) saturday.get(&quot;saturday&quot;)).getStartTime();&#xa;                SpinnerDateModel smSatSt = new SpinnerDateModel(satStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                satSt = new javax.swing.JSpinner(smSatSt);&#xa;                JSpinner.DateEditor deSatSt = new JSpinner.DateEditor(satSt, &quot;hh:mm a&quot;);&#xa;                satSt.setEditor(deSatSt);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="satEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap saturday = editCourseBean.getClassDaysMap();&#xa;            if (saturday.containsKey(&quot;saturday&quot;)) {&#xa;               &#xa;                Date satEndTime = ((classDaysBean) saturday.get(&quot;saturday&quot;)).getEndTime();&#xa;                SpinnerDateModel smSatEd = new SpinnerDateModel(satEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                satEd = new javax.swing.JSpinner(smSatEd);&#xa;                JSpinner.DateEditor deSatEd = new JSpinner.DateEditor(satEd, &quot;hh:mm a&quot;);&#xa;                satEd.setEditor(deSatEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="sunSt">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap sunday = editCourseBean.getClassDaysMap();&#xa;            if (sunday.containsKey(&quot;sunday&quot;)) {&#xa;                chkSunday.setSelected(true);&#xa;                Date sunStartTime = ((classDaysBean) sunday.get(&quot;sunday&quot;)).getStartTime();&#xa;                SpinnerDateModel smSunSt = new SpinnerDateModel(sunStartTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                sunSt = new javax.swing.JSpinner(smSunSt);&#xa;                JSpinner.DateEditor deSunSt = new JSpinner.DateEditor(sunSt, &quot;hh:mm a&quot;);&#xa;                sunSt.setEditor(deSunSt);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="sunEd">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (editCourseBean.getClassDaysMap() != null) {&#xa;            HashMap sunday = editCourseBean.getClassDaysMap();&#xa;            if (sunday.containsKey(&quot;sunday&quot;)) {&#xa;                &#xa;                Date sunEndTime = ((classDaysBean) sunday.get(&quot;sunday&quot;)).getEndTime();&#xa;                SpinnerDateModel smSunEd = new SpinnerDateModel(sunEndTime, null, null, Calendar.HOUR_OF_DAY);&#xa;                sunEd = new javax.swing.JSpinner(smSunEd);&#xa;                JSpinner.DateEditor deSunEd = new JSpinner.DateEditor(sunEd, &quot;hh:mm a&quot;);&#xa;                sunEd.setEditor(deSunEd);&#xa;            }&#xa;        }"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton7">
                   <Properties>
@@ -591,124 +814,24 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel11">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Update Class Fee"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="test" pref="125" max="32767" attributes="0"/>
-                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField4" max="32767" attributes="0"/>
-                              <Component id="jLabel4" pref="132" max="32767" attributes="0"/>
-                              <Component id="jButton6" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField4" max="32767" attributes="0"/>
-                              <Component id="jTextField3" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="test" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="12" style="1"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Monthly Fee"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="12" style="1"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Total Course Fee"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
-                </Component>
-                <Component class="javax.swing.JButton" name="test">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="U P D A T E"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="testActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="C L E A R"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel12">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Add New Batch"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="263" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="103" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel18">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel18.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/com/institute_management/resources/images/header/body2.jpg&quot;)).getImage().getScaledInstance(830, 380, Image.SCALE_SMOOTH)));"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="0" width="870" height="410"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel5">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Manage Extra Classes">
@@ -732,7 +855,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace pref="107" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
@@ -745,6 +868,9 @@
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jPanel14">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Add Extra Class"/>
@@ -854,6 +980,9 @@
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel15">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Remove Extra Class"/>
@@ -867,7 +996,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane1" pref="523" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="500" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jButton9" min="-2" pref="151" max="-2" attributes="0"/>
@@ -948,12 +1077,20 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="D E L E T E"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel6">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Send Masseges">
@@ -972,7 +1109,7 @@
                           <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
                           <Component id="jButton18" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jComboBox1" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -982,7 +1119,7 @@
                           </Group>
                           <Component id="jButton19" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                      <EmptySpace pref="52" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="362" max="-2" attributes="0"/>
@@ -1098,6 +1235,11 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Free Cards">
@@ -1113,7 +1255,7 @@
                       <Component id="jPanel16" min="-2" pref="248" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace pref="82" max="32767" attributes="0"/>
                       <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
@@ -1122,7 +1264,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="61" max="32767" attributes="0"/>
+                      <EmptySpace pref="102" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jPanel17" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1426,6 +1568,11 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel10">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Course Reports">
@@ -1437,24 +1584,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="893" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="870" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="362" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="403" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel7">
+    <Container class="javax.swing.JPanel" name="jPanel19">
       <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Course Details"/>
-          </Border>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -1462,172 +1607,312 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel14" pref="108" max="32767" attributes="0"/>
-                      <Component id="jLabel15" max="32767" attributes="0"/>
-                      <Component id="jLabel16" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="txtGrade" min="-2" pref="104" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                          <Component id="jLabel19" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="237" pref="237" max="-2" attributes="0"/>
+                          <Component id="jLabel31" min="-2" pref="86" max="-2" attributes="0"/>
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="lblTotalFee" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="56" pref="56" max="-2" attributes="0"/>
+                          <Component id="jLabel20" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                          <Component id="lbltotalStudent" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtSubject" min="-2" pref="104" max="-2" attributes="0"/>
-                              <Component id="lblName" min="-2" pref="168" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel21" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <Component id="jLabel22" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel18" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtClassFee" pref="119" max="32767" attributes="0"/>
-                                      <Component id="txtBatchNo" max="32767" attributes="0"/>
-                                      <Component id="txtClassType" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel27" min="-2" pref="96" max="-2" attributes="0"/>
-                              <Component id="jLabel26" min="-2" pref="96" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtTotalStudents" max="32767" attributes="0"/>
-                              <Component id="txtFreeCardCount" pref="106" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                          <Component id="jLabel23" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="lblSubject" min="-2" pref="171" max="-2" attributes="0"/>
+                          <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                          <Component id="jLabel15" min="-2" pref="86" max="-2" attributes="0"/>
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="lblMonthlyFee" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="56" pref="56" max="-2" attributes="0"/>
+                          <Component id="jLabel21" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                          <Component id="jLabel24" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="lblGrade" min="-2" pref="171" max="-2" attributes="0"/>
+                          <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" pref="86" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="145" pref="145" max="-2" attributes="0"/>
+                          <Component id="lblName" min="-2" pref="171" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="596" pref="596" max="-2" attributes="0"/>
+                          <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="726" pref="726" max="-2" attributes="0"/>
+                          <Component id="lblHalf" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
+                          <Component id="lblBatchNo" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="726" pref="726" max="-2" attributes="0"/>
+                          <Component id="lblfree" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Component id="jLabel14" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblName" alignment="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtClassType" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTotalStudents" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTotalFee" min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbltotalStudent" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSubject" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMonthlyFee" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblGrade" min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                          <Component id="lblName" min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="96" pref="96" max="-2" attributes="0"/>
+                          <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="99" pref="99" max="-2" attributes="0"/>
+                          <Component id="lblHalf" min="-2" pref="13" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
+                          <Component id="lblBatchNo" min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="69" pref="69" max="-2" attributes="0"/>
+                          <Component id="lblfree" min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtSubject" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtBatchNo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFreeCardCount" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtGrade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtClassFee" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
+              <Component id="jLabel14" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel14">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel14.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/com/institute_management/resources/images/header/h2.jpg&quot;)).getImage().getScaledInstance(830, 110, Image.SCALE_SMOOTH)));"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Lecturer Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
+        <Component class="javax.swing.JLabel" name="jLabel23">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Subject"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel16">
+        <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Grade"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel17">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel18">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel20">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Class Type"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel21">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Batch Number"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel22">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Class Fee"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel26">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Total Students"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel27">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Num. of Free Cards"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtSubject">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtGrade">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtClassType">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtBatchNo">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtClassFee">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtClassFeeActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTotalStudents">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFreeCardCount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFreeCardCountActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSubject">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblGrade">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel31">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total Course Fee"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTotalFee">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel15">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Monthly Fee"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMonthlyFee">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Batch Number"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblBatchNo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel20">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total Students"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel21">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total Free Cards"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel26">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total 50% fee Cards"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbltotalStudent">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblfree">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblHalf">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
         </Component>

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.institute_management.course_mgt;
 
 import java.sql.PreparedStatement;
@@ -17,7 +16,7 @@ import java.util.HashMap;
 public class selectCourse extends javax.swing.JFrame {
 
     static courseBean OnlyForCourseEditBean = new courseBean();
-    
+
     public selectCourse() {
         initComponents();
     }
@@ -185,36 +184,34 @@ public class selectCourse extends javax.swing.JFrame {
         PreparedStatement stmt = null;
         ResultSet result = null;
 
-        try{
+        try {
             String course_id = cmbSelectCourse.getSelectedItem().toString();
             System.out.println(course_id);
-            String query= "select co.*,su.subject_name,le.name from course co inner join subject su on co.subject_id = su.subject_id inner join lecturer le on co.lecturer_id = le.id where co.course_id ='"+course_id+"'";
+            String query = "select co.*,su.subject_name,le.name from course co inner join subject su on co.subject_id = su.subject_id inner join lecturer le on co.lecturer_id = le.id where co.course_id ='" + course_id + "'";
 
-            stmt =new CourseDbConnection().getConnection().prepareStatement(query);
+            stmt = new CourseDbConnection().getConnection().prepareStatement(query);
             result = stmt.executeQuery();
 
-            while(result.next()){
+            while (result.next()) {
                 String lecturerName = result.getString("name");
                 String subject = result.getString("subject_name");
                 String grade = result.getString("grade");
                 String Class_type = result.getString("class_type");
                 String course_description = result.getString("course_description");
                 String medium = result.getString("medium");
+                int batch = result.getInt("batch_number");
+                double monthlyFee = result.getInt("monthly_fee");
+                double totalFee = result.getInt("total_course_fee");
                 
-                System.out.println(lecturerName);
-                System.out.println(subject);
-                System.out.println(grade);
-                System.out.println(Class_type);
-                System.out.println(course_description);
-                System.out.println(medium);
-                
+
+
                 lblDescription.setText(course_description);
                 lblClassType.setText(Class_type);
                 lblGrade.setText(grade);
                 lblLectureName.setText(lecturerName);
                 lblSubject.setText(subject);
                 lblMedium.setText(medium);
-                
+
                 OnlyForCourseEditBean.setCourseDescription(course_description);
                 OnlyForCourseEditBean.setCourseType(Class_type);
                 OnlyForCourseEditBean.setGrade(grade);
@@ -222,21 +219,24 @@ public class selectCourse extends javax.swing.JFrame {
                 OnlyForCourseEditBean.setSubject(subject);
                 OnlyForCourseEditBean.setCourseMedium(medium);
                 OnlyForCourseEditBean.setCourseID(course_id);
+                OnlyForCourseEditBean.setBatchNumber(batch);
+                OnlyForCourseEditBean.setMonthlyFee(monthlyFee);
+                OnlyForCourseEditBean.setTotalCourseFee(totalFee);
 
             }
 
             result.close();
             stmt.close();
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }//GEN-LAST:event_cmbSelectCourseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         test a  = new test();
-         a.setVisible(true);
-         this.dispose();
+        test a = new test();
+        a.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

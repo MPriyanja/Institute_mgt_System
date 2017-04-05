@@ -459,7 +459,6 @@ public class CourseDbConnection {
         ResultSet result;
         int success;
         HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
-        
 
         try {
             String query = "select * from extraclasses where `courseID`=? ";
@@ -470,7 +469,7 @@ public class CourseDbConnection {
             result = stmt.executeQuery();
             while (result.next()) {
                 Object[] rowData = new Object[5];
-                
+
                 rowData[0] = result.getString("date");
                 rowData[1] = result.getString("startTime");
                 rowData[2] = result.getString("endTime");
@@ -485,6 +484,91 @@ public class CourseDbConnection {
 
         return tableData;
     }
+
+    public void updateClassDays(HashMap<String, classDaysBean> beanMap, String CourseId) throws Exception {
+        PreparedStatement stmt;
+        ResultSet result;
+        
+        try {
+            String query = "Delete from courses_dates where Course_id=? ";
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, CourseId);
+            stmt.executeUpdate();
+            
+            insertClassDays(beanMap, CourseId);
+
+            
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
     
+    public int updateCourseFee(String course_id,double monthlyFee,double totalFee) throws Exception{
+     
+    PreparedStatement stmt;
+        ResultSet result;
+        int success;
+
+        try {
+            String query = " UPDATE `course` SET `total_course_fee`= ? ,`monthly_fee`= ? WHERE `course_id` = ?";
+
+            stmt = con.prepareStatement(query);
+            stmt.setDouble(1, totalFee);
+            stmt.setDouble(2, monthlyFee);
+            stmt.setString(3, course_id);
+
+            success = stmt.executeUpdate();
+
+            return success;
+        } catch (Exception ex) {
+            throw ex;
+        }
     
+    }
+    
+    public int deleteExtraClasses(String courseId,String date,String startTime) throws Exception{
+        PreparedStatement stmt;
+        ResultSet result;
+        int success;
+        try {
+            String query = "delete from extraclasses where courseid = ? and date = ? and startTime = ?";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, courseId);
+            stmt.setString(2, date);
+            stmt.setString(3, startTime);
+
+            success = stmt.executeUpdate();
+
+            return success;
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
+    
+    public int[] totalFreeCards(String courseID) throws Exception{
+        PreparedStatement stmt;
+        ResultSet result;
+        int success;
+        int array[] = new int[4];
+        try {
+            String query = "SELECT (select count(cardType) from `student-course` where cardType=0 ) as free,(select count(cardType) from `student-course` where cardType=1 ) as half,(select count(cardType) from `student-course` where cardType=2 ) as normal, (select count(cardType) from `student-course`)as total FROM `student-course` where course_id = ? ";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, courseID);
+
+            result = stmt.executeQuery();
+            while(result.next()){
+                array[0] = result.getInt("free");
+                array[1] = result.getInt("half");
+                array[2] = result.getInt("normal");
+                array[3] = result.getInt("total");
+                
+                
+            }
+            return array;
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
 }
