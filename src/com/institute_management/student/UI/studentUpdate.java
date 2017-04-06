@@ -5,6 +5,9 @@
  */
 package com.institute_management.student.UI;
 
+import com.institute_management.student.BEAN.Student;
+import static com.institute_management.student.UI.selectStudent.studentDont;
+
 /**
  *
  * @author Maduranga
@@ -14,8 +17,33 @@ public class studentUpdate extends javax.swing.JFrame {
     /**
      * Creates new form studentUpdate
      */
+    Student st = new Student();
+
     public studentUpdate() {
         initComponents();
+        loadStudentUpdate();
+    }
+
+    void loadStudentUpdate() {
+
+        st = studentDont;
+        txtAddressUpdate.setText(st.getAddress());
+        txtAddrs.setText(st.getAddress());
+        txtDob.setText(st.getDob());
+        txtEmailUpdate.setText(st.getEmail());
+        txtMail.setText(st.getEmail());
+        txtName.setText(st.getName());
+        txtNameUpdate.setText(st.getName());
+        txtPEmailUpdate.setText(st.getParentEmail());
+        txtPTpUpdate.setText(st.getpContactNo());
+        txtPnameUpdate.setText(st.getParentName());
+        txtRegNo.setText(st.getStudentID());
+        txtSchool.setText(st.getSchool());
+        txtSchoolUpdate.setText(st.getSchool());
+        txtTele.setText(st.getTelephn());
+        txtTpUpdate.setText(st.getTelephn());
+        txtYor.setText(st.getYearOfReg());
+
     }
 
     /**
@@ -38,7 +66,7 @@ public class studentUpdate extends javax.swing.JFrame {
         txtAddrs = new javax.swing.JTextField();
         txtDob = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        txtYor = new javax.swing.JTextField();
+        txtRegNo = new javax.swing.JTextField();
         txtTele = new javax.swing.JTextField();
         txtSchool = new javax.swing.JTextField();
         txtpcontact = new javax.swing.JTextField();
@@ -47,39 +75,39 @@ public class studentUpdate extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtYor1 = new javax.swing.JTextField();
+        txtYor = new javax.swing.JTextField();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        txtAddrs1 = new javax.swing.JTextField();
+        txtNameUpdate = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtAddrs2 = new javax.swing.JTextField();
-        txtAddrs3 = new javax.swing.JTextField();
+        txtSchoolUpdate = new javax.swing.JTextField();
+        txtAddressUpdate = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtAddrs4 = new javax.swing.JTextField();
+        txtEmailUpdate = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtAddrs5 = new javax.swing.JTextField();
+        txtTpUpdate = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        txtAddrs6 = new javax.swing.JTextField();
+        txtPnameUpdate = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        txtAddrs9 = new javax.swing.JTextField();
+        txtPEmailUpdate = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        txtAddrs10 = new javax.swing.JTextField();
+        txtPTpUpdate = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        txtName1 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         txtName2 = new javax.swing.JTextField();
         rNormal = new javax.swing.JRadioButton();
         rhalf = new javax.swing.JRadioButton();
         rFull = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
+        comboCourseId = new javax.swing.JComboBox();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -133,9 +161,9 @@ public class studentUpdate extends javax.swing.JFrame {
             }
         });
 
-        txtYor.addActionListener(new java.awt.event.ActionListener() {
+        txtRegNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtYorActionPerformed(evt);
+                txtRegNoActionPerformed(evt);
             }
         });
 
@@ -161,9 +189,9 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jLabel11.setText("Year of Registration  ");
 
-        txtYor1.addActionListener(new java.awt.event.ActionListener() {
+        txtYor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtYor1ActionPerformed(evt);
+                txtYorActionPerformed(evt);
             }
         });
 
@@ -174,12 +202,12 @@ public class studentUpdate extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
+                        .addGap(71, 71, 71)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(329, 329, 329)
+                        .addGap(332, 332, 332)
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtYor1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtYor, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(503, 503, 503)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +220,7 @@ public class studentUpdate extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTele, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtYor, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRegNo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtpcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSchool, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(76, 76, 76))
@@ -229,20 +257,23 @@ public class studentUpdate extends javax.swing.JFrame {
                                     .addComponent(txtTele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtYor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtRegNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtpcontact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtYor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtYor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(42, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(30, 30, 30))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(39, 39, 39)
@@ -272,9 +303,9 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Student Details"));
 
-        txtAddrs1.addActionListener(new java.awt.event.ActionListener() {
+        txtNameUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs1ActionPerformed(evt);
+                txtNameUpdateActionPerformed(evt);
             }
         });
 
@@ -284,31 +315,31 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jLabel14.setText("Address           ");
 
-        txtAddrs2.addActionListener(new java.awt.event.ActionListener() {
+        txtSchoolUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs2ActionPerformed(evt);
+                txtSchoolUpdateActionPerformed(evt);
             }
         });
 
-        txtAddrs3.addActionListener(new java.awt.event.ActionListener() {
+        txtAddressUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs3ActionPerformed(evt);
+                txtAddressUpdateActionPerformed(evt);
             }
         });
 
         jLabel15.setText("Email           ");
 
-        txtAddrs4.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs4ActionPerformed(evt);
+                txtEmailUpdateActionPerformed(evt);
             }
         });
 
         jLabel16.setText("Telephone");
 
-        txtAddrs5.addActionListener(new java.awt.event.ActionListener() {
+        txtTpUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs5ActionPerformed(evt);
+                txtTpUpdateActionPerformed(evt);
             }
         });
 
@@ -333,11 +364,11 @@ public class studentUpdate extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtAddrs5)
-                    .addComponent(txtAddrs1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtAddrs2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtAddrs3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtAddrs4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTpUpdate)
+                    .addComponent(txtNameUpdate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtSchoolUpdate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtAddressUpdate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtEmailUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(124, 124, 124))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(198, 198, 198)
@@ -350,23 +381,23 @@ public class studentUpdate extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNameUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSchoolUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddressUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmailUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTpUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -374,9 +405,9 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Parent Details"));
 
-        txtAddrs6.addActionListener(new java.awt.event.ActionListener() {
+        txtPnameUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs6ActionPerformed(evt);
+                txtPnameUpdateActionPerformed(evt);
             }
         });
 
@@ -384,17 +415,17 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jLabel20.setText("Email           ");
 
-        txtAddrs9.addActionListener(new java.awt.event.ActionListener() {
+        txtPEmailUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs9ActionPerformed(evt);
+                txtPEmailUpdateActionPerformed(evt);
             }
         });
 
         jLabel21.setText("Telephone");
 
-        txtAddrs10.addActionListener(new java.awt.event.ActionListener() {
+        txtPTpUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddrs10ActionPerformed(evt);
+                txtPTpUpdateActionPerformed(evt);
             }
         });
 
@@ -422,9 +453,9 @@ public class studentUpdate extends javax.swing.JFrame {
                         .addGap(124, 124, 124))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddrs6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddrs9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddrs10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPnameUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPEmailUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPTpUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43))))
         );
         jPanel7Layout.setVerticalGroup(
@@ -433,15 +464,15 @@ public class studentUpdate extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPnameUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPEmailUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddrs10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPTpUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(114, 114, 114)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -473,12 +504,6 @@ public class studentUpdate extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Course"));
 
         jLabel18.setText("Course ID");
-
-        txtName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName1ActionPerformed(evt);
-            }
-        });
 
         jLabel19.setText("Course Name         ");
 
@@ -512,6 +537,13 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jButton3.setText("Add");
 
+        comboCourseId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCourseId.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboCourseIdItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -524,9 +556,9 @@ public class studentUpdate extends javax.swing.JFrame {
                             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(36, 36, 36)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtName2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(comboCourseId, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -544,11 +576,11 @@ public class studentUpdate extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtName1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(comboCourseId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -559,7 +591,7 @@ public class studentUpdate extends javax.swing.JFrame {
                     .addComponent(rFull))
                 .addGap(34, 34, 34)
                 .addComponent(jButton3)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Couses"));
@@ -647,7 +679,7 @@ public class studentUpdate extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
+            .addGap(0, 271, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -717,9 +749,9 @@ public class studentUpdate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtYorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYorActionPerformed
+    private void txtRegNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtYorActionPerformed
+    }//GEN-LAST:event_txtRegNoActionPerformed
 
     private void txtSchoolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSchoolActionPerformed
         // TODO add your handling code here:
@@ -729,53 +761,51 @@ public class studentUpdate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpcontactActionPerformed
 
-    private void txtYor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYor1ActionPerformed
+    private void txtYorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtYor1ActionPerformed
+    }//GEN-LAST:event_txtYorActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txtAddrs10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs10ActionPerformed
+    private void txtPTpUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPTpUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs10ActionPerformed
+    }//GEN-LAST:event_txtPTpUpdateActionPerformed
 
-    private void txtAddrs9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs9ActionPerformed
+    private void txtPEmailUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPEmailUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs9ActionPerformed
+    }//GEN-LAST:event_txtPEmailUpdateActionPerformed
 
-    private void txtAddrs6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs6ActionPerformed
+    private void txtPnameUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPnameUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs6ActionPerformed
+    }//GEN-LAST:event_txtPnameUpdateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtAddrs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs5ActionPerformed
+    private void txtTpUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTpUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs5ActionPerformed
+    }//GEN-LAST:event_txtTpUpdateActionPerformed
 
-    private void txtAddrs4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs4ActionPerformed
+    private void txtEmailUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs4ActionPerformed
+    }//GEN-LAST:event_txtEmailUpdateActionPerformed
 
-    private void txtAddrs3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs3ActionPerformed
+    private void txtAddressUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs3ActionPerformed
+    }//GEN-LAST:event_txtAddressUpdateActionPerformed
 
-    private void txtAddrs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs2ActionPerformed
+    private void txtSchoolUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSchoolUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs2ActionPerformed
+    }//GEN-LAST:event_txtSchoolUpdateActionPerformed
 
-    private void txtAddrs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddrs1ActionPerformed
+    private void txtNameUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddrs1ActionPerformed
-
-    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtName1ActionPerformed
+    }//GEN-LAST:event_txtNameUpdateActionPerformed
 
     private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
         // TODO add your handling code here:
@@ -795,6 +825,16 @@ public class studentUpdate extends javax.swing.JFrame {
         rNormal.setSelected(false);
         rhalf.setSelected(false);
     }//GEN-LAST:event_rFullActionPerformed
+
+    private void comboCourseIdItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCourseIdItemStateChanged
+        // TODO add your handling code here:
+        String courseId = comboCourseId.getSelectedItem().toString();
+    }//GEN-LAST:event_comboCourseIdItemStateChanged
+
+    public String getCourseName(String CourseId) {
+
+        return null;
+    }
 
     /**
      * @param args the command line arguments
@@ -832,6 +872,7 @@ public class studentUpdate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox comboCourseId;
     private javax.swing.JComboBox comboGender;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -873,24 +914,23 @@ public class studentUpdate extends javax.swing.JFrame {
     private javax.swing.JRadioButton rFull;
     private javax.swing.JRadioButton rNormal;
     private javax.swing.JRadioButton rhalf;
+    private javax.swing.JTextField txtAddressUpdate;
     private javax.swing.JTextField txtAddrs;
-    private javax.swing.JTextField txtAddrs1;
-    private javax.swing.JTextField txtAddrs10;
-    private javax.swing.JTextField txtAddrs2;
-    private javax.swing.JTextField txtAddrs3;
-    private javax.swing.JTextField txtAddrs4;
-    private javax.swing.JTextField txtAddrs5;
-    private javax.swing.JTextField txtAddrs6;
-    private javax.swing.JTextField txtAddrs9;
     private javax.swing.JTextField txtDob;
+    private javax.swing.JTextField txtEmailUpdate;
     private javax.swing.JTextField txtMail;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
+    private javax.swing.JTextField txtNameUpdate;
+    private javax.swing.JTextField txtPEmailUpdate;
+    private javax.swing.JTextField txtPTpUpdate;
+    private javax.swing.JTextField txtPnameUpdate;
+    private javax.swing.JTextField txtRegNo;
     private javax.swing.JTextField txtSchool;
+    private javax.swing.JTextField txtSchoolUpdate;
     private javax.swing.JTextField txtTele;
+    private javax.swing.JTextField txtTpUpdate;
     private javax.swing.JTextField txtYor;
-    private javax.swing.JTextField txtYor1;
     private javax.swing.JTextField txtpcontact;
     // End of variables declaration//GEN-END:variables
 }

@@ -211,7 +211,7 @@ public class SubjectDbConnection {
         return studentList;
     }
 
-    public int updateStudent(Student st) throws Exception{
+    public int updateStudent(Student st) throws Exception {
         int count = 0;
 
         try {
@@ -223,13 +223,13 @@ public class SubjectDbConnection {
             pst.setString(1, st.getName());
             pst.setString(2, st.getDob());
             pst.setString(3, st.getAddress());
-             pst.setString(4, st.getEmail());
-            pst.setString(5,st.getGender());
+            pst.setString(4, st.getEmail());
+            pst.setString(5, st.getGender());
             pst.setString(6, st.getYearOfReg());
-             pst.setString(7, st.getTelephn());
-            pst.setString(8,st.getSchool());
+            pst.setString(7, st.getTelephn());
+            pst.setString(8, st.getSchool());
             pst.setString(9, st.getName());
-             pst.setString(10, st.getTelephn());
+            pst.setString(10, st.getTelephn());
             count = pst.executeUpdate();
 
         } catch (Exception e) {
@@ -250,14 +250,14 @@ public class SubjectDbConnection {
         return count;
     }
 
-    public int deleteStudent(Student st) throws Exception{
+    public int deleteStudent(Student st) throws Exception {
         int count = 0;
 
         try {
             query = "DELETE FROM `student` WHERE S_NAME=?";
             pst = connection.prepareStatement(query);
             pst.setString(1, st.getName());
-           
+
             count = pst.executeUpdate();
 
         } catch (Exception e) {
@@ -275,5 +275,51 @@ public class SubjectDbConnection {
                 throw ee;
             }
         }
-        return count;}
+        return count;
+    }
+
+    public Student selectStudent(String regId) throws Exception {
+        Student student = null;
+        try {
+            query = "select S_PARENT_EMAIL,S_PARENT_NAME,S_NAME,S_DOB,S_ADDRESS,S_EMAIL,S_GENDER,S_YOR,S_TELEPHONE,S_SCHOOL,S_ID,S_PARENT_CONTACT_NO from student where S_ID=?";
+            pst = connection.prepareStatement(query);
+            pst.setString(1, regId);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                student=new Student();
+
+                student.setDob(rs.getString("S_DOB"));
+                student.setEmail(rs.getString("S_EMAIL"));
+                student.setGender(rs.getString("S_GENDER"));
+                student.setName(rs.getString("S_NAME"));
+                student.setSchool(rs.getString("S_SCHOOL"));
+                student.setStudentID(rs.getString("S_ID"));
+                student.setTelephn(rs.getString("S_TELEPHONE"));
+                student.setYearOfReg(rs.getString("S_YOR"));
+                student.setpContactNo(rs.getString("S_PARENT_CONTACT_NO"));
+                student.setAddress(rs.getString("S_ADDRESS"));
+                student.setParentEmail(rs.getString("S_PARENT_EMAIL"));
+                student.setParentName(rs.getString("S_PARENT_NAME"));
+            }
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                if (pst != null) {
+                    try {
+                        pst.close();
+                    } catch (SQLException e) {
+                        throw e;
+                    }
+                }
+            } catch (Exception ee) {
+                throw ee;
+            }
+        }
+        return student;
+
+    }
 }

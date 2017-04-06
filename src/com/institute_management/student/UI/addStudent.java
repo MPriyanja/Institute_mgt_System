@@ -8,6 +8,7 @@ package com.institute_management.student.UI;
 import com.institute_management.student.BEAN.Student;
 import com.institute_management.student.BL.StudentDetails;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
+import com.institute_management.user_mgt.UI.mainFrame;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,6 +22,7 @@ public class addStudent extends javax.swing.JFrame {
     /**
      * Creates new form addStudent
      */ ArrayList<Student> stList;
+    
     //  ArrayList<Object[]> tableData;//=new Object[3];
     SubjectDbConnection dbCon = new SubjectDbConnection();
     public addStudent() {
@@ -73,6 +75,7 @@ public class addStudent extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewStudent = new javax.swing.JTable();
@@ -175,6 +178,19 @@ public class addStudent extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setText("Select Student");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,6 +204,8 @@ public class addStudent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,7 +298,8 @@ public class addStudent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -380,15 +399,14 @@ public class addStudent extends javax.swing.JFrame {
             st.setTelephn(txtTele.getText());
             st.setYearOfReg(txtYor.getText());
             st.setpContactNo(txtpcontact.getText());
+            
 
-            SubjectDbConnection dbCon = new SubjectDbConnection();
+            //SubjectDbConnection dbCon = new SubjectDbConnection();
             int count = dbCon.insertStudent(st);
             if (count > 0) {
                  JOptionPane.showMessageDialog(new JFrame(), "Successfully inserted ");
-                studentMain vs = new studentMain();
-                vs.setVisible(true);
-                this.dispose();
-
+                 
+            loadStudent();
             }
 
         } catch (Exception e) {
@@ -404,6 +422,20 @@ public class addStudent extends javax.swing.JFrame {
     private void txtpcontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpcontactActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpcontactActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        mainFrame mf=new  mainFrame();
+        mf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        selectStudent ss=new selectStudent();
+        ss.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,6 +477,7 @@ public class addStudent extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

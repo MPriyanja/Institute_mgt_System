@@ -10,6 +10,7 @@ import com.institute_management.course_mgt.createCourse;
 import com.institute_management.lecture_mgt.lectureBean;
 import com.institute_management.lecture_mgt.lectureReg;
 import com.institute_management.payment_mgt.paymentMain;
+import com.institute_management.student.UI.addStudent;
 import com.institute_management.student.UI.studentMain;
 import com.institute_management.subject_mgt.UI.viewSubject;
 
@@ -212,7 +213,7 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void btnstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudentActionPerformed
         // TODO add your handling code here:
-        studentMain sM = new studentMain();
+        addStudent sM = new addStudent();
         sM.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnstudentActionPerformed

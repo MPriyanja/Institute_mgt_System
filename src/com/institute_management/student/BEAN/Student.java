@@ -21,6 +21,8 @@ public class Student {
     private String yearOfReg;
     private String pContactNo;
     private String studentID;
+    private String parentName;
+    private String parentEmail;
 
     public String getName() {
         return name;
@@ -106,6 +108,22 @@ public class Student {
      */
     public void setStudentID(String studentID) {
         this.studentID = studentID;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public String getParentEmail() {
+        return parentEmail;
+    }
+
+    public void setParentEmail(String parentEmail) {
+        this.parentEmail = parentEmail;
     }
 
    
