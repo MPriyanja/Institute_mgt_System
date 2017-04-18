@@ -288,7 +288,7 @@ public class SubjectDbConnection {
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                student=new Student();
+                student = new Student();
 
                 student.setDob(rs.getString("S_DOB"));
                 student.setEmail(rs.getString("S_EMAIL"));
@@ -320,6 +320,46 @@ public class SubjectDbConnection {
             }
         }
         return student;
+
+    }
+
+    public ArrayList<String> getStudentList() throws Exception {
+        ArrayList<String> studentList = new ArrayList<String>();
+        try {
+            query = "SELECT S_ID FROM student";
+
+            pst = connection.prepareStatement(query);
+            rs = pst.executeQuery();
+            studentList.add("--");
+
+            while (rs.next()) {
+
+                studentList.add(rs.getString("S_ID"));
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return studentList;
+    }
+
+    public String getStudentNameOnId(String studentId) throws Exception {
+        String studentName=null;
+        try {
+            query = "SELECT S_NAME FROM student where S_ID=?";
+
+            pst = connection.prepareStatement(query);
+            pst.setString(1, studentId);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                studentName = rs.getString("S_NAME");
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return studentName;
 
     }
 }
