@@ -19,7 +19,7 @@ public class selectStudent extends javax.swing.JFrame {
     /**
      * Creates new form selectStudent
      */
-    private static SubjectDbConnection dbConnn;//= new SubjectDbConnection();
+    static SubjectDbConnection dbConnn = new SubjectDbConnection();
     public static Student studentDont;
 
     public selectStudent() {
