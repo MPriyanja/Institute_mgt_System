@@ -210,10 +210,7 @@ public class Login extends javax.swing.JFrame {
 
             if (validUser) {
                 userBean userbean = dbClass.getUserDetails(txtUserName.getText());
-                Configurations.user_name = userbean.getUserName();
-                Configurations.user_id = userbean.getUserID();
-                Configurations.role_id = userbean.getRoleID();
-                Configurations.privilegeGrantedPageList = userbean.getPrivilegeGrantedPageList();
+                Configurations.UserBean = userbean;
 
                 if (CommonMethods.check_user_access(Configurations.Main_Page)) {
                     mainFrame mf = new mainFrame();

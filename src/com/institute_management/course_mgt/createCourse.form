@@ -588,8 +588,11 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="cbThursday">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Thusday"/>
+            <Property name="text" type="java.lang.String" value="Thursday"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbThursdayActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cbFriday">
           <Properties>

@@ -5,6 +5,7 @@
  */
 package com.institute_management.util;
 
+import com.institute_management.user_mgt.bean.userBean;
 import java.util.ArrayList;
 
 /**
@@ -12,11 +13,9 @@ import java.util.ArrayList;
  * @author Malinda Ranabahu
  */
 public class Configurations {
-
-    public static String user_name;
-    public static int user_id;
-    public static int role_id;
-    public static ArrayList<Integer> privilegeGrantedPageList;
+    
+    public static userBean UserBean = new userBean();
+    
 
     //pagenames and IDs
     

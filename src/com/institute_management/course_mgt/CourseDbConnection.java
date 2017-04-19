@@ -136,10 +136,10 @@ public class CourseDbConnection {
 
                         bean = entry.getValue();
                         String StartEndTime = printFormat.format(bean.getStartTime()) + "-" + printFormat.format(bean.getEndTime());
-                        String query = "update courses_dates set `course_id` = ? ," + bean.getDay() + " = ? ";
+                        String query = "update courses_dates set " + bean.getDay() + " = ? where `course_id` = ? ";
                         stmt = con.prepareStatement(query);
-                        stmt.setString(1, CourseId);
-                        stmt.setString(2, StartEndTime);
+                        stmt.setString(1, StartEndTime);
+                        stmt.setString(2, CourseId);
                         stmt.executeUpdate();
 
                     }
@@ -152,7 +152,8 @@ public class CourseDbConnection {
 
     public String GenerateCourseID(String Grade, String subject, String ClassType, String Lecturer, int batchNo) {
 
-        String CourseID = Grade.replace(" ", "") + "/" + subject + "/" + ClassType.charAt(0) + "/" + Lecturer.substring(0, Lecturer.indexOf(" ")) + "/B" + (Integer.toString(batchNo));
+        String lecName = Lecturer.contains(" ") ? Lecturer.substring(0, Lecturer.indexOf(" ")) : Lecturer;
+        String CourseID = Grade.replace(" ", "") + "/" + subject + "/" + ClassType.charAt(0) + "/" + lecName + "/B" + (Integer.toString(batchNo));
         return CourseID;
     }
 
@@ -488,24 +489,23 @@ public class CourseDbConnection {
     public void updateClassDays(HashMap<String, classDaysBean> beanMap, String CourseId) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
-        
+
         try {
             String query = "Delete from courses_dates where Course_id=? ";
             stmt = con.prepareStatement(query);
             stmt.setString(1, CourseId);
             stmt.executeUpdate();
-            
+
             insertClassDays(beanMap, CourseId);
 
-            
         } catch (Exception ex) {
             throw ex;
         }
     }
-    
-    public int updateCourseFee(String course_id,double monthlyFee,double totalFee) throws Exception{
-     
-    PreparedStatement stmt;
+
+    public int updateCourseFee(String course_id, double monthlyFee, double totalFee) throws Exception {
+
+        PreparedStatement stmt;
         ResultSet result;
         int success;
 
@@ -523,10 +523,10 @@ public class CourseDbConnection {
         } catch (Exception ex) {
             throw ex;
         }
-    
+
     }
-    
-    public int deleteExtraClasses(String courseId,String date,String startTime) throws Exception{
+
+    public int deleteExtraClasses(String courseId, String date, String startTime) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         int success;
@@ -545,8 +545,8 @@ public class CourseDbConnection {
             throw ex;
         }
     }
-    
-    public int[] totalFreeCards(String courseID) throws Exception{
+
+    public int[] totalFreeCards(String courseID) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         int success;
@@ -558,13 +558,76 @@ public class CourseDbConnection {
             stmt.setString(1, courseID);
 
             result = stmt.executeQuery();
-            while(result.next()){
+            while (result.next()) {
                 array[0] = result.getInt("free");
                 array[1] = result.getInt("half");
                 array[2] = result.getInt("normal");
                 array[3] = result.getInt("total");
-                
-                
+
+            }
+            return array;
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
+
+    public courseBean getCourseDetails(String CourseID) throws Exception {
+
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+        courseBean cb = new courseBean();
+
+        try {
+
+            String query = "select co.*,su.subject_name,le.name from course co inner join subject su on co.subject_id = su.subject_id inner join lecturer le on co.lecturer_id = le.id where co.course_id ='" + CourseID + "'";
+
+            stmt = new CourseDbConnection().getConnection().prepareStatement(query);
+            result = stmt.executeQuery();
+
+            while (result.next()) {
+                cb.setLecturerName(result.getString("name"));
+                cb.setSubject(result.getString("subject_name"));
+                cb.setGrade(result.getString("grade"));
+                cb.setCourseType(result.getString("class_type"));
+                cb.setCourseDescription(result.getString("course_description"));
+                cb.setCourseMedium(result.getString("medium"));
+                cb.setBatchNumber(result.getInt("batch_number"));
+                cb.setMonthlyFee(result.getInt("monthly_fee"));
+                cb.setTotalCourseFee(result.getInt("total_course_fee"));
+                cb.setCourseID(CourseID);
+            }
+            return cb;
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
+
+    public String[] getStudentData(String StudentID, String CourseID) throws Exception {
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+        String array[] = new String[2];
+
+        try {
+
+            String query = "SELECT cardType,(select student_name from student where student_id = ?)as name FROM `student-course` WHERE student_ID = ? and course_id = ?";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, StudentID);
+            stmt.setString(2, StudentID);
+            stmt.setString(3, CourseID);
+            result = stmt.executeQuery();
+
+            while (result.next()) {
+                if(result.getString("cardType").equals("0")){
+                    array[1] = "Free Card";
+                }
+                else if(result.getString("cardType").equals("1")){
+                    array[1] = "Half Free Card";
+                }
+                else if(result.getString("cardType").equals("2")){
+                    array[1] = "Normal Card";
+                }
+                array[0] = result.getString("name");
             }
             return array;
         } catch (Exception ex) {

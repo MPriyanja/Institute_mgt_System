@@ -18,6 +18,8 @@ public class lectureBean {
     private String email;
     private String contact;
     private String address;
+    private String regDate;
+    private String lecID;
 
     /**
      * @return the name
@@ -115,5 +117,33 @@ public class lectureBean {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * @return the regDate
+     */
+    public String getRegDate() {
+        return regDate;
+    }
+
+    /**
+     * @param regDate the regDate to set
+     */
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
+    }
+
+    /**
+     * @return the lecID
+     */
+    public String getLecID() {
+        return lecID;
+    }
+
+    /**
+     * @param lecID the lecID to set
+     */
+    public void setLecID(String lecID) {
+        this.lecID = lecID;
     }
 }

@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.security.auth.login.Configuration;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -195,45 +197,50 @@ public class privilegeAssign extends javax.swing.JFrame {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // clear previous data
+        try {
+            DefaultTableModel model = (DefaultTableModel) tblePagePrivilege.getModel();
+            model.setRowCount(0);
+            String selectedRole = (String) cmbUserRoles.getSelectedItem();
+            ArrayList<Integer> accessGrantedPageList = new UserDbConnection().getPageListForRole(selectedRole);
+            HashMap<Integer, String> allPages = new UserDbConnection().getAllPages();
+            HashMap<Integer, Object[]> tableData = new Business_Logic().loadPrivilagesAssignTableData(allPages, accessGrantedPageList);
 
-        DefaultTableModel model = (DefaultTableModel) tblePagePrivilege.getModel();
-        model.setRowCount(0);
-        String selectedRole = (String) cmbUserRoles.getSelectedItem();
-        ArrayList<Integer> accessGrantedPageList = new UserDbConnection().getPageListForRole(selectedRole);
-        HashMap<Integer, String> allPages = new UserDbConnection().getAllPages();
-        HashMap<Integer, Object[]> tableData = new Business_Logic().loadPrivilagesAssignTableData(allPages, accessGrantedPageList);
-
-        for (int i = 1; i <= tableData.size(); i++) {
-            model.addRow(tableData.get(i));
-        }
+            for (int i = 1; i <= tableData.size(); i++) {
+                model.addRow(tableData.get(i));
+            }
 //       tblePagePrivilege.setModel(model);
 //       
 //       model.addRow(new Object[]{false,"malinda"});
 
-
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error occured");
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int role_id = cmbUserRoles.getSelectedIndex() + 1;
-         //delete all data for perticular role
-        new UserDbConnection().deletePagePrivilages(role_id);
+        try {
+            int role_id = cmbUserRoles.getSelectedIndex() + 1;
+            //delete all data for perticular role
+            new UserDbConnection().deletePagePrivilages(role_id);
 
-        for (int i = 0; i < tblePagePrivilege.getRowCount(); i++) {
-            Boolean isChecked = Boolean.valueOf(tblePagePrivilege.getValueAt(i, 0).toString());
+            for (int i = 0; i < tblePagePrivilege.getRowCount(); i++) {
+                Boolean isChecked = Boolean.valueOf(tblePagePrivilege.getValueAt(i, 0).toString());
 
-           
-            if (isChecked) {
-                // here i is the current row number. since it shows pages in sort oder , that i+1 value gives the page id
-                new UserDbConnection().addPagePrivilages(role_id, i + 1);
-            } else {
+                if (isChecked) {
+                    // here i is the current row number. since it shows pages in sort oder , that i+1 value gives the page id
+                    new UserDbConnection().addPagePrivilages(role_id, i + 1);
+                } else {
 
+                }
             }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error occured");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
-        mainFrame mF=new mainFrame();
+        mainFrame mF = new mainFrame();
         mF.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed

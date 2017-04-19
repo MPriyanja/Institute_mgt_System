@@ -6,6 +6,7 @@
 package com.institute_management.util;
 
 import com.institute_management.main.Main;
+import static com.institute_management.util.Configurations.UserBean;
 import java.util.ArrayList;
 
 /**
@@ -39,7 +40,7 @@ public class CommonMethods {
      */
     public static boolean check_user_access(int pageID) throws Exception {
         boolean accessStatus = false;
-        ArrayList<Integer> pageAccessList = Configurations.privilegeGrantedPageList;
+        ArrayList<Integer> pageAccessList = UserBean.getPrivilegeGrantedPageList();
         if (pageAccessList.contains(pageID)) {
             accessStatus = true;
         }

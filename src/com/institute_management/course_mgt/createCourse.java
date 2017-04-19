@@ -242,7 +242,12 @@ public class createCourse extends javax.swing.JFrame {
 
         cbWednesday.setText("Wednesday");
 
-        cbThursday.setText("Thusday");
+        cbThursday.setText("Thursday");
+        cbThursday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbThursdayActionPerformed(evt);
+            }
+        });
 
         cbFriday.setText("Friday");
 
@@ -712,10 +717,10 @@ public class createCourse extends javax.swing.JFrame {
             }
             if (cbThursday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
-                clzBean.setDay("thusday");
+                clzBean.setDay("thursday");
                 clzBean.setStartTime((Date) spThuSt.getValue());
                 clzBean.setEndTime((Date) spThuEn.getValue());
-                clzDaysMap.put("thusday",clzBean);
+                clzDaysMap.put("thursday",clzBean);
             }
             if (cbFriday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
@@ -765,6 +770,10 @@ public class createCourse extends javax.swing.JFrame {
             else{
                 con.insertCourseData(bean);
                 con.insertClassDays(bean.getClassDaysMap(), bean.getCourseID());
+                //create a paymentTable
+                new com.institute_management.payment_mgt.PaymentDbConnection().createPaymentTableForNewCourse(bean.getCourseID());
+                
+                JOptionPane.showMessageDialog(new JFrame(), "Successfully created");
             }
 
         } catch (Exception ex) {
@@ -779,6 +788,10 @@ public class createCourse extends javax.swing.JFrame {
     private void txtDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriptionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescriptionActionPerformed
+
+    private void cbThursdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbThursdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbThursdayActionPerformed
 
     /**
      * @param args the command line arguments
