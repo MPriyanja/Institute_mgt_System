@@ -9,7 +9,7 @@ import com.institute_management.course_mgt.coursePopUp;
 import com.institute_management.course_mgt.createCourse;
 import com.institute_management.lecture_mgt.lectureBean;
 import com.institute_management.lecture_mgt.lectureReg;
-import com.institute_management.payment_mgt.paymentMain;
+import com.institute_management.payment_mgt.PaymentDashBoard;
 import com.institute_management.student.UI.addStudent;
 import com.institute_management.student.UI.studentMain;
 import com.institute_management.subject_mgt.UI.viewSubject;
@@ -246,7 +246,7 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        paymentMain pM=new paymentMain();
+        PaymentDashBoard pM=new PaymentDashBoard();
         pM.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
