@@ -794,6 +794,7 @@ public class studentUpdate extends javax.swing.JFrame {
             st.setEmail(txtEmailUpdate.getText());
             st.setTelephn(txtTpUpdate.getText());
             dbConnn.updateStudent(st);
+            loadStudentUpdate();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(new JFrame(), "Error In student Update" + e);
