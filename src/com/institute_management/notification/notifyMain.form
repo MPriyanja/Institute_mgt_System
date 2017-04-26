@@ -79,7 +79,7 @@
                                   <Component id="jTextField5" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="CourseCombo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCourseName1" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="txtCourseName" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="33" max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCourseName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCourseName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -160,12 +160,15 @@
             </Container>
             <Component class="javax.swing.JTextField" name="jTextField5">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCourseName1">
+            <Component class="javax.swing.JTextField" name="txtCourseName">
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Send"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
@@ -183,6 +186,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CourseComboActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

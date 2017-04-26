@@ -344,7 +344,7 @@ public class SubjectDbConnection {
     }
 
     public String getStudentNameOnId(String studentId) throws Exception {
-        String studentName=null;
+        String studentName = null;
         try {
             query = "SELECT S_NAME FROM student where S_ID=?";
 
@@ -361,5 +361,44 @@ public class SubjectDbConnection {
         }
         return studentName;
 
+    }
+
+    public ArrayList<String> getCourseList() throws Exception {
+        ArrayList<String> courseList = new ArrayList<String>();
+        try {
+            query = "SELECT course_id FROM course";
+
+            pst = connection.prepareStatement(query);
+            rs = pst.executeQuery();
+            courseList.add("--");
+
+            while (rs.next()) {
+
+                courseList.add(rs.getString("course_id"));
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return courseList;
+    }
+
+    public String getCourseNameOnId(String corseID) throws Exception {
+        String courseName = null;
+        try {
+            query = "SELECT course_description FROM course where course_id=?";
+
+            pst = connection.prepareStatement(query);
+            pst.setString(1, corseID);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                courseName = rs.getString("course_description");
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return courseName;
     }
 }

@@ -7,6 +7,13 @@ package com.institute_management.notification;
 
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import java.util.ArrayList;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -24,11 +31,13 @@ public class notifyMain extends javax.swing.JFrame {
      */
     public notifyMain() {
         initComponents();
-        loadComboBox();
+        loadStComboBox();
         loadTextBoxStudentName();
+        loadCrComboBox();
+        loadTextBoxCourseName();
     }
 
-    public void loadComboBox() {
+    public void loadStComboBox() {
         // String[] dbData = dateFromDb();
         try {
             ArrayList<String> studentList = null;
@@ -42,6 +51,36 @@ public class notifyMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(new JFrame(), "Error in selecting Student Id" + e);
         }
 
+    }
+
+    public void loadCrComboBox() {
+
+        try {
+            ArrayList<String> courselist = null;
+            courselist = dbcon.getCourseList();
+            if (courselist != null) {
+
+                CourseCombo.setModel(new DefaultComboBoxModel(courselist.toArray()));
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error in selecting Course Id" + e);
+        }
+
+    }
+
+    public void loadTextBoxCourseName() {
+        try {
+            String corseID = CourseCombo.getSelectedItem().toString();
+            if (corseID == null || corseID == "--") {
+                txtCourseName.setText(null);
+            } else {
+                String courseName = dbcon.getCourseNameOnId(corseID);
+                txtCourseName.setText(courseName);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error in loading Course Name" + e);
+        }
     }
 
     public void loadTextBoxStudentName() {
@@ -76,7 +115,7 @@ public class notifyMain extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jTextField5 = new javax.swing.JTextField();
-        txtCourseName1 = new javax.swing.JTextField();
+        txtCourseName = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         CourseCombo = new javax.swing.JComboBox();
@@ -109,10 +148,20 @@ public class notifyMain extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTextArea3);
 
         jButton5.setText("Send");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Cancel");
 
         CourseCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CourseCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CourseComboActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -142,7 +191,7 @@ public class notifyMain extends javax.swing.JFrame {
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(CourseCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCourseName1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCourseName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -156,7 +205,7 @@ public class notifyMain extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtCourseName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -286,6 +335,43 @@ public class notifyMain extends javax.swing.JFrame {
         loadTextBoxStudentName();
     }//GEN-LAST:event_ComboStudentActionPerformed
 
+    private void CourseComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CourseComboActionPerformed
+        // TODO add your handling code here:
+        loadTextBoxCourseName();
+    }//GEN-LAST:event_CourseComboActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        sendMail();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    public void sendMail() {
+        String to = "mpriyanja@gmail.com";//change accordingly  
+        String from = "mpwpathirage@gmail.com";//change accordingly  
+        String host = "localhost";//or IP address  
+
+        //Get the session object  
+        Properties properties = System.getProperties();
+        properties.setProperty("mail.smtp.host", "8080");
+        Session session = Session.getDefaultInstance(properties);
+
+        //compose the message  
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject("Ping");
+            message.setText("Hello, this is example of sending email  ");
+
+            // Send message  
+            Transport.send(message);
+            System.out.println("message sent successfully....");
+
+        } catch (MessagingException mex) {
+        JOptionPane.showMessageDialog(new JFrame(), "Error in Delivering the mail" + mex);
+         }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -345,7 +431,7 @@ public class notifyMain extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField txtCourseName1;
+    private javax.swing.JTextField txtCourseName;
     private javax.swing.JTextField txtStudentName;
     // End of variables declaration//GEN-END:variables
 }
