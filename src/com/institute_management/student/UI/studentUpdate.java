@@ -8,8 +8,12 @@ package com.institute_management.student.UI;
 import com.institute_management.student.BEAN.Student;
 import static com.institute_management.student.UI.selectStudent.studentDont;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +30,9 @@ public class studentUpdate extends javax.swing.JFrame {
     public studentUpdate() {
         initComponents();
         loadStudentUpdate();
+        loadCourseComboBox();
+        loadTextBoxCourseName();
+        loadtblStudentCourese();
     }
 
     void loadStudentUpdate() {
@@ -106,7 +113,7 @@ public class studentUpdate extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        txtName2 = new javax.swing.JTextField();
+        txtCName = new javax.swing.JTextField();
         rNormal = new javax.swing.JRadioButton();
         rhalf = new javax.swing.JRadioButton();
         rFull = new javax.swing.JRadioButton();
@@ -114,7 +121,7 @@ public class studentUpdate extends javax.swing.JFrame {
         comboCourseId = new javax.swing.JComboBox();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblStudentCourse = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -508,9 +515,9 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jLabel19.setText("Course Name         ");
 
-        txtName2.addActionListener(new java.awt.event.ActionListener() {
+        txtCName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName2ActionPerformed(evt);
+                txtCNameActionPerformed(evt);
             }
         });
 
@@ -544,6 +551,11 @@ public class studentUpdate extends javax.swing.JFrame {
                 comboCourseIdItemStateChanged(evt);
             }
         });
+        comboCourseId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCourseIdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -558,7 +570,7 @@ public class studentUpdate extends javax.swing.JFrame {
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(txtCName, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                             .addComponent(comboCourseId, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
@@ -584,7 +596,7 @@ public class studentUpdate extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rNormal)
@@ -597,18 +609,33 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Couses"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblStudentCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Couse Name", "Course ID", "Remove"
+                "Course ID", "Remove"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblStudentCourse);
 
         jButton4.setText("Remove");
 
@@ -724,7 +751,7 @@ public class studentUpdate extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1))
         );
 
         pack();
@@ -765,7 +792,7 @@ public class studentUpdate extends javax.swing.JFrame {
     private void txtYorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYorActionPerformed
         // TODO add your handling code here:
         st.setParentEmail(txtPnameUpdate.getText());
-       
+
     }//GEN-LAST:event_txtYorActionPerformed
 
     private void parentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parentUpdateActionPerformed
@@ -786,7 +813,7 @@ public class studentUpdate extends javax.swing.JFrame {
 
     private void studentUpdatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentUpdatActionPerformed
         // TODO add your handling code here:
-       
+
         try {
             st.setName(txtNameUpdate.getText());
             st.setSchool(txtSchoolUpdate.getText());
@@ -823,9 +850,9 @@ public class studentUpdate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameUpdateActionPerformed
 
-    private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
+    private void txtCNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtName2ActionPerformed
+    }//GEN-LAST:event_txtCNameActionPerformed
 
     private void rNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNormalActionPerformed
         rhalf.setSelected(false);
@@ -846,6 +873,11 @@ public class studentUpdate extends javax.swing.JFrame {
         // TODO add your handling code here:
         String courseId = comboCourseId.getSelectedItem().toString();
     }//GEN-LAST:event_comboCourseIdItemStateChanged
+
+    private void comboCourseIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseIdActionPerformed
+        // TODO add your handling code here:
+        loadTextBoxCourseName();
+    }//GEN-LAST:event_comboCourseIdActionPerformed
 
     public String getCourseName(String CourseId) {
 
@@ -924,19 +956,19 @@ public class studentUpdate extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton parentUpdate;
     private javax.swing.JRadioButton rFull;
     private javax.swing.JRadioButton rNormal;
     private javax.swing.JRadioButton rhalf;
     private javax.swing.JButton studentUpdat;
+    private javax.swing.JTable tblStudentCourse;
     private javax.swing.JTextField txtAddressUpdate;
     private javax.swing.JTextField txtAddrs;
+    private javax.swing.JTextField txtCName;
     private javax.swing.JTextField txtDob;
     private javax.swing.JTextField txtEmailUpdate;
     private javax.swing.JTextField txtMail;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName2;
     private javax.swing.JTextField txtNameUpdate;
     private javax.swing.JTextField txtPEmailUpdate;
     private javax.swing.JTextField txtPTpUpdate;
@@ -949,4 +981,45 @@ public class studentUpdate extends javax.swing.JFrame {
     private javax.swing.JTextField txtYor;
     private javax.swing.JTextField txtpcontact;
     // End of variables declaration//GEN-END:variables
+
+    private void loadCourseComboBox() {
+        try {
+            ArrayList<String> courselist = null;
+            courselist = dbConnn.getCourseList();
+            if (courselist != null) {
+
+                comboCourseId.setModel(new DefaultComboBoxModel(courselist.toArray()));
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error in selecting Course Id" + e);
+        }
+    }
+
+    private void loadTextBoxCourseName() {
+        try {
+            String corseID = comboCourseId.getSelectedItem().toString();
+            if (corseID == null || corseID == "--") {
+                txtCName.setText(null);
+            } else {
+                String courseName = dbConnn.getCourseNameOnId(corseID);
+                txtCName.setText(courseName);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error in loading Course Name" + e);
+        }
+    }
+
+    private void loadtblStudentCourese() {
+        try {
+            HashMap<Integer, Object[]> tblData = dbConnn.getCourseDetailsOnStudent(st.getStudentID());
+            DefaultTableModel model = (DefaultTableModel) tblStudentCourse.getModel();
+            model.setRowCount(0);
+            for (int i = 1; i <= tblData.size(); i++) {
+                model.addRow(tblData.get(i));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error in loading Course Name" + e);
+        }
+    }
 }

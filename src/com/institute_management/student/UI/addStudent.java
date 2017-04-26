@@ -407,6 +407,15 @@ public class addStudent extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(new JFrame(), "Successfully inserted ");
                  
             loadStudent();
+            
+            txtAddrs.setText(null);
+            txtDob.setText(null);
+            txtMail.setText(null);
+            txtName.setText(null);
+            txtSchool.setText(null);
+            txtTele.setText(null);
+            txtYor.setText(null);
+            txtpcontact.setText(null);
             }
 
         } catch (Exception e) {

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -242,6 +243,11 @@ public class notifyMain extends javax.swing.JFrame {
         jLabel4.setText("Message");
 
         jButton1.setText("Send");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
 
@@ -342,35 +348,18 @@ public class notifyMain extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        sendMail();
+        try {
+            Email_ForgotPass m = new Email_ForgotPass("mpriyanja@gmail.com", "Test", "Test", "Test");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    public void sendMail() {
-        String to = "mpriyanja@gmail.com";//change accordingly  
-        String from = "mpwpathirage@gmail.com";//change accordingly  
-        String host = "localhost";//or IP address  
-
-        //Get the session object  
-        Properties properties = System.getProperties();
-        properties.setProperty("mail.smtp.host", "8080");
-        Session session = Session.getDefaultInstance(properties);
-
-        //compose the message  
-        try {
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject("Ping");
-            message.setText("Hello, this is example of sending email  ");
-
-            // Send message  
-            Transport.send(message);
-            System.out.println("message sent successfully....");
-
-        } catch (MessagingException mex) {
-        JOptionPane.showMessageDialog(new JFrame(), "Error in Delivering the mail" + mex);
-         }
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

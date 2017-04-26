@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -400,5 +401,36 @@ public class SubjectDbConnection {
             throw e;
         }
         return courseName;
+    }
+
+    public HashMap<Integer, Object[]> getCourseDetailsOnStudent(String studentID) throws Exception {
+        int count = 1;
+
+        PreparedStatement stmt;
+        ResultSet result;
+        int success;
+        HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
+
+        try {
+            String query = "SELECT `course_id` FROM `student-course` WHERE `student_id`=?";
+
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, studentID);
+
+            result = stmt.executeQuery();
+            while (result.next()) {
+                Object[] rowData = new Object[2];
+
+                rowData[0] = result.getString("course_id");
+                rowData[1] = (boolean) false;
+                tableData.put(count, rowData);
+                count++;
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
+
+        return tableData;
+
     }
 }
