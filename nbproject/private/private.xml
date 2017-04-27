@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/course_mgt/coursePOPUPNEW.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/lecture_mgt/updateLectureDetails.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/lecture_mgt/updateLecturerDetails.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/main/NewJFrame.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/lecture_mgt/lecturerPOPUPNEW.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/user_mgt/UI/sysuserPOPUPNEW.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/subject_mgt/UI/viewSubject.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/payment_mgt/paymentPOPUP.java</file>
+            <file>file:/I:/Ridmi/Institute_mgt_System/src/com/institute_management/subject_mgt/UI/addSubject.java</file>
+        </group>
     </open-files>
 </project-private>
