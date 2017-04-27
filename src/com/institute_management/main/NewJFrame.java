@@ -6,6 +6,11 @@
 
 package com.institute_management.main;
 
+import com.institute_management.course_mgt.coursePOPUPNEW;
+import com.institute_management.course_mgt.selectCourse;
+import com.institute_management.lecture_mgt.lecturerPOPUPNEW;
+import com.institute_management.payment_mgt.PaymentDashBoard;
+import com.institute_management.user_mgt.UI.sysuserPOPUPNEW;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -70,6 +75,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
         lblStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE STUDENT.jpg"))); // NOI18N
         lblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblStudentMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblStudentMouseEntered(evt);
             }
@@ -90,6 +98,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
         lblLecture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE LECTURER.jpg"))); // NOI18N
         lblLecture.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLectureMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblLectureMouseEntered(evt);
             }
@@ -123,6 +134,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
         lblPayment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PAYMENTMANAGEMNT.jpg"))); // NOI18N
         lblPayment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPaymentMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblPaymentMouseEntered(evt);
             }
@@ -133,6 +147,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
         lblPrivilege.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PRIVILAGE.jpg"))); // NOI18N
         lblPrivilege.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPrivilegeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblPrivilegeMouseEntered(evt);
             }
@@ -316,8 +333,29 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblEmailMouseExited
 
     private void LBLCOURSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseClicked
+       coursePOPUPNEW cpp = new coursePOPUPNEW();
+       cpp.setVisible(true);
        
     }//GEN-LAST:event_LBLCOURSEMouseClicked
+
+    private void lblStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblStudentMouseClicked
+
+    private void lblLectureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseClicked
+       lecturerPOPUPNEW cpp = new lecturerPOPUPNEW();
+       cpp.setVisible(true);
+    }//GEN-LAST:event_lblLectureMouseClicked
+
+    private void lblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseClicked
+        PaymentDashBoard pd = new PaymentDashBoard();
+        pd.setVisible(true);
+    }//GEN-LAST:event_lblPaymentMouseClicked
+
+    private void lblPrivilegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseClicked
+        sysuserPOPUPNEW spp = new sysuserPOPUPNEW();
+        spp.setVisible(true);
+    }//GEN-LAST:event_lblPrivilegeMouseClicked
 
     /**
      * @param args the command line arguments

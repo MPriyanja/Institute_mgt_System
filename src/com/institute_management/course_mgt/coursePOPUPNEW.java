@@ -6,6 +6,8 @@
 
 package com.institute_management.course_mgt;
 
+import com.institute_management.main.NewJFrame;
+
 /**
  *
  * @author tharindu_m
@@ -44,6 +46,9 @@ public class coursePOPUPNEW extends javax.swing.JFrame {
         lblAdd.setOpaque(true);
         lblAdd.setPreferredSize(new java.awt.Dimension(165, 207));
         lblAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAddMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblAddMouseEntered(evt);
             }
@@ -58,6 +63,9 @@ public class coursePOPUPNEW extends javax.swing.JFrame {
         lblUpdate.setMinimumSize(new java.awt.Dimension(165, 207));
         lblUpdate.setPreferredSize(new java.awt.Dimension(165, 207));
         lblUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblUpdateMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblUpdateMouseEntered(evt);
             }
@@ -72,6 +80,9 @@ public class coursePOPUPNEW extends javax.swing.JFrame {
         lblHome.setMinimumSize(new java.awt.Dimension(165, 207));
         lblHome.setPreferredSize(new java.awt.Dimension(165, 207));
         lblHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHomeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblHomeMouseEntered(evt);
             }
@@ -145,6 +156,22 @@ public class coursePOPUPNEW extends javax.swing.JFrame {
     private void lblHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseExited
         lblHome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lblHomeMouseExited
+
+    private void lblAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseClicked
+        createCourse cc = new createCourse();
+        cc.setVisible(true);
+    }//GEN-LAST:event_lblAddMouseClicked
+
+    private void lblUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMouseClicked
+        selectCourse sc= new selectCourse();
+        sc.setVisible(true);
+    }//GEN-LAST:event_lblUpdateMouseClicked
+
+    private void lblHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseClicked
+       this.dispose();
+        NewJFrame nf = new NewJFrame();
+        nf.setVisible(true);
+    }//GEN-LAST:event_lblHomeMouseClicked
 
     /**
      * @param args the command line arguments
