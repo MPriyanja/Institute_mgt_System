@@ -9,7 +9,9 @@ import com.institute_management.student.BEAN.Student;
 import com.institute_management.student.BL.StudentDetails;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import com.institute_management.user_mgt.UI.mainFrame;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -22,18 +24,23 @@ public class addStudent extends javax.swing.JFrame {
 
     /**
      * Creates new form addStudent
-     */ ArrayList<Student> stList;
-    
+     */
+    ArrayList<Student> stList;
+
     //  ArrayList<Object[]> tableData;//=new Object[3];
     SubjectDbConnection dbCon = new SubjectDbConnection();
+
     public addStudent() {
         initComponents();
         loadStudent();
+        jDOB.setDate(new Date());
+        jYOR.setDate(new Date());
+        
 
     }
-    
-    public void loadStudent(){
-     try {
+
+    public void loadStudent() {
+        try {
             stList = dbCon.selectAllStudent();
             StudentDetails sd = new StudentDetails(stList);
             tblViewStudent.setModel(sd);
@@ -213,10 +220,12 @@ public class addStudent extends javax.swing.JFrame {
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 236, -1, -1));
 
         jDOB.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(jDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 180, -1));
+        jDOB.setPreferredSize(new java.awt.Dimension(6, 20));
+        jPanel1.add(jDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 90, 186, 25));
 
         jYOR.setDateFormatString("yyyy-MM-dd");
-        jPanel1.add(jYOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, 180, 20));
+        jYOR.setPreferredSize(new java.awt.Dimension(6, 20));
+        jPanel1.add(jYOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 60, 188, 25));
 
         jui.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/header/h2_light.jpg"))); // NOI18N
         jPanel1.add(jui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 280));
@@ -246,7 +255,7 @@ public class addStudent extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGap(0, 327, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -269,8 +278,7 @@ public class addStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -296,33 +304,42 @@ public class addStudent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
+            SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+            String s=sdf.format(jDOB.getDate());
             Student st = new Student();
             st.setAddress(txtAddrs.getText());
-            st.setDob(((JTextField)jDOB.getDateEditor().getUiComponent()).getText());
+//            if(jDOB.getDate()==null){
+//             JOptionPane.showMessageDialog(new JFrame(), "Please enter Date Of Birth ");
+//
+//            }
+            st.setDob(sdf.format(jDOB.getDate()));
             st.setEmail(txtMail.getText());
             st.setGender(comboGender.getSelectedItem().toString());
             st.setName(txtName.getText());
             st.setSchool(txtSchool.getText());
-            st.setTelephn(txtTele.getText());
-            st.setDob(((JTextField)jYOR.getDateEditor().getUiComponent()).toString());
-            st.setpContactNo(txtpcontact.getText());
+//            st.setTelephn(txtTele.getText());
+//             if(jYOR.getDate()==null){
+//             JOptionPane.showMessageDialog(new JFrame(), "Please enter Registration year ");
+//
+//            }
+            st.setYearOfReg(sdf.format(jYOR.getDate()));
             
+            st.setpContactNo(txtpcontact.getText());
 
             //SubjectDbConnection dbCon = new SubjectDbConnection();
             int count = dbCon.insertStudent(st);
             if (count > 0) {
-                 JOptionPane.showMessageDialog(new JFrame(), "Successfully inserted ");
-                 
-            loadStudent();
-            
-            txtAddrs.setText(null);
-            ((JTextField)jDOB.getDateEditor().getUiComponent()).setText(null);
-            txtMail.setText(null);
-            txtName.setText(null);
-            txtSchool.setText(null);
-            txtTele.setText(null);
-            ((JTextField)jYOR.getDateEditor().getUiComponent()).setText(null);
-            txtpcontact.setText(null);
+                JOptionPane.showMessageDialog(new JFrame(), "Successfully inserted ");
+
+                loadStudent();
+
+                jDOB.setDate(null);
+                txtMail.setText(null);
+                txtName.setText(null);
+                txtSchool.setText(null);
+                txtTele.setText(null);
+                jYOR.setDate(null);
+                txtpcontact.setText(null);
             }
 
         } catch (Exception e) {
@@ -341,14 +358,14 @@ public class addStudent extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        mainFrame mf=new  mainFrame();
+        mainFrame mf = new mainFrame();
         mf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        selectStudent ss=new selectStudent();
+        selectStudent ss = new selectStudent();
         ss.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

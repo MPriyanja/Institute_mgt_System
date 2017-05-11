@@ -262,13 +262,13 @@ public class updateStudent extends javax.swing.JFrame {
             Student st = new Student();
 
             st.setAddress(txtAddrs.getText());
-            st.setDob(txtDob.getText());
+          //  st.setDob(txtDob.getText());
             st.setEmail(txtMail.getText());
             st.setGender(comboGender.getSelectedItem().toString());
             st.setName(txtName.getText());
             st.setSchool(txtSchool.getText());
-            st.setTelephn(txtTele.getText());
-            st.setYearOfReg(txtYor.getText());
+         //   st.setTelephn(txtTele.getText());
+         //  st.setYearOfReg(txtYor.getText());
 
             int count = dbCon.updateStudent(st);
 
@@ -344,12 +344,12 @@ public class updateStudent extends javax.swing.JFrame {
     void setField(Student st) {
 
         txtAddrs.setText(st.getAddress());
-        txtDob.setText(st.getDob());
+      //  txtDob.setText(st.getDob());
         txtMail.setText(st.getEmail());
         txtName.setText(st.getName());
         txtSchool.setText(st.getSchool());
         txtTele.setText(st.getTelephn());
-        txtYor.setText(st.getYearOfReg());
+      //  txtYor.setText(st.getYearOfReg());
 
     }
 }

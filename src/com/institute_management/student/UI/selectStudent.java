@@ -56,7 +56,6 @@ public class selectStudent extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Select Student"));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Registration Id");
 
         txtRegId.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +64,6 @@ public class selectStudent extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Email    ");
 
         jButton1.setText("Proceed");
@@ -77,22 +75,23 @@ public class selectStudent extends javax.swing.JFrame {
 
         jButton2.setText("Cancel");
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("School");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Telephone");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Name");
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Date of Birth");
 
         jButton3.setText("OK");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+        jButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton3KeyPressed(evt);
             }
         });
 
@@ -198,7 +197,7 @@ public class selectStudent extends javax.swing.JFrame {
 
                 lblName.setText(studentDont.getName());
                 lblEmail.setText(studentDont.getEmail());
-                lblDOB.setText(studentDont.getDob());
+                lblDOB.setText(studentDont.getDob().toString());
                 lblSchool.setText(studentDont.getSchool());
                 lblTP.setText(studentDont.getTelephn());
 
@@ -220,11 +219,25 @@ public class selectStudent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try {
+            String regId = txtRegId.getText().trim();
+            //get details 
+            selectStudent(regId);
+        } catch (Exception e) {
+        }
+         
         studentUpdate su = new studentUpdate();
         su.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton3KeyPressed
+        // TODO add your handling code here:
+        studentUpdate su = new studentUpdate();
+        su.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3KeyPressed
 
     /**
      * @param args the command line arguments

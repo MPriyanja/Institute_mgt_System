@@ -268,7 +268,7 @@ public class CourseDbConnection {
         int success;
 
         try {
-            String query = "INSERT INTO `student-course`(`student_id`, `course_id`, `registation_date`,`cardType`, `status`) VALUES (?,?,CURDATE(),?,?)";
+            String query = "INSERT INTO `student-course`(`S_ID`, `course_id`, `registation_date`,`cardType`, `status`) VALUES (?,?,CURDATE(),?,?)";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);

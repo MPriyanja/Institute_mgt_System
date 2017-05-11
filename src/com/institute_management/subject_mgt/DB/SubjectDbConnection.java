@@ -412,17 +412,17 @@ public class SubjectDbConnection {
         HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
 
         try {
-            String query = "SELECT `course_id` FROM `student-course` WHERE `student_id`=?";
+            String query = "select `course_id` FROM `student-course` WHERE `S_ID`=?";
 
             stmt = connection.prepareStatement(query);
             stmt.setString(1, studentID);
 
             result = stmt.executeQuery();
             while (result.next()) {
-                Object[] rowData = new Object[2];
+                Object[] rowData = new Object[1];
 
                 rowData[0] = result.getString("course_id");
-                rowData[1] = (boolean) false;
+             //   rowData[1] = (boolean) false;
                 tableData.put(count, rowData);
                 count++;
             }
@@ -432,5 +432,36 @@ public class SubjectDbConnection {
 
         return tableData;
 
+    }
+
+    public int addStudentToACourse(Object selectedItem, String studentID,int cardType) throws Exception{
+          int count = 0;
+
+        try {
+            query = "INSERT INTO student-course(course_id, student_id, card_type) VALUES (?,?,?)";
+            pst = connection.prepareStatement(query);
+            pst.setString(1, selectedItem.toString());
+            pst.setString(2, studentID);
+            pst.setInt(3, cardType);
+          
+            count = pst.executeUpdate();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                if (pst != null) {
+                    try {
+                        pst.close();
+                    } catch (SQLException e) {
+                        throw e;
+                    }
+                }
+            } catch (Exception ee) {
+                throw ee;
+            }
+        }
+        return count;
+    
     }
 }

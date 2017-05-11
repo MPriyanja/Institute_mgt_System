@@ -6,6 +6,8 @@
 
 package com.institute_management.student.BEAN;
 
+import java.util.Date;
+
 /**
  *
  * @author NIPUN
@@ -83,7 +85,7 @@ public class Student {
     public String getYearOfReg() {
         return yearOfReg;
     }
-
+  
     public void setYearOfReg(String yearOfReg) {
         this.yearOfReg = yearOfReg;
     }
@@ -126,5 +128,5 @@ public class Student {
         this.parentEmail = parentEmail;
     }
 
-   
-}
+
+    }

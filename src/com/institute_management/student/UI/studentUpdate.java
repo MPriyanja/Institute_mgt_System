@@ -5,6 +5,7 @@
  */
 package com.institute_management.student.UI;
 
+import com.institute_management.course_mgt.CourseDbConnection;
 import com.institute_management.student.BEAN.Student;
 import static com.institute_management.student.UI.selectStudent.studentDont;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
@@ -40,7 +41,7 @@ public class studentUpdate extends javax.swing.JFrame {
         st = studentDont;
         txtAddressUpdate.setText(st.getAddress());
         txtAddrs.setText(st.getAddress());
-        txtDob.setText(st.getDob());
+        txtDob.setText(st.getDob().toString());
         txtEmailUpdate.setText(st.getEmail());
         txtMail.setText(st.getEmail());
         txtName.setText(st.getName());
@@ -53,7 +54,7 @@ public class studentUpdate extends javax.swing.JFrame {
         txtSchoolUpdate.setText(st.getSchool());
         txtTele.setText(st.getTelephn());
         txtTpUpdate.setText(st.getTelephn());
-        txtYor.setText(st.getYearOfReg());
+        txtYor.setText(st.getYearOfReg().toString());
 
     }
 
@@ -122,7 +123,6 @@ public class studentUpdate extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStudentCourse = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -544,6 +544,11 @@ public class studentUpdate extends javax.swing.JFrame {
         });
 
         jButton3.setText("Add");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         comboCourseId.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboCourseId.addItemListener(new java.awt.event.ItemListener() {
@@ -607,37 +612,25 @@ public class studentUpdate extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Couses"));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Enrolled Courses"));
 
         tblStudentCourse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Course ID", "Remove"
+                "Course Name"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tblStudentCourse);
-
-        jButton4.setText("Remove");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -647,19 +640,13 @@ public class studentUpdate extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(112, 112, 112))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(31, 31, 31))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -879,6 +866,23 @@ public class studentUpdate extends javax.swing.JFrame {
         loadTextBoxCourseName();
     }//GEN-LAST:event_comboCourseIdActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int cardType = 2;
+        if (rhalf.isSelected()) {
+            cardType = 1;
+        } else if (rFull.isSelected()) {
+            cardType = 2;
+        }
+        try {
+           new CourseDbConnection().studentRegistrationForCourse(st.getStudentID(),txtCName.getText(), cardType);
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(new JFrame(), "Error In Add course to Student"+ e);
+        }
+        loadtblStudentCourese();
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public String getCourseName(String CourseId) {
 
         return null;
@@ -923,7 +927,6 @@ public class studentUpdate extends javax.swing.JFrame {
     private javax.swing.JComboBox comboCourseId;
     private javax.swing.JComboBox comboGender;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
