@@ -464,4 +464,38 @@ public class SubjectDbConnection {
         return count;
     
     }
+
+    public HashMap<Integer, Object[]> getCourseDetailsOnStudent(String sid, String date) throws Exception{
+        int count = 1;
+
+        PreparedStatement stmt;
+        ResultSet result;
+        int success;
+        HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
+
+        try {
+            String query = "select cd.course_id as course_id,cd."+date+" as date  FROM `student-course` sc left join `courses_dates` cd on cd.course_id=sc.course_id  WHERE sc.S_ID = ? AND cd."+date+"<> ''";
+
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, sid);
+            
+            
+            System.out.println(query);
+
+            result = stmt.executeQuery();
+            while (result.next()) {
+                Object[] rowData = new Object[2];
+
+                rowData[0] = result.getString("course_id");
+                rowData[1] = result.getString("date");
+                tableData.put(count, rowData);
+                count++;
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
+
+        return tableData;
+
+    }
 }

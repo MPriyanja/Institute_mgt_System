@@ -86,6 +86,62 @@ public class autoSuggest extends javax.swing.JFrame {
             jComboBox.hidePopup();
         }
     }
+    
+    public void comboFilterCourse(String enteredText, JComboBox jComboBox, int x) {
+        List<String> filterArray = new ArrayList<String>();
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = null;
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/institute_management", "root", "");
+            String str1 = "";
+            String str = "";
+            if (x == 1) {
+                str = "SELECT S_ID FROM STUDENT WHERE S_ID  LIKE '" + enteredText + "%'";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(str);
+                while (rs.next()) {
+                    str1 = rs.getString("S_ID");
+                    filterArray.add(str1);
+                }
+            } else if (x == 2) {
+                str = "SELECT S_NAME FROM STUDENT WHERE S_NAME  LIKE '" + enteredText + "%'";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(str);
+                while (rs.next()) {
+                    str1 = rs.getString("S_NAME");
+                    filterArray.add(str1);
+                }
+            } else if (x == 3) {
+                str = "SELECT S_NIC FROM STUDENT WHERE S_NIC  LIKE '" + enteredText + "%'";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(str);
+                while (rs.next()) {
+                    str1 = rs.getString("S_NIC");
+                    filterArray.add(str1);
+                }
+            } else if (x == 4) {
+                str = "SELECT S_TELEPHONE FROM STUDENT WHERE S_TELEPHONE  LIKE '" + enteredText + "%'";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(str);
+                while (rs.next()) {
+                    str1 = rs.getString("S_TELEPHONE");
+                    filterArray.add(str1);
+                }
+            }
+
+        } catch (Exception ex) {
+            System.out.println("error" + ex);
+        }
+
+        if (filterArray.size() > 0) {
+            jComboBox.setModel(new DefaultComboBoxModel(filterArray.toArray()));
+            jComboBox.setSelectedItem(enteredText);
+            jComboBox.showPopup();
+        } else {
+            jComboBox.hidePopup();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
