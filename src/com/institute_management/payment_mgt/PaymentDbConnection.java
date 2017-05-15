@@ -49,18 +49,18 @@ public class PaymentDbConnection {
 
             String query = "CREATE TABLE IF NOT EXISTS `" + tableName + "` ("
                     + "  `student_id` int(11) NOT NULL,"
-                    + "  `January` varchar(11) NOT NULL,"
-                    + "  `February` varchar(11) NOT NULL,"
-                    + "  `March` varchar(11) NOT NULL,"
-                    + "  `April` varchar(11) NOT NULL,"
-                    + "  `May` varchar(11) NOT NULL,"
-                    + "  `June` varchar(11) NOT NULL,"
-                    + "  `July` varchar(11) NOT NULL,"
-                    + "  `August` varchar(11) NOT NULL,"
-                    + "  `September` varchar(11) NOT NULL,"
-                    + "  `October` varchar(11) NOT NULL,"
-                    + "  `November` varchar(11) NOT NULL,"
-                    + "  `December` varchar(11) NOT NULL,"
+                    + "  `January` varchar(11) DEFAULT 'NO',"
+                    + "  `February` varchar(11) DEFAULT 'NO',"
+                    + "  `March` varchar(11) DEFAULT 'NO',"
+                    + "  `April` varchar(11) DEFAULT 'NO',"
+                    + "  `May` varchar(11) DEFAULT 'NO',"
+                    + "  `June` varchar(11) DEFAULT 'NO',"
+                    + "  `July` varchar(11) DEFAULT 'NO',"
+                    + "  `August` varchar(11) DEFAULT 'NO',"
+                    + "  `September` varchar(11) DEFAULT 'NO',"
+                    + "  `October` varchar(11) DEFAULT 'NO',"
+                    + "  `November` varchar(11) DEFAULT 'NO',"
+                    + "  `December` varchar(11) DEFAULT 'NO',"
                     + "  PRIMARY KEY (`student_id`) "
                     + ") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
@@ -128,33 +128,32 @@ public class PaymentDbConnection {
         int success;
 
         try {
-            String query =  "select * from `" + tableName + "` where student_id = ?";
+            String query = "select * from `" + tableName + "` where student_id = ?";
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
             result = stmt.executeQuery();
-            if(result.next()){
+            if (result.next()) {
                 String updateQuery = "";
-                for(int i=0;i<a.size();i++){
-                    updateQuery= updateQuery+a.get(i)+" = 'YES' ,";
+                for (int i = 0; i < a.size(); i++) {
+                    updateQuery = updateQuery + a.get(i) + " = 'YES' ,";
                 }
                 //remove last ,
-                updateQuery = updateQuery.substring(0,updateQuery.length()-1);
-                query = "update `"+tableName+"` set "+updateQuery+" where student_id = ?";
+                updateQuery = updateQuery.substring(0, updateQuery.length() - 1);
+                query = "update `" + tableName + "` set " + updateQuery + " where student_id = ?";
                 stmt = con.prepareStatement(query);
-            stmt.setString(1, studentID);
-            success = stmt.executeUpdate();
-            }
-            else{
-                String field="student_id ,";
-                String value=studentID+" ,";
-                for(int i=0;i<a.size();i++){
-                    field = field+a.get(i)+" ,";
-                    value = value +"'YES' ,";
+                stmt.setString(1, studentID);
+                success = stmt.executeUpdate();
+            } else {
+                String field = "student_id ,";
+                String value = studentID + " ,";
+                for (int i = 0; i < a.size(); i++) {
+                    field = field + a.get(i) + " ,";
+                    value = value + "'YES' ,";
                 }
-                field = field.substring(0,field.length()-1);
-                value = value.substring(0,value.length()-1);
-                
-                query = "Insert into `"+tableName+"` ( "+field+" ) values ( "+value+" )";
+                field = field.substring(0, field.length() - 1);
+                value = value.substring(0, value.length() - 1);
+
+                query = "Insert into `" + tableName + "` ( " + field + " ) values ( " + value + " )";
                 stmt = con.prepareStatement(query);
                 success = stmt.executeUpdate();
             }
@@ -162,5 +161,24 @@ public class PaymentDbConnection {
         } catch (Exception ex) {
             throw ex;
         }
+    }
+
+    public int checkPaymentYear(String TableName) throws Exception {
+        PreparedStatement stmt;
+        ResultSet result;
+        int success = 0;
+        try {
+            String query = "SELECT count(*) as count FROM information_schema.TABLES WHERE "
+                    + "(TABLE_SCHEMA = 'institute_management') AND (TABLE_NAME = '"+TableName+"')";
+            stmt = con.prepareStatement(query);
+            
+            result = stmt.executeQuery();
+            while(result.next()){
+                success = result.getInt("count");
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
+        return success;
     }
 }

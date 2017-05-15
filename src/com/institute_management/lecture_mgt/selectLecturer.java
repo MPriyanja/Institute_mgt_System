@@ -36,7 +36,6 @@ public class selectLecturer extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblsubject = new javax.swing.JLabel();
@@ -65,26 +64,19 @@ public class selectLecturer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/login/backgroung.jpg"))); // NOI18N
-
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 255, 255));
         jLabel6.setText("Name");
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 255, 255));
         jLabel7.setText("NIC");
 
         lblsubject.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        lblsubject.setForeground(new java.awt.Color(204, 255, 255));
         lblsubject.setText("Subject");
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 255));
         jLabel3.setText("Gender");
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 255, 255));
         jLabel5.setText("E mail");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
@@ -95,13 +87,11 @@ public class selectLecturer extends javax.swing.JFrame {
 
         rbMale.setBackground(new java.awt.Color(51, 153, 255));
         rbMale.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        rbMale.setForeground(new java.awt.Color(204, 255, 255));
         rbMale.setText("Male");
         rbMale.setContentAreaFilled(false);
 
         rbFemale.setBackground(new java.awt.Color(0, 102, 255));
         rbFemale.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        rbFemale.setForeground(new java.awt.Color(204, 255, 255));
         rbFemale.setText("Female");
         rbFemale.setBorder(null);
         rbFemale.setContentAreaFilled(false);
@@ -116,37 +106,30 @@ public class selectLecturer extends javax.swing.JFrame {
         });
 
         jLabel25.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(204, 255, 255));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText(":");
 
         jLabel26.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(204, 255, 255));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText(":");
 
         jLabel27.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(204, 255, 255));
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText(":");
 
         jLabel28.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(204, 255, 255));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText(":");
 
         jLabel30.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(204, 255, 255));
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText(":");
 
         jLabel31.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(204, 255, 255));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText(":");
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 255, 255));
         jLabel8.setText("Lecturer ID");
 
         txtLecturerID.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +178,6 @@ public class selectLecturer extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 255, 255));
         jLabel9.setText("Contact");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -269,11 +251,6 @@ public class selectLecturer extends javax.swing.JFrame {
                                         .addComponent(rbFemale))
                                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(66, 66, 66))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel25, jLabel27, jLabel28});
@@ -349,11 +326,6 @@ public class selectLecturer extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(jLabel32)))
                 .addGap(40, 40, 40))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel25, jLabel27, jLabel28, jLabel6, jLabel9, lblsubject});
@@ -465,7 +437,6 @@ public class selectLecturer extends javax.swing.JFrame {
     private javax.swing.JButton btnCheck;
     private javax.swing.JButton btnProceed;
     private javax.swing.JComboBox cmbLecturerID;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;

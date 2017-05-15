@@ -17,7 +17,7 @@ public class selectCourse extends javax.swing.JFrame {
 
     public static courseBean OnlyForCourseEditBean = new courseBean();
     CourseDbConnection conn = new CourseDbConnection();
-
+    
     public selectCourse() {
         initComponents();
     }
@@ -32,6 +32,7 @@ public class selectCourse extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cmbSelectCourse = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
@@ -46,10 +47,18 @@ public class selectCourse extends javax.swing.JFrame {
         lblLectureName = new javax.swing.JLabel();
         lblGrade = new javax.swing.JLabel();
         lblMedium = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jButton1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 204));
+        jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
@@ -123,15 +132,6 @@ public class selectCourse extends javax.swing.JFrame {
 
         lblMedium.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         lblMedium.setForeground(new java.awt.Color(0, 0, 153));
-
-        jButton1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 204));
-        jButton1.setText("Confirm");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/header/body2.jpg"))); // NOI18N
 
@@ -257,8 +257,8 @@ public class selectCourse extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbSelectCourseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        test a = new test();
-        a.setVisible(true);
+        test testFrame = new test();
+        testFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

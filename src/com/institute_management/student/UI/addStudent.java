@@ -84,7 +84,6 @@ public class addStudent extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jDOB = new com.toedter.calendar.JDateChooser();
         jYOR = new com.toedter.calendar.JDateChooser();
-        jui = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewStudent = new javax.swing.JTable();
@@ -95,42 +94,34 @@ public class addStudent extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Add Student");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 11, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Name         ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 60, 102, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Date of Birth ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 92, 102, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Address       ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 131, 102, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Telephone              ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email    ");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 156, 102, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Gender     ");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 190, 102, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("School                      ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 130, -1));
 
@@ -165,7 +156,6 @@ public class addStudent extends javax.swing.JFrame {
         jPanel1.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 98, 188, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Year of Registration  ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, -1, 20));
 
@@ -177,9 +167,8 @@ public class addStudent extends javax.swing.JFrame {
         jPanel1.add(txtSchool, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 130, 188, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Parent Contact NO");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 102, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 140, -1));
 
         txtpcontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,9 +215,6 @@ public class addStudent extends javax.swing.JFrame {
         jYOR.setDateFormatString("yyyy-MM-dd");
         jYOR.setPreferredSize(new java.awt.Dimension(6, 20));
         jPanel1.add(jYOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 60, 188, 25));
-
-        jui.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/header/h2_light.jpg"))); // NOI18N
-        jPanel1.add(jui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 280));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("View Student"));
 
@@ -426,7 +412,6 @@ public class addStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jYOR;
-    private javax.swing.JLabel jui;
     private javax.swing.JTable tblViewStudent;
     private javax.swing.JTextField txtAddrs;
     private javax.swing.JTextField txtMail;

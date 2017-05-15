@@ -68,11 +68,11 @@ public class UserDbConnection {
 
             while (result.next()) {
                 if (count == 0) {
-                    userbean.setAddress(result.getString("address"));
-                    userbean.setContact(result.getString("contact"));
-                    userbean.setGender(result.getString("gender"));
-                    userbean.setNic(result.getString("nic"));
-                    userbean.setName(result.getString("name"));
+//                    userbean.setAddress(result.getString("address"));
+//                    userbean.setContact(result.getString("contact"));
+//                    userbean.setGender(result.getString("gender"));
+//                    userbean.setNic(result.getString("nic"));
+//                    userbean.setName(result.getString("name"));
                     userbean.setUserID(result.getInt("user_id"));
                     userbean.setRoleID(result.getInt("role_id"));
                     userbean.setUserName(result.getString("user_name"));

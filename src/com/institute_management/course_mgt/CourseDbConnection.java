@@ -51,11 +51,10 @@ public class CourseDbConnection {
             String tableName = "payments_" + year + "_" + course_id;
 
             String query = "CREATE TABLE IF NOT EXISTS `" + tableName + "` ("
-                    + "  `student_id` int(11) NOT NULL,"
+                    + "  `s_id` int(11) NOT NULL,"
                     + "  `january` varchar(11) NOT NULL,"
                     + "  `february` varchar(11) NOT NULL,"
                     + "  `march` varchar(11) NOT NULL,"
-                    + "  `april` varchar(11) NOT NULL,"
                     + "  `may` varchar(11) NOT NULL,"
                     + "  `june` varchar(11) NOT NULL,"
                     + "  `july` varchar(11) NOT NULL,"
@@ -64,11 +63,11 @@ public class CourseDbConnection {
                     + "  `october` varchar(11) NOT NULL,"
                     + "  `november` varchar(11) NOT NULL,"
                     + "  `december` varchar(11) NOT NULL,"
-                    + "  KEY `student_id` (`student_id`)"
+                    + "  KEY `s_id` (`s_id`)"
                     + ") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
             String query2 = "ALTER TABLE `" + tableName + "`"
-                    + "  ADD CONSTRAINT `student_id_fk" + course_id + "` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+                    + "  ADD CONSTRAINT `s_id_fk" + course_id + "` FOREIGN KEY (`s_id`) REFERENCES `s` (`s_id`) ON DELETE CASCADE ON UPDATE CASCADE";
 
             stmt = con.createStatement();
             x = stmt.executeUpdate(query);
@@ -185,7 +184,7 @@ public class CourseDbConnection {
         boolean isExist = false;
 
         try {
-            String query = "SELECT * FROM student WHERE student_id = ?";
+            String query = "SELECT * FROM student WHERE s_id = ?";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
@@ -207,21 +206,21 @@ public class CourseDbConnection {
         Student stdn = new Student();
 
         try {
-            String query = "SELECT * FROM student WHERE student_id = ?";
+            String query = "SELECT * FROM student WHERE s_id = ?";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
             result = stmt.executeQuery();
             if (result.next()) {
-                stdn.setAddress(result.getString("address"));
+                stdn.setAddress(result.getString("S_ADDRESS"));
                 //stdn.setDob(result.getString(""));
                 // stdn.setEmail(result.getString(""));
-                stdn.setGender(result.getString("gender"));
-                stdn.setName(result.getString("student_name"));
-                stdn.setSchool(result.getString("school"));
-                stdn.setTelephn(result.getString("mobile_number"));
-                stdn.setYearOfReg(result.getString("register_date"));
-                stdn.setpContactNo(result.getString("parents_mobile_no"));
+                stdn.setGender(result.getString("S_GENDER"));
+                stdn.setName(result.getString("S_NAME"));
+                stdn.setSchool(result.getString("S_SCHOOL"));
+                stdn.setTelephn(result.getString("S_TELEPHONE"));
+                stdn.setYearOfReg(result.getString("S_YOR"));
+                stdn.setpContactNo(result.getString("S_PARENT_CONTACT_NO"));
                 stdn.setStudentID(studentID);
 
             }
@@ -240,7 +239,7 @@ public class CourseDbConnection {
         boolean isExist = false;
 
         try {
-            String query = "SELECT * FROM `student-course` WHERE student_id = ?";
+            String query = "SELECT * FROM `student-course` WHERE s_id = ?";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
@@ -268,7 +267,7 @@ public class CourseDbConnection {
         int success;
 
         try {
-            String query = "INSERT INTO `student-course`(`S_ID`, `course_id`, `registation_date`,`cardType`, `status`) VALUES (?,?,CURDATE(),?,?)";
+            String query = "INSERT INTO `student-course`(`s_id`, `course_id`, `registation_date`,`cardType`, `status`) VALUES (?,?,CURDATE(),?,?)";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
@@ -291,7 +290,7 @@ public class CourseDbConnection {
         int success;
 
         try {
-            String query = "DELETE FROM `student-course`  WHERE `student_id`=? and `course_id`=? and `status`='ACT'";
+            String query = "DELETE FROM `student-course`  WHERE `s_id`=? and `course_id`=? and `status`='ACT'";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
@@ -312,7 +311,7 @@ public class CourseDbConnection {
         int success;
 
         try {
-            String query = "UPDATE `student-course` SET `cardType`=? WHERE `student_id`=? and  `status`=? and `course_id`=? ";
+            String query = "UPDATE `student-course` SET `cardType`=? WHERE `s_id`=? and  `status`=? and `course_id`=? ";
 
             stmt = con.prepareStatement(query);
             stmt.setInt(1, cardType);
@@ -486,6 +485,39 @@ public class CourseDbConnection {
         return tableData;
     }
 
+    public HashMap<Integer, Object[]> getCourseDetailsForTableView() throws Exception {
+        int count = 1;
+
+        PreparedStatement stmt;
+        ResultSet result;
+        int success;
+        HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
+
+        try {
+            String query = "select cs.course_id,cs.course_description,cs.class_type,cs.medium,(select name from lecturer where id = cs.lecturer_id)as lecturer,(select subject_name from subject where subject_id = cs.subject_id)as subject from course cs ";
+
+            stmt = con.prepareStatement(query);
+
+            result = stmt.executeQuery();
+            while (result.next()) {
+                Object[] rowData = new Object[6];
+
+                rowData[0] = result.getString("course_id");
+                rowData[1] = result.getString("course_description");
+                rowData[2] = result.getString("subject");
+                rowData[3] = result.getString("lecturer");
+                rowData[4] = result.getString("class_type");
+                rowData[5] = result.getString("medium");
+                tableData.put(count, rowData);
+                count++;
+            }
+        } catch (Exception ex) {
+            throw ex;
+        }
+
+        return tableData;
+    }
+
     public void updateClassDays(HashMap<String, classDaysBean> beanMap, String CourseId) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
@@ -609,7 +641,7 @@ public class CourseDbConnection {
 
         try {
 
-            String query = "SELECT cardType,(select student_name from student where student_id = ?)as name FROM `student-course` WHERE student_ID = ? and course_id = ?";
+            String query = "SELECT cardType,(select s_name from student where s_id = ?)as name FROM `student-course` WHERE s_ID = ? and course_id = ?";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, StudentID);
@@ -618,18 +650,73 @@ public class CourseDbConnection {
             result = stmt.executeQuery();
 
             while (result.next()) {
-                if(result.getString("cardType").equals("0")){
+                if (result.getString("cardType").equals("0")) {
                     array[1] = "Free Card";
-                }
-                else if(result.getString("cardType").equals("1")){
+                } else if (result.getString("cardType").equals("1")) {
                     array[1] = "Half Free Card";
-                }
-                else if(result.getString("cardType").equals("2")){
+                } else if (result.getString("cardType").equals("2")) {
                     array[1] = "Normal Card";
                 }
                 array[0] = result.getString("name");
             }
             return array;
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
+
+    public HashMap SearchStudent(String id, String name, String nic, String mob) throws Exception {
+        PreparedStatement stmt;
+        ResultSet result;
+        HashMap map = new HashMap();
+        id = id.equals("--") ? "" : id;
+        name = name.equals("--") ? "" : name;
+        nic = nic.equals("--") ? "" : nic;
+        mob = mob.equals("--") ? "" : mob;
+        try {
+            String query = "SELECT * from STUDENT where S_ID like '%" + id + "%' AND S_NAME like '%" + name + "%' AND S_NIC like '%" + nic + "%' AND S_TELEPHONE like '%" + mob + "%'";
+
+            stmt = con.prepareStatement(query);
+
+            result = stmt.executeQuery();
+            while (result.next()) {
+                map.put("name", (result.getString("S_NAME").equals("")) ? "--" : result.getString("S_NAME"));
+                map.put("address", (result.getString("S_ADDRESS").equals("")) ? "--" : result.getString("S_ADDRESS"));
+                map.put("email", (result.getString("S_EMAIL").equals("")) ? "--" : result.getString("S_EMAIL"));
+                map.put("gender", (result.getString("S_GENDER").equals("")) ? "--" : result.getString("S_GENDER"));
+                map.put("mobile", (result.getString("S_TELEPHONE").equals("")) ? "--" : result.getString("S_TELEPHONE"));
+                map.put("school", (result.getString("S_SCHOOL").equals("")) ? "--" : result.getString("S_SCHOOL"));
+                map.put("nic", (result.getString("S_NIC").equals("")) ? "--" : result.getString("S_NIC"));
+                map.put("regID", (result.getString("S_ID").equals("")) ? "--" : result.getString("S_ID"));
+                map.put("pContact", (result.getString("S_PARENT_CONTACT_NO").equals("")) ? "--" : result.getString("S_PARENT_CONTACT_NO"));
+                map.put("regDate", (result.getString("S_YOR").equals("")) ? "--" : result.getString("S_YOR"));
+
+            }
+
+        } catch (Exception ex) {
+            throw ex;
+        }
+        return map;
+    }
+    
+    public ArrayList<String> getAllCourse(String StudentID) throws Exception {
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+        ArrayList<String> list= new ArrayList<String>();
+
+        try {
+
+            String query = "SELECT course_id from `student-course` where s_id = ? ";
+
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, StudentID);
+            
+            result = stmt.executeQuery();
+
+            while (result.next()) {
+                list.add(result.getString("course_id"));
+            }
+            return list;
         } catch (Exception ex) {
             throw ex;
         }

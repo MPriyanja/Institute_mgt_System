@@ -5,10 +5,14 @@
  */
 package com.institute_management.course_mgt;
 
+import com.institute_management.payment_mgt.*;
+import com.institute_management.course_mgt.*;
 import static com.institute_management.course_mgt.test.oneTimeStudentID;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -110,8 +114,10 @@ public class paymentPOPUP extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblTotalAmount = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        cmbYear = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         January.setText("January");
         January.addActionListener(new java.awt.event.ActionListener() {
@@ -206,10 +212,25 @@ public class paymentPOPUP extends javax.swing.JFrame {
             }
         });
 
+        String year = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+        String LastYear = Integer.parseInt(year)-1+"";
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { year,LastYear }));
+        cmbYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbYearActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Select Payment Year");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(77, 77, 77))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,14 +240,18 @@ public class paymentPOPUP extends javax.swing.JFrame {
                         .addComponent(lblTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(January)
-                            .addComponent(July))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(February)
-                            .addComponent(August))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(January)
+                                    .addComponent(July))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(February)
+                                    .addComponent(August)))
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(March)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -243,11 +268,7 @@ public class paymentPOPUP extends javax.swing.JFrame {
                                 .addComponent(November)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(December)))))
-                .addContainerGap(45, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(77, 77, 77))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {April, August, December, February, January, July, June, March, May, November, October, September});
@@ -255,7 +276,11 @@ public class paymentPOPUP extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(January)
                     .addComponent(February)
@@ -416,51 +441,66 @@ public class paymentPOPUP extends javax.swing.JFrame {
     }//GEN-LAST:event_DecemberActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-        
-        ArrayList<String> a = new ArrayList<String>();
-        if (January.isSelected()) {
-            a.add("January");
-        }
-        if (February.isSelected()) {
-            a.add("February");
-        }
-        if (March.isSelected()) {
-            a.add("March");
-        }
-        if (April.isSelected()) {
-            a.add("April");
-        }
-        if (May.isSelected()) {
-            a.add("May");
-        }
-        if (June.isSelected()) {
-            a.add("June");
-        }
-        if (July.isSelected()) {
-            a.add("July");
-        }
-        if (August.isSelected()) {
-            a.add("August");
-        }
-        if (September.isSelected()) {
-            a.add("September");
-        }
-        if (October.isSelected()) {
-            a.add("October");
-        }
-        if (November.isSelected()) {
-            a.add("November");
-        }
-        if (December.isSelected()) {
-            a.add("December");
-        }
+        try {
 
-        int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(selectCourse.OnlyForCourseEditBean.getCourseID(), oneTimeStudentID,a);
-        }catch(Exception ex){
+            ArrayList<String> a = new ArrayList<String>();
+            if (January.isSelected()) {
+                a.add("January");
+            }
+            if (February.isSelected()) {
+                a.add("February");
+            }
+            if (March.isSelected()) {
+                a.add("March");
+            }
+            if (April.isSelected()) {
+                a.add("April");
+            }
+            if (May.isSelected()) {
+                a.add("May");
+            }
+            if (June.isSelected()) {
+                a.add("June");
+            }
+            if (July.isSelected()) {
+                a.add("July");
+            }
+            if (August.isSelected()) {
+                a.add("August");
+            }
+            if (September.isSelected()) {
+                a.add("September");
+            }
+            if (October.isSelected()) {
+                a.add("October");
+            }
+            if (November.isSelected()) {
+                a.add("November");
+            }
+            if (December.isSelected()) {
+                a.add("December");
+            }
+
+            int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(selectCourse.OnlyForCourseEditBean.getCourseID(), oneTimeStudentID, a);
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmbYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbYearActionPerformed
+        try {
+            String tableID = "payments_" + cmbYear.getSelectedItem().toString() + "_" + selectCourse.OnlyForCourseEditBean.getCourseID();
+            int paymentResult = new com.institute_management.payment_mgt.PaymentDbConnection().checkPaymentYear(tableID);
+            if (paymentResult == 0) {
+                JOptionPane.showMessageDialog(new JFrame(), "No Records Found");
+                cmbYear.setSelectedItem(Calendar.getInstance().get(Calendar.YEAR)+"");
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error occured");
+        }
+
+    }//GEN-LAST:event_cmbYearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -510,8 +550,10 @@ public class paymentPOPUP extends javax.swing.JFrame {
     private javax.swing.JCheckBox November;
     private javax.swing.JCheckBox October;
     private javax.swing.JCheckBox September;
+    private javax.swing.JComboBox cmbYear;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTotalAmount;
     // End of variables declaration//GEN-END:variables

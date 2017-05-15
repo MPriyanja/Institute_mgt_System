@@ -13,10 +13,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +35,17 @@ public class createCourse extends javax.swing.JFrame {
 
     public createCourse() {
         initComponents();
+        
+        try {
+            HashMap<Integer, Object[]> tblData = new com.institute_management.course_mgt.CourseDbConnection().getCourseDetailsForTableView();
+            DefaultTableModel model = (DefaultTableModel) tblView.getModel();
+            model.setRowCount(0);
+            for (int i = 1; i <= tblData.size(); i++) {
+                model.addRow(tblData.get(i));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
     /**
@@ -74,8 +88,7 @@ public class createCourse extends javax.swing.JFrame {
         SpinnerDateModel smMonEn = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);
         spMonEn = new javax.swing.JSpinner(smMonEn);
         Date date = new Date();
-        SpinnerDateModel smMonSt = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);
-        spMonSt = new javax.swing.JSpinner(smMonSt);
+        spMonSt = new javax.swing.JSpinner();
         cbMonday = new javax.swing.JCheckBox();
         cbTuesday = new javax.swing.JCheckBox();
         cbWednesday = new javax.swing.JCheckBox();
@@ -119,11 +132,9 @@ public class createCourse extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
+        tblView = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add New Course"));
@@ -197,7 +208,12 @@ public class createCourse extends javax.swing.JFrame {
             }
         });
 
-        cmbHole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hole A", "Hole B", "Hole C", "Hole D", "Hole E" }));
+        cmbHole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hall A", "Hall B", "Hall C", "Hall D", "Hall E" }));
+        cmbHole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbHoleActionPerformed(evt);
+            }
+        });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText(":");
@@ -233,6 +249,8 @@ public class createCourse extends javax.swing.JFrame {
         JSpinner.DateEditor deMonEn = new JSpinner.DateEditor(spMonEn, "hh:mm a");
         spMonEn.setEditor(deMonEn);
 
+        SpinnerDateModel smMonSt = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);
+        spMonSt = new javax.swing.JSpinner(smMonSt);
         JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(spMonSt, "hh:mm a");
         spMonSt.setEditor(deMonSt);
 
@@ -600,39 +618,38 @@ public class createCourse extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("View Course"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Course Description", "Subject", "Lecturer", "Course Type", "Medium"
+                "Course ID", "Course Description", "Subject", "Lecturer", "Course Type", "Medium"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(250);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(3).setPreferredWidth(5);
-            jTable2.getColumnModel().getColumn(4).setPreferredWidth(80);
+        jScrollPane2.setViewportView(tblView);
+        if (tblView.getColumnModel().getColumnCount() > 0) {
+            tblView.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tblView.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tblView.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tblView.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblView.getColumnModel().getColumn(4).setPreferredWidth(5);
+            tblView.getColumnModel().getColumn(5).setPreferredWidth(80);
         }
-
-        jLabel26.setText("Search");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -640,22 +657,12 @@ public class createCourse extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -676,11 +683,11 @@ public class createCourse extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
 
         pack();
@@ -693,55 +700,55 @@ public class createCourse extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
 
-            HashMap<String,classDaysBean> clzDaysMap = new HashMap<String,classDaysBean>();
+            HashMap<String, classDaysBean> clzDaysMap = new HashMap<String, classDaysBean>();
             if (cbMonday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("monday");
                 clzBean.setStartTime((Date) spMonSt.getValue());
                 clzBean.setEndTime((Date) spMonEn.getValue());
-                clzDaysMap.put("monday",clzBean);
+                clzDaysMap.put("monday", clzBean);
             }
             if (cbTuesday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("tuesday");
                 clzBean.setStartTime((Date) spTueSt.getValue());
                 clzBean.setEndTime((Date) spTueEn.getValue());
-                clzDaysMap.put("tuesday",clzBean);
+                clzDaysMap.put("tuesday", clzBean);
             }
             if (cbWednesday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("wednesday");
                 clzBean.setStartTime((Date) spWedSt.getValue());
                 clzBean.setEndTime((Date) spWedEn.getValue());
-                clzDaysMap.put("wednesday",clzBean);
+                clzDaysMap.put("wednesday", clzBean);
             }
             if (cbThursday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("thursday");
                 clzBean.setStartTime((Date) spThuSt.getValue());
                 clzBean.setEndTime((Date) spThuEn.getValue());
-                clzDaysMap.put("thursday",clzBean);
+                clzDaysMap.put("thursday", clzBean);
             }
             if (cbFriday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("friday");
                 clzBean.setStartTime((Date) spFriSt.getValue());
                 clzBean.setEndTime((Date) spFriEn.getValue());
-                clzDaysMap.put("friday",clzBean);
+                clzDaysMap.put("friday", clzBean);
             }
             if (cbSaturday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("saturday");
                 clzBean.setStartTime((Date) spSatSt.getValue());
                 clzBean.setEndTime((Date) spSatEn.getValue());
-                clzDaysMap.put("saturday",clzBean);
+                clzDaysMap.put("saturday", clzBean);
             }
             if (cbSunday.isSelected()) {
                 classDaysBean clzBean = new classDaysBean();
                 clzBean.setDay("sunday");
                 clzBean.setStartTime((Date) spSunSt.getValue());
                 clzBean.setEndTime((Date) spSunEn.getValue());
-                clzDaysMap.put("sunday",clzBean);
+                clzDaysMap.put("sunday", clzBean);
             }
 
             //set values to courseBean
@@ -762,22 +769,32 @@ public class createCourse extends javax.swing.JFrame {
             bean.setCourseType((String) cmbClassType.getSelectedItem());
             bean.setLectureHole((String) cmbHole.getSelectedItem());
             bean.setClassDaysMap(clzDaysMap);
-            bean.setBatchNumber(cmbBatchNo.getSelectedIndex()+1);
-            bean.setCourseID(con.GenerateCourseID(bean.getGrade(), bean.getSubject(), bean.getCourseType(), bean.getLecturerName(),bean.getBatchNumber()));
-            if(con.checkDuplicateCourseID(bean.getCourseID())){
-                JOptionPane.showMessageDialog(new JFrame(), "Batch "+bean.getBatchNumber()+" is already registered. Try Batch "+(bean.getBatchNumber()+1));
-            }
-            else{
+            bean.setBatchNumber(cmbBatchNo.getSelectedIndex() + 1);
+            bean.setCourseID(con.GenerateCourseID(bean.getGrade(), bean.getSubject(), bean.getCourseType(), bean.getLecturerName(), bean.getBatchNumber()));
+            if (con.checkDuplicateCourseID(bean.getCourseID())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Batch " + bean.getBatchNumber() + " is already registered. Try Batch " + (bean.getBatchNumber() + 1));
+            } else {
                 con.insertCourseData(bean);
                 con.insertClassDays(bean.getClassDaysMap(), bean.getCourseID());
                 //create a paymentTable
                 new com.institute_management.payment_mgt.PaymentDbConnection().createPaymentTableForNewCourse(bean.getCourseID());
-                
+
                 JOptionPane.showMessageDialog(new JFrame(), "Successfully created");
             }
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(new JFrame(), "Error Ocuured. Try Again");
+        }
+
+        try {
+            HashMap<Integer, Object[]> tblData = new com.institute_management.course_mgt.CourseDbConnection().getCourseDetailsForTableView();
+            DefaultTableModel model = (DefaultTableModel) tblView.getModel();
+            model.setRowCount(0);
+            for (int i = 1; i <= tblData.size(); i++) {
+                model.addRow(tblData.get(i));
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(new JFrame(), "Fail to load course details to table");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -792,6 +809,10 @@ public class createCourse extends javax.swing.JFrame {
     private void cbThursdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbThursdayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbThursdayActionPerformed
+
+    private void cmbHoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbHoleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -862,7 +883,6 @@ public class createCourse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -873,8 +893,6 @@ public class createCourse extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JSpinner spFriEn;
     private javax.swing.JSpinner spFriSt;
     private javax.swing.JSpinner spMonEn;
@@ -889,6 +907,7 @@ public class createCourse extends javax.swing.JFrame {
     private javax.swing.JSpinner spTueSt;
     private javax.swing.JSpinner spWedEn;
     private javax.swing.JSpinner spWedSt;
+    private javax.swing.JTable tblView;
     private javax.swing.JTextField txtCourseFee;
     private javax.swing.JTextField txtDescription;
     private javax.swing.JTextField txtDuration;

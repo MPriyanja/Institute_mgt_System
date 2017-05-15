@@ -1,8 +1,11 @@
 package com.institute_management.lecture_mgt;
 
+import com.institute_management.main.NewJFrame;
 import com.institute_management.user_mgt.UI.mainFrame;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -284,41 +287,45 @@ public class lectureReg extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        try{
-        lectureBean lecBean = new lectureBean();
-        lecBean.setName(txtName.getText());
-        lecBean.setNic(txtNic.getText());
-        lecBean.setContact(txtContact.getText());
-        lecBean.setSubjectName(cmbSubject.getSelectedItem().toString());
-        if(rbMale.isSelected()){
-            lecBean.setGender("male");
-        }
-        else if(rbFemale.isSelected()){
-            lecBean.setGender("Female");
-        }
-        lecBean.setEmail(txtEmail.getText());
-        lecBean.setAddress(txtAddress.getText());
-        
-        boolean x = new LectureDbConnection().addLecture(lecBean);
-        if(x){
-            JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
-        }
-        else{
+        try {
+            lectureBean lecBean = new lectureBean();
+            lecBean.setName(txtName.getText());
+            lecBean.setNic(txtNic.getText());
+            lecBean.setContact(txtContact.getText());
+            lecBean.setSubjectName(cmbSubject.getSelectedItem().toString());
+            if (rbMale.isSelected()) {
+                lecBean.setGender("male");
+            } else if (rbFemale.isSelected()) {
+                lecBean.setGender("Female");
+            }
+            lecBean.setEmail(txtEmail.getText());
+            lecBean.setAddress(txtAddress.getText());
+
+            boolean x = new LectureDbConnection().addLecture(lecBean);
+            if (x) {
+                JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
+            } else {
+                JOptionPane.showMessageDialog(new JFrame(), "Error Occured.Data Not Saved");
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(new JFrame(), "Error Occured.Data Not Saved");
         }
-         }catch(Exception ex){
-             JOptionPane.showMessageDialog(new JFrame(), "Error Occured.Data Not Saved");
-         }
-    
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         mainFrame mF =new  mainFrame();
-        mF.setVisible(true);
-        this.dispose();
+        NewJFrame mF;
+        try {
+            mF = new NewJFrame();
+
+            mF.setVisible(true);
+            this.dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(lectureReg.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-  
+
     /**
      * @param args the command line arguments
      */

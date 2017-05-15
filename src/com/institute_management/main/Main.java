@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        mainFrame mff = new mainFrame();
+        Login mff = new Login();
         mff.setVisible(true);
 
     }

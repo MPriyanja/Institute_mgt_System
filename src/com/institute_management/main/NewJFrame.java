@@ -10,9 +10,12 @@ import com.institute_management.course_mgt.coursePOPUPNEW;
 import com.institute_management.course_mgt.selectCourse;
 import com.institute_management.lecture_mgt.lecturerPOPUPNEW;
 import com.institute_management.payment_mgt.PaymentDashBoard;
+import com.institute_management.student.UI.studentPOPUPNEW;
 import com.institute_management.user_mgt.UI.sysuserPOPUPNEW;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -24,12 +27,21 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public NewJFrame() throws Exception {
         initComponents();
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        int xsize = (int)tk.getScreenSize().getWidth();
-        int ysize = (int)tk.getScreenSize().getHeight();
-        this.setSize(xsize, ysize);
+//        Toolkit tk = Toolkit.getDefaultToolkit();
+//        int xsize = (int) tk.getScreenSize().getWidth();
+//        int ysize = (int) tk.getScreenSize().getHeight();
+        this.setSize(1366, 768);        
+        DashBoardMethods dbM = new DashBoardMethods();
+        try {
+            lblTotalCourses.setText(dbM.getTotalCourses() + "");
+            lblTotalLectures.setText(dbM.getTotalLecturers() + "");
+            lblTotalStudents.setText(dbM.getTotalStudents() + "");
+            lblTotalIncome.setText("Rs "+dbM.getTotalIncome() + "");
+        } catch (Exception ex) {
+            throw ex;
+        }
     }
 
     /**
@@ -53,12 +65,23 @@ public class NewJFrame extends javax.swing.JFrame {
         lblPrivilege = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblReport = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblTotalCourses = new javax.swing.JLabel();
+        lblTotalStudents = new javax.swing.JLabel();
+        lblTotalLectures = new javax.swing.JLabel();
+        lblTotalIncome = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(2147483647, 2147483647));
-        setPreferredSize(new java.awt.Dimension(2147483647, 2147483647));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 51, 255));
+        setMaximumSize(null);
+        setMinimumSize(null);
+        setPreferredSize(null);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LBLCOURSE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE COURSEMANAGEMNT.jpg"))); // NOI18N
         LBLCOURSE.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,6 +95,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 LBLCOURSEMouseExited(evt);
             }
         });
+        jPanel1.add(LBLCOURSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 61, -1, -1));
 
         lblStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE STUDENT.jpg"))); // NOI18N
         lblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,6 +109,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblStudentMouseExited(evt);
             }
         });
+        jPanel1.add(lblStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 111, -1, -1));
 
         lblSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE SUBJECTMANAGEMNT.jpg"))); // NOI18N
         lblSubject.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,6 +120,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblSubjectMouseExited(evt);
             }
         });
+        jPanel1.add(lblSubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 161, -1, -1));
 
         lblLecture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE LECTURER.jpg"))); // NOI18N
         lblLecture.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,6 +134,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblLectureMouseExited(evt);
             }
         });
+        jPanel1.add(lblLecture, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 211, -1, -1));
 
         lblDashboard.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(204, 204, 204));
@@ -121,6 +148,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblDashboardMouseExited(evt);
             }
         });
+        jPanel1.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         lblAttendance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE ATTANDANCE.jpg"))); // NOI18N
         lblAttendance.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,6 +159,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblAttendanceMouseExited(evt);
             }
         });
+        jPanel1.add(lblAttendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 361, -1, -1));
 
         lblPayment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PAYMENTMANAGEMNT.jpg"))); // NOI18N
         lblPayment.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,6 +173,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblPaymentMouseExited(evt);
             }
         });
+        jPanel1.add(lblPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 261, -1, -1));
 
         lblPrivilege.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PRIVILAGE.jpg"))); // NOI18N
         lblPrivilege.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,6 +187,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblPrivilegeMouseExited(evt);
             }
         });
+        jPanel1.add(lblPrivilege, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 311, -1, -1));
 
         lblEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE EMAIL.jpg"))); // NOI18N
         lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,6 +198,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblEmailMouseExited(evt);
             }
         });
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 461, -1, -1));
 
         lblReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE REPORTS.jpg"))); // NOI18N
         lblReport.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,50 +209,54 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblReportMouseExited(evt);
             }
         });
+        jPanel1.add(lblReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 411, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LBLCOURSE, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLecture, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPrivilege, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReport, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblTotalCourses.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblTotalCourses.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalCourses.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        lblTotalStudents.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblTotalStudents.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalStudents.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        lblTotalLectures.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblTotalLectures.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalLectures.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        lblTotalIncome.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        lblTotalIncome.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalIncome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/Untitled2.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(lblTotalCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170)
+                .addComponent(lblTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(lblTotalLectures, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(900, 900, 900)
+                .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LBLCOURSE, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLecture, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPrivilege, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblReport, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTotalCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalLectures, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -228,14 +264,19 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 608, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 89, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,14 +287,16 @@ public class NewJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseExited
-       lblDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lblDashboardMouseExited
 
     private void lblDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseEntered
@@ -261,15 +304,15 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblDashboardMouseEntered
 
     private void LBLCOURSEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseEntered
-       LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
     }//GEN-LAST:event_LBLCOURSEMouseEntered
 
     private void lblStudentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseEntered
-       lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
     }//GEN-LAST:event_lblStudentMouseEntered
 
     private void lblSubjectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseEntered
-       lblSubject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        lblSubject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
     }//GEN-LAST:event_lblSubjectMouseEntered
 
     private void lblLectureMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseEntered
@@ -277,7 +320,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLectureMouseEntered
 
     private void lblPaymentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseEntered
-       lblPayment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        lblPayment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
     }//GEN-LAST:event_lblPaymentMouseEntered
 
     private void lblPrivilegeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseEntered
@@ -289,7 +332,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAttendanceMouseEntered
 
     private void lblReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportMouseEntered
-       lblReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        lblReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
     }//GEN-LAST:event_lblReportMouseEntered
 
     private void lblEmailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseEntered
@@ -297,11 +340,11 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblEmailMouseEntered
 
     private void LBLCOURSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseExited
-         LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_LBLCOURSEMouseExited
 
     private void lblStudentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseExited
-       lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lblStudentMouseExited
 
     private void lblSubjectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseExited
@@ -309,7 +352,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSubjectMouseExited
 
     private void lblLectureMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseExited
-       lblLecture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblLecture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lblLectureMouseExited
 
     private void lblPaymentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseExited
@@ -321,7 +364,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblPrivilegeMouseExited
 
     private void lblAttendanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseExited
-       lblAttendance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblAttendance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lblAttendanceMouseExited
 
     private void lblReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportMouseExited
@@ -333,27 +376,35 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_lblEmailMouseExited
 
     private void LBLCOURSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseClicked
-       coursePOPUPNEW cpp = new coursePOPUPNEW();
-       cpp.setVisible(true);
-       
+        coursePOPUPNEW cpp = new coursePOPUPNEW();
+        this.dispose();
+        cpp.setVisible(true);
+        
     }//GEN-LAST:event_LBLCOURSEMouseClicked
 
     private void lblStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseClicked
-        // TODO add your handling code here:
+        studentPOPUPNEW cpp = new studentPOPUPNEW();
+        this.dispose();
+        cpp.setVisible(true);
     }//GEN-LAST:event_lblStudentMouseClicked
 
     private void lblLectureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseClicked
-       lecturerPOPUPNEW cpp = new lecturerPOPUPNEW();
-       cpp.setVisible(true);
+        lecturerPOPUPNEW cpp = new lecturerPOPUPNEW();
+        this.dispose();
+        cpp.setVisible(true);
     }//GEN-LAST:event_lblLectureMouseClicked
 
     private void lblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseClicked
         PaymentDashBoard pd = new PaymentDashBoard();
+        this.dispose();
         pd.setVisible(true);
+        
+        
     }//GEN-LAST:event_lblPaymentMouseClicked
 
     private void lblPrivilegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseClicked
         sysuserPOPUPNEW spp = new sysuserPOPUPNEW();
+        this.dispose();
         spp.setVisible(true);
     }//GEN-LAST:event_lblPrivilegeMouseClicked
 
@@ -387,15 +438,21 @@ public class NewJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                try {
+                    new NewJFrame().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLCOURSE;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblAttendance;
     private javax.swing.JLabel lblDashboard;
     private javax.swing.JLabel lblEmail;
@@ -405,5 +462,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblReport;
     private javax.swing.JLabel lblStudent;
     private javax.swing.JLabel lblSubject;
+    private javax.swing.JLabel lblTotalCourses;
+    private javax.swing.JLabel lblTotalIncome;
+    private javax.swing.JLabel lblTotalLectures;
+    private javax.swing.JLabel lblTotalStudents;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,8 @@
 package com.institute_management.course_mgt;
 
 import com.institute_management.main.NewJFrame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,7 +37,7 @@ public class coursePOPUPNEW extends javax.swing.JFrame {
         lblUpdate = new javax.swing.JLabel();
         lblHome = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -169,8 +171,15 @@ public class coursePOPUPNEW extends javax.swing.JFrame {
 
     private void lblHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseClicked
        this.dispose();
-        NewJFrame nf = new NewJFrame();
-        nf.setVisible(true);
+        NewJFrame nf;
+        
+        try {
+            nf = new NewJFrame();
+            nf.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(coursePOPUPNEW.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_lblHomeMouseClicked
 
     /**

@@ -25,7 +25,7 @@ public class studentDetailsPopUPforDelete extends javax.swing.JFrame {
         initComponents();
         lblName.setText(st.getName());
         lblSchool.setText(st.getSchool());
-        lblRegDate.setText(st.getYearOfReg().toString());
+        lblRegDate.setText(st.getYearOfReg());
         lblContact.setText(st.getTelephn());
         lblCardType.setText(Integer.toString(StaticCardType));
     }
@@ -52,7 +52,7 @@ public class studentDetailsPopUPforDelete extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblCardType = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Name");
 

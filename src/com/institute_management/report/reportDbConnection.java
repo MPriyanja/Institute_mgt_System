@@ -36,7 +36,7 @@ public class reportDbConnection {
         HashMap map = new HashMap();
 
         try {
-            String query = "SELECT su.*,(select count(course_id) from `student-course` where student_id =? and cardType = 0 ) as freeCards,(select count(course_id) from `student-course` where student_id =? and cardType = 1 ) as HalfFree,(select count(course_id) from `student-course` where student_id =? and cardType = 2 )as normalCards,(select count(course_id) from `student-course` where student_id =? ) as TotalCourses FROM student su,`student-course` stuc WHERE su.student_id = ? and su.student_id = stuc.student_id";
+            String query = "SELECT su.*,(select count(course_id) from `student-course` where s_id =? and cardType = 0 ) as freeCards,(select count(course_id) from `student-course` where s_id =? and cardType = 1 ) as HalfFree,(select count(course_id) from `student-course` where s_id =? and cardType = 2 )as normalCards,(select count(course_id) from `student-course` where s_id =? ) as TotalCourses FROM student su,`student-course` stuc WHERE su.s_id = ? and su.s_id = stuc.s_id";
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, studentID);
@@ -46,14 +46,14 @@ public class reportDbConnection {
             stmt.setString(5, studentID);
             result = stmt.executeQuery();
             while(result.next()){
-                map.put("student_name", result.getString("student_name"));
-                map.put("nic", result.getString("nic"));
-                map.put("address", result.getString("address"));
-                map.put("personal_contact", result.getString("mobile_number"));
-                map.put("regDate", result.getString("register_date"));
-                map.put("school", result.getString("school"));
-                map.put("parents_mobile", result.getString("parents_mobile_no"));
-                map.put("gender", result.getString("gender"));
+                map.put("student_name", result.getString("S_NAME"));
+                map.put("nic", result.getString("S_NIC"));
+                map.put("address", result.getString("S_ADDRESS"));
+                map.put("personal_contact", result.getString("S_TELEPHONE"));
+                map.put("regDate", result.getString("S_YOR"));
+                map.put("school", result.getString("S_SCHOOL"));
+                map.put("parents_mobile", result.getString("S_PARENT_CONTACT_NO"));
+                map.put("gender", result.getString("S_GENDER"));
                 map.put("freeCards", result.getString("freeCards"));
                 map.put("HalfFree", result.getString("HalfFree"));
                 map.put("NormalCards", result.getString("normalCards"));

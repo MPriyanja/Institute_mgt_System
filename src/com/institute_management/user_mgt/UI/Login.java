@@ -6,6 +6,7 @@
 package com.institute_management.user_mgt.UI;
 
 import com.institute_management.main.Main;
+import com.institute_management.main.NewJFrame;
 import com.institute_management.user_mgt.DB.UserDbConnection;
 import com.institute_management.user_mgt.bean.userBean;
 import com.institute_management.util.CommonMethods;
@@ -56,7 +57,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(520, 390));
         setMinimumSize(new java.awt.Dimension(520, 390));
         setResizable(false);
 
@@ -213,7 +213,7 @@ public class Login extends javax.swing.JFrame {
                 Configurations.UserBean = userbean;
 
                 if (CommonMethods.check_user_access(Configurations.Main_Page)) {
-                    mainFrame mf = new mainFrame();
+                    NewJFrame mf = new NewJFrame();
                     mf.setVisible(true);
                     this.dispose();
                 }

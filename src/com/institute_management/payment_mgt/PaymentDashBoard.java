@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.institute_management.payment_mgt;
 
 import com.institute_management.course_mgt.courseBean;
-import com.institute_management.course_mgt.paymentPOPUP;
+
 import com.institute_management.course_mgt.selectCourse;
 import static com.institute_management.course_mgt.test.oneTimeStudentID;
 import java.sql.PreparedStatement;
@@ -19,6 +18,12 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import com.institute_management.course_mgt.CourseDbConnection;
+import com.institute_management.util.autoSuggest;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -26,10 +31,53 @@ import javax.swing.JOptionPane;
  */
 public class PaymentDashBoard extends javax.swing.JFrame {
 
-    
     public PaymentDashBoard() {
         initComponents();
         
+        //Auto Suggest
+        final JTextField textfieldID = (JTextField) cmbStdIDReg.getEditor().getEditorComponent();
+        final JTextField textfieldName = (JTextField) cmbStdNameReg.getEditor().getEditorComponent();
+        final JTextField textfieldNIC = (JTextField) cmbStdNICReg.getEditor().getEditorComponent();
+        final JTextField textfieldMobile = (JTextField) cmbStdMobReg.getEditor().getEditorComponent();
+        
+        textfieldID.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldID.getText(), cmbStdIDReg, 1);
+                    }
+                });
+            }
+        });
+
+        textfieldName.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldName.getText(), cmbStdNameReg, 2);
+                    }
+                });
+            }
+        });
+        textfieldNIC.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldNIC.getText(), cmbStdNameReg, 3);
+                    }
+                });
+            }
+        });
+        textfieldMobile.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldMobile.getText(), cmbStdNameReg, 4);
+                    }
+                });
+            }
+        });
+
     }
 
     /**
@@ -42,9 +90,6 @@ public class PaymentDashBoard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txtRegID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         cmbCourseID = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
@@ -65,28 +110,25 @@ public class PaymentDashBoard extends javax.swing.JFrame {
         lblSecondMonth = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        cmbStdIDReg = new javax.swing.JComboBox();
+        cmbStdNICReg = new javax.swing.JComboBox();
+        jLabel48 = new javax.swing.JLabel();
+        cmbStdNameReg = new javax.swing.JComboBox();
+        cmbStdMobReg = new javax.swing.JComboBox();
+        jLabel49 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        lblvrification = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/login/backgroung.jpg"))); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel1.setText("Enter Student RegID");
-
-        txtRegID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtRegIDKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRegIDKeyTyped(evt);
-            }
-        });
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Payment Details"));
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("Select Course");
 
         cmbCourseID.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,63 +148,48 @@ public class PaymentDashBoard extends javax.swing.JFrame {
         });
 
         jLabel47.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(204, 255, 255));
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel47.setText("Course");
 
         lblCourse.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblCourse.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel40.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(204, 255, 255));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel40.setText("Course Description");
 
         lblDescription.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblDescription.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel39.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(204, 255, 255));
         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel39.setText("Student Name");
 
         lblStudentName.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblStudentName.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel46.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(204, 255, 255));
         jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel46.setText("Payment Amount");
 
         lblPayment.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblPayment.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel45.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(204, 255, 255));
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel45.setText("Card Type");
 
         lblcardType.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblcardType.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel42.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(204, 255, 255));
         jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel42.setText("last two Payment Status");
 
         jLabel41.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(204, 255, 255));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel41.setText("Lecturer Name");
 
         lblLecturerName.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblLecturerName.setForeground(new java.awt.Color(153, 255, 255));
 
         lblfirstMonth.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblfirstMonth.setForeground(new java.awt.Color(153, 255, 255));
 
         lblSecondMonth.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        lblSecondMonth.setForeground(new java.awt.Color(153, 255, 255));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
@@ -184,6 +211,89 @@ public class PaymentDashBoard extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Reg ID");
+
+        cmbStdIDReg.setEditable(true);
+        cmbStdIDReg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        cmbStdIDReg.setForeground(new java.awt.Color(0, 102, 255));
+        cmbStdIDReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbStdIDRegMouseClicked(evt);
+            }
+        });
+        cmbStdIDReg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbStdIDRegKeyPressed(evt);
+            }
+        });
+
+        cmbStdNICReg.setEditable(true);
+        cmbStdNICReg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        cmbStdNICReg.setForeground(new java.awt.Color(0, 102, 255));
+        cmbStdNICReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbStdNICRegMouseClicked(evt);
+            }
+        });
+
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel48.setText("NIC");
+
+        cmbStdNameReg.setEditable(true);
+        cmbStdNameReg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        cmbStdNameReg.setForeground(new java.awt.Color(0, 102, 255));
+        cmbStdNameReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbStdNameRegMouseClicked(evt);
+            }
+        });
+        cmbStdNameReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbStdNameRegActionPerformed(evt);
+            }
+        });
+
+        cmbStdMobReg.setEditable(true);
+        cmbStdMobReg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        cmbStdMobReg.setForeground(new java.awt.Color(0, 102, 255));
+        cmbStdMobReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbStdMobRegMouseClicked(evt);
+            }
+        });
+
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel49.setText("Mobile");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Clear");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel27.setText("Name");
+
+        jLabel57.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel57.setText("Student Varification Status");
+
+        lblvrification.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        lblvrification.setForeground(new java.awt.Color(0, 0, 255));
+
+        jLabel58.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel58.setText(":");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -191,133 +301,202 @@ public class PaymentDashBoard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel1)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtRegID, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel2)
-                        .addGap(29, 29, 29)
-                        .addComponent(cmbCourseID, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(90, 90, 90)
+                        .addComponent(cmbStdIDReg, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(177, 177, 177)
+                        .addComponent(cmbStdNameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(354, 354, 354)
+                        .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(cmbStdMobReg, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(383, 383, 383)
                         .addComponent(jButton2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(547, 547, 547)
+                        .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(655, 655, 655)
+                        .addComponent(btnSearch))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(cmbStdNICReg, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(lblvrification, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
                         .addComponent(lblPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblcardType, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(738, 738, 738)
+                        .addComponent(jButton10))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel40)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabel42))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblLecturerName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblfirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel57))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(354, 354, 354)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(cmbCourseID, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(lblcardType, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(548, 548, 548)
-                            .addComponent(jButton1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(38, 38, 38)
+                                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(38, 38, 38)
+                                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(38, 38, 38)
+                                    .addComponent(jLabel40))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(148, 148, 148)
+                                    .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(148, 148, 148)
+                                    .addComponent(lblStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(148, 148, 148)
+                                    .addComponent(lblDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(107, 107, 107)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel42)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(154, 154, 154)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblLecturerName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblfirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(616, 616, 616)
-                            .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 870, Short.MAX_VALUE)
-                    .addContainerGap()))
+                            .addGap(679, 679, 679)
+                            .addComponent(jButton3))))
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(107, 107, 107)
+                        .addComponent(lblvrification, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(lblPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel58))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel27))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(318, 318, 318)
+                        .addComponent(lblcardType, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(lblStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(lblDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbStdIDReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbStdNameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel49))
+                            .addComponent(cmbStdMobReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(134, 134, 134)
+                        .addComponent(jLabel47))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel48))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(jLabel46))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(cmbStdNICReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(316, 316, 316)
+                        .addComponent(jLabel45))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(jLabel39))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(jLabel40))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(cmbCourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addComponent(jButton2))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(btnSearch))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jButton10)))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblLecturerName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel41)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtRegID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(cmbCourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton2))))
-                                .addGap(41, 41, 41)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel41)
-                                                .addComponent(lblLecturerName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel47)
-                                                .addGap(2, 2, 2)))
-                                        .addGap(11, 11, 11)
+                                        .addGap(27, 27, 27)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel42)
-                                            .addComponent(lblfirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel40)
-                                        .addGap(2, 2, 2)))
-                                .addGap(11, 11, 11)
+                                            .addComponent(lblfirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel42)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(108, 108, 108)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel39)
-                                    .addComponent(lblStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel46))
-                                .addGap(13, 13, 13)
-                                .addComponent(lblcardType, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel45)))
-                        .addGap(53, 53, 53)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3))))
-                .addContainerGap(40, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 348, Short.MAX_VALUE)
-                    .addGap(2, 2, 2)))
+                                    .addComponent(jButton1)
+                                    .addComponent(jButton3)))
+                            .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(10, 10, 10))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel39, jLabel40, jLabel45, jLabel46, jLabel47});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -327,19 +506,19 @@ public class PaymentDashBoard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         try {
-            boolean studentExistancy = new com.institute_management.course_mgt.CourseDbConnection().checkstudentExistancy(txtRegID.getText());
+        try {
+            boolean studentExistancy = new com.institute_management.course_mgt.CourseDbConnection().checkstudentExistancy(cmbStdIDReg.getEditor().getItem().toString());
             //check paymenttable
             if (studentExistancy) {
                 new com.institute_management.payment_mgt.PaymentDbConnection().createPaymentTableForNewCourse(cmbCourseID.getSelectedItem().toString());
-                HashMap<String, String> a = new com.institute_management.payment_mgt.PaymentDbConnection().getLastTwoPaymentStatus(txtRegID.getText().toString(), cmbCourseID.getSelectedItem().toString());
+                HashMap<String, String> a = new com.institute_management.payment_mgt.PaymentDbConnection().getLastTwoPaymentStatus(cmbStdIDReg.getEditor().getItem().toString(), cmbCourseID.getSelectedItem().toString());
                 int count = 0;
                 for (Map.Entry<String, String> entry : a.entrySet()) {
                     String key = entry.getKey();
@@ -352,7 +531,7 @@ public class PaymentDashBoard extends javax.swing.JFrame {
                     }
                 }
 
-                String aa[] = new com.institute_management.course_mgt.CourseDbConnection().getStudentData(txtRegID.getText().toString(), cmbCourseID.getSelectedItem().toString());
+                String aa[] = new com.institute_management.course_mgt.CourseDbConnection().getStudentData(cmbStdIDReg.getEditor().getItem().toString(), cmbCourseID.getSelectedItem().toString());
                 lblStudentName.setText(aa[0]);
                 lblcardType.setText(aa[1]);
                 courseBean x = new com.institute_management.course_mgt.CourseDbConnection().getCourseDetails(cmbCourseID.getSelectedItem().toString());
@@ -372,45 +551,16 @@ public class PaymentDashBoard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmbCourseIDMouseClicked
 
-    private void txtRegIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRegIDKeyTyped
-
-    }//GEN-LAST:event_txtRegIDKeyTyped
-
-    private void txtRegIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRegIDKeyReleased
-        cmbCourseID.removeAllItems();
-        PreparedStatement stmt = null;
-        ResultSet result = null;
-
-        try{
-            String query = "SELECT `course_id` FROM `student-course` where student_id like '%"+ txtRegID.getText().toString()+"%'";
-
-            stmt = new com.institute_management.payment_mgt.PaymentDbConnection().getConnection().prepareStatement(query);
-
-            result = stmt.executeQuery();
-
-            while(result.next()){
-                String couseID = result.getString("course_id");
-                cmbCourseID.addItem(couseID);
-            }
-
-            result.close();
-            stmt.close();
-
-        }catch(Exception ex){
-
-        }
-    }//GEN-LAST:event_txtRegIDKeyReleased
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             ArrayList<String> a = new ArrayList<String>();
             Calendar cal = Calendar.getInstance();
             String curMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
             a.add(curMonth);
-            int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(cmbCourseID.getSelectedItem().toString(),txtRegID.getText().toString(), a);
-            if(x==1){
+            int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(cmbCourseID.getSelectedItem().toString(), cmbStdIDReg.getEditor().getItem().toString(), a);
+            if (x == 1) {
                 JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(new JFrame(), "Fail to save data.Try again");
             }
         } catch (Exception ex) {
@@ -419,10 +569,94 @@ public class PaymentDashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        oneTimeStudentID = txtRegID.getText().toString();
+        oneTimeStudentID = cmbStdIDReg.getEditor().getItem().toString();
         paymentPOPUP ppu = new paymentPOPUP();
         ppu.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cmbStdIDRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbStdIDRegMouseClicked
+
+    }//GEN-LAST:event_cmbStdIDRegMouseClicked
+
+    private void cmbStdIDRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbStdIDRegKeyPressed
+
+    }//GEN-LAST:event_cmbStdIDRegKeyPressed
+
+    private void cmbStdNICRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbStdNICRegMouseClicked
+
+    }//GEN-LAST:event_cmbStdNICRegMouseClicked
+
+    private void cmbStdNameRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbStdNameRegMouseClicked
+
+    }//GEN-LAST:event_cmbStdNameRegMouseClicked
+
+    private void cmbStdNameRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStdNameRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbStdNameRegActionPerformed
+
+    private void cmbStdMobRegMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbStdMobRegMouseClicked
+
+    }//GEN-LAST:event_cmbStdMobRegMouseClicked
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String id = cmbStdIDReg.getEditor().getItem().toString();
+        String name = cmbStdNameReg.getEditor().getItem().toString();
+        String nic = cmbStdNICReg.getEditor().getItem().toString();
+        String mob = cmbStdMobReg.getEditor().getItem().toString();
+
+        HashMap temp = new HashMap();
+        try {
+            temp = new CourseDbConnection().SearchStudent(id, name, nic, mob);
+            if (temp.size() > 0) {
+                cmbStdIDReg.setSelectedItem(temp.get("regID"));
+                cmbStdNameReg.setSelectedItem(temp.get("name"));
+                cmbStdNICReg.setSelectedItem(temp.get("nic"));
+                cmbStdMobReg.setSelectedItem(temp.get("mobile"));
+                lblvrification.setText("Verify");
+            } else {
+                cmbStdIDReg.setSelectedItem("");
+                cmbStdNameReg.setSelectedItem("");
+                cmbStdNICReg.setSelectedItem("");
+                cmbStdMobReg.setSelectedItem("");
+                lblvrification.setForeground(new java.awt.Color(0, 153, 51));
+                lblvrification.setText("Wrong Entry");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "No Match Found");
+
+        }
+
+        cmbCourseID.removeAllItems();
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+
+        try {
+            String query = "SELECT `course_id` FROM `student-course` where s_id like '%" + cmbStdIDReg.getEditor().getItem().toString() + "%'";
+
+            stmt = new com.institute_management.payment_mgt.PaymentDbConnection().getConnection().prepareStatement(query);
+
+            result = stmt.executeQuery();
+
+            while (result.next()) {
+                String couseID = result.getString("course_id");
+                cmbCourseID.addItem(couseID);
+            }
+
+            result.close();
+            stmt.close();
+
+        } catch (Exception ex) {
+
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        cmbStdIDReg.setSelectedItem("");
+        cmbStdNameReg.setSelectedItem("");
+        cmbStdNICReg.setSelectedItem("");
+        cmbStdMobReg.setSelectedItem("");
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -460,20 +694,30 @@ public class PaymentDashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox cmbCourseID;
+    private javax.swing.JComboBox cmbStdIDReg;
+    private javax.swing.JComboBox cmbStdMobReg;
+    private javax.swing.JComboBox cmbStdNICReg;
+    private javax.swing.JComboBox cmbStdNameReg;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCourse;
     private javax.swing.JLabel lblDescription;
@@ -483,6 +727,6 @@ public class PaymentDashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel lblStudentName;
     private javax.swing.JLabel lblcardType;
     private javax.swing.JLabel lblfirstMonth;
-    private javax.swing.JTextField txtRegID;
+    private static javax.swing.JLabel lblvrification;
     // End of variables declaration//GEN-END:variables
 }
