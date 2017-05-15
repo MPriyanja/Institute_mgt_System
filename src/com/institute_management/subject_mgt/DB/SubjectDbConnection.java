@@ -422,7 +422,7 @@ public class SubjectDbConnection {
                 Object[] rowData = new Object[1];
 
                 rowData[0] = result.getString("course_id");
-             //   rowData[1] = (boolean) false;
+                //   rowData[1] = (boolean) false;
                 tableData.put(count, rowData);
                 count++;
             }
@@ -434,8 +434,8 @@ public class SubjectDbConnection {
 
     }
 
-    public int addStudentToACourse(Object selectedItem, String studentID,int cardType) throws Exception{
-          int count = 0;
+    public int addStudentToACourse(Object selectedItem, String studentID, int cardType) throws Exception {
+        int count = 0;
 
         try {
             query = "INSERT INTO student-course(course_id, student_id, card_type) VALUES (?,?,?)";
@@ -443,7 +443,7 @@ public class SubjectDbConnection {
             pst.setString(1, selectedItem.toString());
             pst.setString(2, studentID);
             pst.setInt(3, cardType);
-          
+
             count = pst.executeUpdate();
 
         } catch (Exception e) {
@@ -462,10 +462,10 @@ public class SubjectDbConnection {
             }
         }
         return count;
-    
+
     }
 
-    public HashMap<Integer, Object[]> getCourseDetailsOnStudent(String sid, String date) throws Exception{
+    public HashMap<Integer, Object[]> getCourseDetailsOnStudent(String sid, String date) throws Exception {
         int count = 1;
 
         PreparedStatement stmt;
@@ -474,12 +474,11 @@ public class SubjectDbConnection {
         HashMap<Integer, Object[]> tableData = new HashMap<Integer, Object[]>();
 
         try {
-            String query = "select cd.course_id as course_id,cd."+date+" as date  FROM `student-course` sc left join `courses_dates` cd on cd.course_id=sc.course_id  WHERE sc.S_ID = ? AND cd."+date+"<> ''";
+            String query = "select cd.course_id as course_id,cd." + date + " as date  FROM `student-course` sc left join `courses_dates` cd on cd.course_id=sc.course_id  WHERE sc.S_ID = ? AND cd." + date + "<> ''";
 
             stmt = connection.prepareStatement(query);
             stmt.setString(1, sid);
-            
-            
+
             System.out.println(query);
 
             result = stmt.executeQuery();
@@ -496,6 +495,38 @@ public class SubjectDbConnection {
         }
 
         return tableData;
+
+    }
+
+    public ArrayList<String[]> getCourseDetailsOnDay(String day) throws Exception {
+        ArrayList<String[]> subList = new ArrayList<String[]>();
+        PreparedStatement stmt;
+        ResultSet result;
+        try {
+            String query = "select cd.course_id as course_id,cd." + day + " as time  FROM `student-course` sc left join `courses_dates` cd on cd.course_id=sc.course_id  WHERE  cd." + day + "<> ''";
+
+            stmt = connection.prepareStatement(query);
+            //stmt.setString(1, sid);
+
+            System.out.println(query);
+
+            result = stmt.executeQuery();
+            while (result.next()) {
+                String[] rowData = new String[2];
+
+                rowData[0] = result.getString("course_id");
+                rowData[1] = result.getString("time");
+//                tableData.put(count, rowData);
+//                count++;
+
+                subList.add(rowData);
+            }
+        } catch (Exception ex) {
+            System.out.println("Error " + ex);
+            throw ex;
+        }
+
+        return subList;
 
     }
 }
