@@ -548,4 +548,25 @@ public class SubjectDbConnection {
         return subList;
 
     }
+
+    public ArrayList<String> getCourseListOnStudent(String studentID)throws Exception{
+        ArrayList<String> courseList = new ArrayList<String>();
+        try {
+            query = "SELECT `course_id` FROM `student-course` WHERE `S_ID`=? AND `status` IN ('ACT');";
+
+            pst = connection.prepareStatement(query);
+            pst.setString(1, studentID);
+            rs = pst.executeQuery();
+            courseList.add("--");
+
+            while (rs.next()) {
+
+                courseList.add(rs.getString("course_id"));
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return courseList;
+    }
 }

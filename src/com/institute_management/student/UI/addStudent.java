@@ -61,7 +61,6 @@ public class addStudent extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -80,10 +79,10 @@ public class addStudent extends javax.swing.JFrame {
         txtpcontact = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jDOB = new com.toedter.calendar.JDateChooser();
         jYOR = new com.toedter.calendar.JDateChooser();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewStudent = new javax.swing.JTable();
@@ -92,10 +91,6 @@ public class addStudent extends javax.swing.JFrame {
         setTitle("Add Student");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Add Student");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 11, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Name         ");
@@ -190,24 +185,6 @@ public class addStudent extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(792, 236, 83, -1));
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setText("Back");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 236, 80, -1));
-
-        jButton5.setBackground(new java.awt.Color(102, 102, 102));
-        jButton5.setText("Select Student");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 236, -1, -1));
-
         jDOB.setDateFormatString("yyyy-MM-dd");
         jDOB.setPreferredSize(new java.awt.Dimension(6, 20));
         jPanel1.add(jDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 90, 186, 25));
@@ -215,6 +192,29 @@ public class addStudent extends javax.swing.JFrame {
         jYOR.setDateFormatString("yyyy-MM-dd");
         jYOR.setPreferredSize(new java.awt.Dimension(6, 20));
         jPanel1.add(jYOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 60, 188, 25));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Student"));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Add Student");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(392, 392, 392)
+                .addComponent(jLabel1)
+                .addContainerGap(526, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 215, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1040, 260));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("View Student"));
 
@@ -342,20 +342,6 @@ public class addStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpcontactActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        mainFrame mf = new mainFrame();
-        mf.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        selectStudent ss = new selectStudent();
-        ss.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -395,8 +381,6 @@ public class addStudent extends javax.swing.JFrame {
     private javax.swing.JComboBox comboGender;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private com.toedter.calendar.JDateChooser jDOB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -410,6 +394,7 @@ public class addStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jYOR;
     private javax.swing.JTable tblViewStudent;
