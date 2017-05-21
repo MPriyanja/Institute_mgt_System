@@ -7,6 +7,10 @@
 package com.institute_management.user_mgt.UI;
 
 import com.institute_management.course_mgt.*;
+import com.institute_management.main.NewJFrame;
+import com.institute_management.subject_mgt.UI.subjectPOPUPNEW;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -80,6 +84,9 @@ public class sysuserPOPUPNEW extends javax.swing.JFrame {
         lblHome.setMinimumSize(new java.awt.Dimension(165, 207));
         lblHome.setPreferredSize(new java.awt.Dimension(165, 207));
         lblHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHomeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblHomeMouseEntered(evt);
             }
@@ -161,6 +168,18 @@ public class sysuserPOPUPNEW extends javax.swing.JFrame {
         ppv.setVisible(true);
         
     }//GEN-LAST:event_lblUpdateMouseClicked
+
+    private void lblHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseClicked
+         this.dispose();
+        NewJFrame nf;
+        
+        try {
+            nf = new NewJFrame();
+            nf.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(subjectPOPUPNEW.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblHomeMouseClicked
 
     /**
      * @param args the command line arguments

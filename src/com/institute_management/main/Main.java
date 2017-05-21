@@ -5,6 +5,7 @@ import com.institute_management.student.UI.addStudent;
 import com.institute_management.subject_mgt.UI.addSubject;
 
 import com.institute_management.user_mgt.UI.Login;
+import com.institute_management.user_mgt.UI.NewLogin;
 import com.institute_management.user_mgt.UI.mainFrame;
 import com.institute_management.user_mgt.UI.privilegeAssign;
 
@@ -18,8 +19,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        Login mff = new Login();
+        //UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+        NewLogin mff = new NewLogin();
         mff.setVisible(true);
 
     }

@@ -142,22 +142,7 @@ public class studentDetailsPopUPforDelete extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-
-            int x = new CourseDbConnection().studentDeleteFromCourse(st.getStudentID(),OnlyForCourseEditBean.getCourseID());
-
-            if(x!=1){
-                JOptionPane.showMessageDialog(new JFrame(),"StudentID "+st.getStudentID()+" is not Registered with this course");
-                this.dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(new JFrame(),"StudentID "+st.getStudentID()+" Successfully Removed.");
-                this.dispose();
-            }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(new JFrame(),"Error Occured when deleting..");
-            this.dispose();
-        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

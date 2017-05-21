@@ -426,7 +426,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lecture Hole"/>
+            <Property name="text" type="java.lang.String" value="Lecture Hall"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -570,8 +570,7 @@
         <Component class="javax.swing.JSpinner" name="spMonSt">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner()"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date = new Date();"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="SpinnerDateModel smMonSt = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);&#xa;spMonSt = new javax.swing.JSpinner(smMonSt);&#xa;JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(spMonSt, &quot;hh:mm a&quot;);&#xa;spMonSt.setEditor(deMonSt);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Date date = new Date();&#xa;SpinnerDateModel smMonSt = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);&#xa;spMonSt = new javax.swing.JSpinner(smMonSt);&#xa;JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(spMonSt, &quot;hh:mm a&quot;);&#xa;spMonSt.setEditor(deMonSt);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cbMonday">

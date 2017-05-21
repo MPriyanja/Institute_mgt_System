@@ -11,8 +11,10 @@ import com.institute_management.course_mgt.selectCourse;
 import com.institute_management.lecture_mgt.lecturerPOPUPNEW;
 import com.institute_management.payment_mgt.PaymentDashBoard;
 import com.institute_management.student.UI.studentPOPUPNEW;
+import com.institute_management.subject_mgt.UI.subjectPOPUPNEW;
 import com.institute_management.user_mgt.UI.sysuserPOPUPNEW;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,6 +56,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblTotalCourses = new javax.swing.JLabel();
+        lblTotalStudents = new javax.swing.JLabel();
+        lblTotalLectures = new javax.swing.JLabel();
+        lblTotalIncome = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         LBLCOURSE = new javax.swing.JLabel();
         lblStudent = new javax.swing.JLabel();
@@ -65,23 +75,64 @@ public class NewJFrame extends javax.swing.JFrame {
         lblPrivilege = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblReport = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        lblTotalCourses = new javax.swing.JLabel();
-        lblTotalStudents = new javax.swing.JLabel();
-        lblTotalLectures = new javax.swing.JLabel();
-        lblTotalIncome = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 255));
         setMaximumSize(null);
-        setMinimumSize(null);
-        setPreferredSize(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 204)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 204));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("INSTITUTE OF PROFESSIONAL STUDIES");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-27, 70, 1060, 40));
+
+        jLabel5.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("STUDENT MANAGEMENT SYSTEM");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 92, 1050, 60));
+
+        lblTotalCourses.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblTotalCourses.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalCourses.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel3.add(lblTotalCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 90, 80));
+
+        lblTotalStudents.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblTotalStudents.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalStudents.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel3.add(lblTotalStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 90, 80));
+
+        lblTotalLectures.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
+        lblTotalLectures.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalLectures.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel3.add(lblTotalLectures, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 80, 80));
+
+        lblTotalIncome.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        lblTotalIncome.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalIncome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel3.add(lblTotalIncome, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 180, 110, 80));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/dashbord new.jpg"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 1020, 310));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 1020, 330));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        jPanel1.setMinimumSize(new java.awt.Dimension(238, 505));
+        jPanel1.setPreferredSize(new java.awt.Dimension(238, 505));
+        jPanel1.setLayout(null);
 
         LBLCOURSE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE COURSEMANAGEMNT.jpg"))); // NOI18N
         LBLCOURSE.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,7 +146,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 LBLCOURSEMouseExited(evt);
             }
         });
-        jPanel1.add(LBLCOURSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 61, -1, -1));
+        jPanel1.add(LBLCOURSE);
+        LBLCOURSE.setBounds(11, 62, 226, 44);
 
         lblStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE STUDENT.jpg"))); // NOI18N
         lblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,10 +161,14 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblStudentMouseExited(evt);
             }
         });
-        jPanel1.add(lblStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 111, -1, -1));
+        jPanel1.add(lblStudent);
+        lblStudent.setBounds(11, 112, 226, 44);
 
         lblSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE SUBJECTMANAGEMNT.jpg"))); // NOI18N
         lblSubject.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSubjectMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblSubjectMouseEntered(evt);
             }
@@ -120,7 +176,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblSubjectMouseExited(evt);
             }
         });
-        jPanel1.add(lblSubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 161, -1, -1));
+        jPanel1.add(lblSubject);
+        lblSubject.setBounds(11, 162, 226, 44);
 
         lblLecture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE LECTURER.jpg"))); // NOI18N
         lblLecture.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,7 +191,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblLectureMouseExited(evt);
             }
         });
-        jPanel1.add(lblLecture, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 211, -1, -1));
+        jPanel1.add(lblLecture);
+        lblLecture.setBounds(11, 212, 226, 44);
 
         lblDashboard.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(204, 204, 204));
@@ -148,7 +206,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblDashboardMouseExited(evt);
             }
         });
-        jPanel1.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        jPanel1.add(lblDashboard);
+        lblDashboard.setBounds(11, 12, 226, 44);
 
         lblAttendance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE ATTANDANCE.jpg"))); // NOI18N
         lblAttendance.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,7 +218,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblAttendanceMouseExited(evt);
             }
         });
-        jPanel1.add(lblAttendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 361, -1, -1));
+        jPanel1.add(lblAttendance);
+        lblAttendance.setBounds(11, 362, 226, 44);
 
         lblPayment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PAYMENTMANAGEMNT.jpg"))); // NOI18N
         lblPayment.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +233,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblPaymentMouseExited(evt);
             }
         });
-        jPanel1.add(lblPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 261, -1, -1));
+        jPanel1.add(lblPayment);
+        lblPayment.setBounds(11, 262, 226, 44);
 
         lblPrivilege.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PRIVILAGE.jpg"))); // NOI18N
         lblPrivilege.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,7 +248,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblPrivilegeMouseExited(evt);
             }
         });
-        jPanel1.add(lblPrivilege, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 311, -1, -1));
+        jPanel1.add(lblPrivilege);
+        lblPrivilege.setBounds(11, 312, 226, 44);
 
         lblEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE EMAIL.jpg"))); // NOI18N
         lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +260,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblEmailMouseExited(evt);
             }
         });
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 461, -1, -1));
+        jPanel1.add(lblEmail);
+        lblEmail.setBounds(11, 462, 226, 44);
 
         lblReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE REPORTS.jpg"))); // NOI18N
         lblReport.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -209,91 +272,84 @@ public class NewJFrame extends javax.swing.JFrame {
                 lblReportMouseExited(evt);
             }
         });
-        jPanel1.add(lblReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 411, -1, -1));
+        jPanel1.add(lblReport);
+        lblReport.setBounds(11, 412, 226, 44);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 154, 300, 540));
 
-        lblTotalCourses.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
-        lblTotalCourses.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalCourses.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new ImageIcon(new ImageIcon("/com/institute_management/resources/images/MainFrame/ipslogo.jpg").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/ipslogo.jpg"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 204)));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 300, 160));
 
-        lblTotalStudents.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
-        lblTotalStudents.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalStudents.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
 
-        lblTotalLectures.setFont(new java.awt.Font("Calibri", 0, 48)); // NOI18N
-        lblTotalLectures.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalLectures.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setForeground(new java.awt.Color(0, 0, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTotalIncome.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        lblTotalIncome.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalIncome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/bluewolf inc.JPG"))); // NOI18N
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, 160, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/Untitled2.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(lblTotalCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170)
-                .addComponent(lblTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180)
-                .addComponent(lblTotalLectures, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(900, 900, 900)
-                .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTotalCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalLectures, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1370, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportMouseExited
+        lblReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblReportMouseExited
+
+    private void lblReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportMouseEntered
+        lblReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblReportMouseEntered
+
+    private void lblEmailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseExited
+        lblEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblEmailMouseExited
+
+    private void lblEmailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseEntered
+        lblEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblEmailMouseEntered
+
+    private void lblPrivilegeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseExited
+        lblPrivilege.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblPrivilegeMouseExited
+
+    private void lblPrivilegeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseEntered
+        lblPrivilege.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblPrivilegeMouseEntered
+
+    private void lblPrivilegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseClicked
+        sysuserPOPUPNEW spp = new sysuserPOPUPNEW();
+        this.dispose();
+        spp.setVisible(true);
+    }//GEN-LAST:event_lblPrivilegeMouseClicked
+
+    private void lblPaymentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseExited
+        lblPayment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblPaymentMouseExited
+
+    private void lblPaymentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseEntered
+        lblPayment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblPaymentMouseEntered
+
+    private void lblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseClicked
+        PaymentDashBoard pd = new PaymentDashBoard();
+        
+        pd.setVisible(true);
+
+    }//GEN-LAST:event_lblPaymentMouseClicked
+
+    private void lblAttendanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseExited
+        lblAttendance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblAttendanceMouseExited
+
+    private void lblAttendanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseEntered
+        lblAttendance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblAttendanceMouseEntered
 
     private void lblDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseExited
         lblDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -303,90 +359,13 @@ public class NewJFrame extends javax.swing.JFrame {
         lblDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
     }//GEN-LAST:event_lblDashboardMouseEntered
 
-    private void LBLCOURSEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseEntered
-        LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_LBLCOURSEMouseEntered
-
-    private void lblStudentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseEntered
-        lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblStudentMouseEntered
-
-    private void lblSubjectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseEntered
-        lblSubject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblSubjectMouseEntered
-
-    private void lblLectureMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseEntered
-        lblLecture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblLectureMouseEntered
-
-    private void lblPaymentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseEntered
-        lblPayment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblPaymentMouseEntered
-
-    private void lblPrivilegeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseEntered
-        lblPrivilege.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblPrivilegeMouseEntered
-
-    private void lblAttendanceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseEntered
-        lblAttendance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblAttendanceMouseEntered
-
-    private void lblReportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportMouseEntered
-        lblReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblReportMouseEntered
-
-    private void lblEmailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseEntered
-        lblEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-    }//GEN-LAST:event_lblEmailMouseEntered
-
-    private void LBLCOURSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseExited
-        LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_LBLCOURSEMouseExited
-
-    private void lblStudentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseExited
-        lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblStudentMouseExited
-
-    private void lblSubjectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseExited
-        lblSubject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblSubjectMouseExited
-
     private void lblLectureMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseExited
         lblLecture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lblLectureMouseExited
 
-    private void lblPaymentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseExited
-        lblPayment.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblPaymentMouseExited
-
-    private void lblPrivilegeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseExited
-        lblPrivilege.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblPrivilegeMouseExited
-
-    private void lblAttendanceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseExited
-        lblAttendance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblAttendanceMouseExited
-
-    private void lblReportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportMouseExited
-        lblReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblReportMouseExited
-
-    private void lblEmailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseExited
-        lblEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    }//GEN-LAST:event_lblEmailMouseExited
-
-    private void LBLCOURSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseClicked
-        coursePOPUPNEW cpp = new coursePOPUPNEW();
-        this.dispose();
-        cpp.setVisible(true);
-        
-    }//GEN-LAST:event_LBLCOURSEMouseClicked
-
-    private void lblStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseClicked
-        studentPOPUPNEW cpp = new studentPOPUPNEW();
-        this.dispose();
-        cpp.setVisible(true);
-    }//GEN-LAST:event_lblStudentMouseClicked
+    private void lblLectureMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseEntered
+        lblLecture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblLectureMouseEntered
 
     private void lblLectureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLectureMouseClicked
         lecturerPOPUPNEW cpp = new lecturerPOPUPNEW();
@@ -394,19 +373,48 @@ public class NewJFrame extends javax.swing.JFrame {
         cpp.setVisible(true);
     }//GEN-LAST:event_lblLectureMouseClicked
 
-    private void lblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseClicked
-        PaymentDashBoard pd = new PaymentDashBoard();
-        this.dispose();
-        pd.setVisible(true);
-        
-        
-    }//GEN-LAST:event_lblPaymentMouseClicked
+    private void lblSubjectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseExited
+        lblSubject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblSubjectMouseExited
 
-    private void lblPrivilegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrivilegeMouseClicked
-        sysuserPOPUPNEW spp = new sysuserPOPUPNEW();
+    private void lblSubjectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseEntered
+        lblSubject.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblSubjectMouseEntered
+
+    private void lblStudentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseExited
+        lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lblStudentMouseExited
+
+    private void lblStudentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseEntered
+        lblStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_lblStudentMouseEntered
+
+    private void lblStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentMouseClicked
+        studentPOPUPNEW cpp = new studentPOPUPNEW();
         this.dispose();
-        spp.setVisible(true);
-    }//GEN-LAST:event_lblPrivilegeMouseClicked
+        cpp.setVisible(true);
+    }//GEN-LAST:event_lblStudentMouseClicked
+
+    private void LBLCOURSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseExited
+        LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_LBLCOURSEMouseExited
+
+    private void LBLCOURSEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseEntered
+        LBLCOURSE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+    }//GEN-LAST:event_LBLCOURSEMouseEntered
+
+    private void LBLCOURSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBLCOURSEMouseClicked
+        coursePOPUPNEW cpp = new coursePOPUPNEW();
+        this.dispose();
+        cpp.setVisible(true);
+
+    }//GEN-LAST:event_LBLCOURSEMouseClicked
+
+    private void lblSubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseClicked
+       this.dispose();
+        subjectPOPUPNEW spp = new subjectPOPUPNEW();
+       spp.setVisible(true);
+    }//GEN-LAST:event_lblSubjectMouseClicked
 
     /**
      * @param args the command line arguments
@@ -450,9 +458,14 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBLCOURSE;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblAttendance;
     private javax.swing.JLabel lblDashboard;
     private javax.swing.JLabel lblEmail;

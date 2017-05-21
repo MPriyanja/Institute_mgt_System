@@ -145,22 +145,7 @@ public class studentDetailsPopUPforInsert extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
         
-        int x = new CourseDbConnection().studentRegistrationForCourse(st.getStudentID(),OnlyForCourseEditBean.getCourseID(),StaticCardType);
-        
-        if(x!=1){
-            JOptionPane.showMessageDialog(new JFrame(),"Student is already registered with this course");
-            this.dispose();
-        }
-        else if(x==1){
-                JOptionPane.showMessageDialog(new JFrame(),"Student "+st.getStudentID()+" Successfully Redistered");
-                this.dispose();
-                }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(new JFrame(),"Error Occured when Inserting");
-            this.dispose();
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

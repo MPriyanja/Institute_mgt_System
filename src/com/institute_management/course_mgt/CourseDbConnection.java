@@ -438,7 +438,7 @@ public class CourseDbConnection {
 
             stmt = con.prepareStatement(query);
             stmt.setString(1, courseID);
-            stmt.setString(2, reportDate);
+            stmt.setString(2,reportDate);
             stmt.setString(3, StartTime);
             stmt.setString(4, EndTime);
             stmt.setString(5, "ACT");
@@ -673,9 +673,20 @@ public class CourseDbConnection {
         name = name.equals("--") ? "" : name;
         nic = nic.equals("--") ? "" : nic;
         mob = mob.equals("--") ? "" : mob;
+        String query=null;//query = "SELECT * from STUDENT where S_ID like '%" + id + "%' AND S_NAME like '%" + name + "%' AND S_NIC like '%" + nic + "%' AND S_TELEPHONE like '%" + mob + "%'";
         try {
-            String query = "SELECT * from STUDENT where S_ID like '%" + id + "%' AND S_NAME like '%" + name + "%' AND S_NIC like '%" + nic + "%' AND S_TELEPHONE like '%" + mob + "%'";
-
+            if(!id.equals("")){
+             query = "SELECT * from STUDENT where S_ID = " + id ;
+            }
+            else if(!name.equals("")){
+             query = "SELECT * from STUDENT where S_NAME = '" +name+"'";
+            }
+            else if(!nic.equals("")){
+             query = "SELECT * from STUDENT where S_NIC = '" + nic+"'" ;
+            }
+            else if(!mob.equals("")){
+             query = "SELECT * from STUDENT where S_TELEPHONE = '" + mob+"'";
+            }
             stmt = con.prepareStatement(query);
 
             result = stmt.executeQuery();

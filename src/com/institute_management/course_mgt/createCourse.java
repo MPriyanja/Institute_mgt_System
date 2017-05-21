@@ -87,7 +87,6 @@ public class createCourse extends javax.swing.JFrame {
         cmbClassType = new javax.swing.JComboBox();
         SpinnerDateModel smMonEn = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);
         spMonEn = new javax.swing.JSpinner(smMonEn);
-        Date date = new Date();
         spMonSt = new javax.swing.JSpinner();
         cbMonday = new javax.swing.JCheckBox();
         cbTuesday = new javax.swing.JCheckBox();
@@ -151,7 +150,7 @@ public class createCourse extends javax.swing.JFrame {
 
         jLabel6.setText("Course Duration");
 
-        jLabel7.setText("Lecture Hole");
+        jLabel7.setText("Lecture Hall");
 
         jLabel8.setText("Subject");
 
@@ -249,6 +248,7 @@ public class createCourse extends javax.swing.JFrame {
         JSpinner.DateEditor deMonEn = new JSpinner.DateEditor(spMonEn, "hh:mm a");
         spMonEn.setEditor(deMonEn);
 
+        Date date = new Date();
         SpinnerDateModel smMonSt = new SpinnerDateModel(date, null,null, Calendar.HOUR_OF_DAY);
         spMonSt = new javax.swing.JSpinner(smMonSt);
         JSpinner.DateEditor deMonSt = new JSpinner.DateEditor(spMonSt, "hh:mm a");

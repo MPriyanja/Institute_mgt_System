@@ -334,7 +334,7 @@ public class studentDetailPopUpforSearch extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         //jLabel6.setText("<html>Maths <br>phiysics</html");
         if (test.AddSearchPress == 1) {
-            test.studentVarificationStatus = "Verify";
+            test.studentVerificationStatus = "Verify";
             test.name = searchResult.get("name").toString();
             test.regID = searchResult.get("regID").toString();
             test.NIC = searchResult.get("nic").toString();
@@ -344,7 +344,7 @@ public class studentDetailPopUpforSearch extends javax.swing.JFrame {
             this.dispose();
         }
         if (test.DelSearchPress == 1) {
-            test.studentVarificationStatusDel = "Verify";
+            test.studentVerificationStatusDel = "Verify";
             test.nameDel = searchResult.get("name").toString();
             test.regIDDel = searchResult.get("regID").toString();
             test.NICDel = searchResult.get("nic").toString();
@@ -358,7 +358,7 @@ public class studentDetailPopUpforSearch extends javax.swing.JFrame {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         if (test.AddSearchPress == 1) {
-            test.studentVarificationStatus = "Rejected";
+            test.studentVerificationStatus = "Rejected";
             test.name = "";
             test.regID = "";
             test.NIC = "";
@@ -368,7 +368,7 @@ public class studentDetailPopUpforSearch extends javax.swing.JFrame {
             this.dispose();
         }
         if (test.DelSearchPress == 1) {
-            test.studentVarificationStatusDel = "Rejected";
+            test.studentVerificationStatusDel = "Rejected";
             test.nameDel = "";
             test.regIDDel = "";
             test.NICDel = "";

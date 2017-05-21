@@ -168,6 +168,7 @@ public class lecturerPOPUPNEW extends javax.swing.JFrame {
     }//GEN-LAST:event_lblUpdateMouseClicked
 
     private void lblHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseClicked
+        this.dispose();
         NewJFrame nf;
         try {
             nf = new NewJFrame();
