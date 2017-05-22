@@ -27,8 +27,8 @@ public class attendenceCourse extends javax.swing.JFrame {
     /**
      * Creates new form attendenceCourse
      */
-    SubjectDbConnection dbcon=new SubjectDbConnection();
-    
+    SubjectDbConnection dbcon = new SubjectDbConnection();
+
     public attendenceCourse() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(1366, 768);
@@ -325,9 +325,9 @@ public class attendenceCourse extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private ArrayList<String[]> loadCoursesOnDate(Date date) {
-         ArrayList<String[]> subjectList =null;
+        ArrayList<String[]> subjectList = null;
         try {
-            ArrayList<JLabel> jlableList=new ArrayList<>();
+            ArrayList<JLabel> jlableList = new ArrayList<>();
             jlableList.add(jLabel1);
             jlableList.add(jLabel2);
             jlableList.add(jLabel3);
@@ -336,31 +336,28 @@ public class attendenceCourse extends javax.swing.JFrame {
             jlableList.add(jLabel6);
             jlableList.add(jLabel7);
             jlableList.add(jLabel8);
-            
-           int count=0;
-            SimpleDateFormat sdf=new SimpleDateFormat("EEEE");
-            String day=sdf.format(date);
-            subjectList=dbcon.getCourseDetailsOnDay(day);
-            
-            if(subjectList.size()>0 || subjectList!=null){
-            int noOfCourses=subjectList.size();
-             for (int i = 0; i < noOfCourses; i++) {
-                 count++;
-                    jlableList.get(i).setText(subjectList.get(i)[0]+" Time :"+subjectList.get(i)[1]);
+
+            int count = 0;
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+            String day = sdf.format(date);
+            subjectList = dbcon.getCourseDetailsOnDay(day);
+
+            if (subjectList.size() > 0 || subjectList != null) {
+                int noOfCourses = subjectList.size();
+                for (int i = 0; i < noOfCourses; i++) {
+                    count++;
+                    jlableList.get(i).setText(subjectList.get(i)[0] + " Time :" + subjectList.get(i)[1]);
                     jlableList.get(i).setBackground(Color.darkGray);
                 }
-             for (int i = count; i < 8; i++) {
-                 count++;
+                for (int i = count; i < 8; i++) {
+                    count++;
                     jlableList.get(i).setText(null);
                 }
-            //String[] jlableList=new String[noOfCourses];
-        }
+                //String[] jlableList=new String[noOfCourses];
+            }
         } catch (Exception ex) {
             Logger.getLogger(attendenceCourse.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
         return subjectList;
     }
 }
