@@ -9,6 +9,8 @@ import com.institute_management.course_mgt.coursePOPUPNEW;
 import com.institute_management.course_mgt.selectCourse;
 import com.institute_management.lecture_mgt.lecturerPOPUPNEW;
 import com.institute_management.payment_mgt.PaymentDashBoard;
+import com.institute_management.report.AttendenaceReport;
+import com.institute_management.report.reportGen;
 import com.institute_management.student.UI.studentPOPUPNEW;
 import com.institute_management.subject_mgt.UI.subjectPOPUPNEW;
 import com.institute_management.user_mgt.UI.sysuserPOPUPNEW;
@@ -19,6 +21,7 @@ import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -83,6 +86,9 @@ public class NewJFrame extends javax.swing.JFrame {
         lblReport = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblReports = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -295,12 +301,35 @@ public class NewJFrame extends javax.swing.JFrame {
 
         //ImageIcon imageIcon = new ImageIcon(new ImageIcon("/com/institute_management/resources/images/MainFrame/data_viz.gif").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
         //jLabel6.setIcon(imageIcon);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/multiple_circle_chart.gif"))); // NOI18N
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 390, 300));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 380, 250));
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Course Reports");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 400, 40));
+
+        lblReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/pdf.JPG"))); // NOI18N
+        lblReports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblReportsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lblReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 410, 310, 270));
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Current Attendence Status");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 400, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
 
@@ -440,6 +469,13 @@ public class NewJFrame extends javax.swing.JFrame {
         RefineryUtilities.centerFrameOnScreen(demo);
         demo.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void lblReportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportsMouseClicked
+       AttendenaceReport ar = new AttendenaceReport();
+       ar.setVisible(true);
+       
+        //G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\AttendanceReport.jasper
+    }//GEN-LAST:event_lblReportsMouseClicked
    
         
 
@@ -498,6 +534,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -509,6 +547,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblPayment;
     private javax.swing.JLabel lblPrivilege;
     private javax.swing.JLabel lblReport;
+    private javax.swing.JLabel lblReports;
     private javax.swing.JLabel lblStudent;
     private javax.swing.JLabel lblSubject;
     private javax.swing.JLabel lblTotalCourses;

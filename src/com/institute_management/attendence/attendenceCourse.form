@@ -555,7 +555,7 @@
                           <Component id="lblA1" linkSize="8" alignment="0" min="-2" pref="391" max="-2" attributes="0"/>
                           <Component id="lblA2" linkSize="8" alignment="0" min="-2" pref="371" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -606,7 +606,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblP5" linkSize="10" min="-2" pref="391" max="-2" attributes="0"/>
                           <Component id="lblP4" linkSize="10" min="-2" pref="391" max="-2" attributes="0"/>

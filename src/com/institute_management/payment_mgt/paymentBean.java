@@ -17,7 +17,7 @@ public class paymentBean {
     private String s_id;
     private String Year;
     private ArrayList<String> month;
-    private int amount;
+    private double amount;
     private String date;
 
     /**
@@ -70,14 +70,14 @@ public class paymentBean {
     /**
      * @return the amount
      */
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
     /**
      * @param amount the amount to set
      */
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

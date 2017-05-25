@@ -44,7 +44,7 @@ public class NewPaymentDbConnection {
         String date = pb.getDate();
         ArrayList<String> months = pb.getMonth(); 
         String year = pb.getYear();
-        int amount=pb.getAmount();
+        double amount=pb.getAmount();
                 
         int x;
         try {
@@ -57,7 +57,7 @@ public class NewPaymentDbConnection {
                 stmt.setString(3, date);
                 stmt.setString(4, courseId);
                 stmt.setString(5, s_id);
-                stmt.setInt(6, amount);
+                stmt.setDouble(6, amount);
                 x = stmt.executeUpdate();
                 success.put(months.get(i), x);
             }

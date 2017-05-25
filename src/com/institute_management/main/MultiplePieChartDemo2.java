@@ -62,23 +62,23 @@ public class MultiplePieChartDemo2 extends JFrame {
      */
     private CategoryDataset createDataset() {
         final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(5.6, "class1", "Column 0");
-        dataset.addValue(5.6, "class1", "Column 1");
+        dataset.addValue(3.6, "A/L-2017/English/T/Prasanna/B1", "Attend");
+        dataset.addValue(5.6, "A/L-2017/English/T/Prasanna/B1", "Not Attend");
         
-        dataset.addValue(5.6, "Row 1", "Column 0");
-        dataset.addValue(5.6, "Row 1", "Column 1");
+        dataset.addValue(5.6, "A/L-2017/English/T/Prasanna/B2", "Attend");
+        dataset.addValue(2.6, "A/L-2017/English/T/Prasanna/B2", "Not Attend");
        
-        dataset.addValue(5.6, "Row 2", "Column 0");
-        dataset.addValue(5.6, "Row 2", "Column 1");
+        dataset.addValue(1.6, "A/L-2017/Maths/T/Samitha/B1", "Attend");
+        dataset.addValue(5.6, "A/L-2017/Maths/T/Samitha/B1", "Not Attend");
         
-        dataset.addValue(5.6, "Row 3", "Column 0");
-        dataset.addValue(5.6, "Row 3", "Column 1");
+        dataset.addValue(5.6, "A/L-2017/English/T/Prasanna/B5", "Attend");
+        dataset.addValue(2.6, "A/L-2017/English/T/Prasanna/B5", "Not Attend");
         
-        dataset.addValue(5.6, "Row 4", "Column 0");
-        dataset.addValue(5.6, "Row 4", "Column 1");
+        dataset.addValue(5.6, "A/L-2017/Sinhala/T/Prasanna/B5", "Attend");
+        dataset.addValue(3.6, "A/L-2017/Sinhala/T/Prasanna/B5", "Not Attend");
         
-        dataset.addValue(5.6, "Row 5", "Column 0");
-        dataset.addValue(5.6, "Row 5", "Column 1");
+        dataset.addValue(2.6, "A/L-2017/IT/T/Prasanna/B5", "Attend");
+        dataset.addValue(1.6, "A/L-2017/IT/T/Prasanna/B5", "Not Attend");
         
 
         
@@ -94,7 +94,7 @@ public class MultiplePieChartDemo2 extends JFrame {
      */
     private JFreeChart createChart(final CategoryDataset dataset) {
         final JFreeChart chart = ChartFactory.createMultiplePieChart(
-            "Multiple Pie Chart",  // chart title
+            "Current Attendance Status",  // chart title
             dataset,               // dataset
             TableOrder.BY_ROW,
             true,                  // include legend

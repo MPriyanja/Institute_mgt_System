@@ -64,10 +64,10 @@ public class reportGen extends JFrame {
     }
 
     public static void main(String args[]) throws Exception {
-        HashMap param = new HashMap();
-        reportGen rg = new reportGen("G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\report2.jasper", param);
-        rg.setVisible(true);
-        
-        rg.save("G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\report2.jasper", param);
+//        HashMap param = new HashMap();
+//        reportGen rg = new reportGen("G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\AttendanceReport.jasper", param);
+//        rg.setVisible(true);
+//        
+//        rg.save("G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\report2.jasper", param);
     }
 }
