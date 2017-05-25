@@ -6,10 +6,13 @@
 package com.institute_management.payment_mgt;
 
 import com.institute_management.course_mgt.*;
-import static com.institute_management.course_mgt.test.oneTimeStudentID;
+import static com.institute_management.payment_mgt.PaymentDashBoard.pb;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -18,7 +21,12 @@ import javax.swing.JOptionPane;
  * @author Malinda Ranabahu
  */
 public class paymentPOPUP extends javax.swing.JFrame {
+    /*
 
+     this is wrong
+     */
+
+    NewPaymentDbConnection conn = new com.institute_management.payment_mgt.NewPaymentDbConnection();
     double monthlyFee = selectCourse.OnlyForCourseEditBean.getMonthlyFee();
     double courseFee = selectCourse.OnlyForCourseEditBean.getTotalCourseFee();
     double payment = (courseFee > 0.00) ? courseFee : monthlyFee;
@@ -444,52 +452,70 @@ public class paymentPOPUP extends javax.swing.JFrame {
 
             ArrayList<String> a = new ArrayList<String>();
             if (January.isSelected()) {
-                a.add("January");
+                a.add("january");
             }
             if (February.isSelected()) {
-                a.add("February");
+                a.add("february");
             }
             if (March.isSelected()) {
-                a.add("March");
+                a.add("march");
             }
             if (April.isSelected()) {
-                a.add("April");
+                a.add("april");
             }
             if (May.isSelected()) {
-                a.add("May");
+                a.add("may");
             }
             if (June.isSelected()) {
-                a.add("June");
+                a.add("june");
             }
             if (July.isSelected()) {
-                a.add("July");
+                a.add("july");
             }
             if (August.isSelected()) {
-                a.add("August");
+                a.add("august");
             }
             if (September.isSelected()) {
-                a.add("September");
+                a.add("september");
             }
             if (October.isSelected()) {
-                a.add("October");
+                a.add("october");
             }
             if (November.isSelected()) {
-                a.add("November");
+                a.add("november");
             }
             if (December.isSelected()) {
-                a.add("December");
+                a.add("december");
             }
 
+            HashMap<String, Integer> successStatus = new HashMap<String, Integer>();
+
+            Calendar cal = Calendar.getInstance();
             
-            int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(selectCourse.OnlyForCourseEditBean.getCourseID(), oneTimeStudentID, a);
-            if(x!=1){
-                JOptionPane.showMessageDialog(new JFrame(), "Fail to Update Payments.Try Again");
+            String currentDate = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(cal.getTime())).toLowerCase();
+            String curMonth = (new SimpleDateFormat("MMMM").format(cal.getTime())).toLowerCase();
+            String curYear = (new SimpleDateFormat("yyyy").format(cal.getTime())).toLowerCase();
+            pb.setMonth(a);
+            pb.setDate(currentDate);
+            pb.setYear(cmbYear.getSelectedItem().toString());
+
+            successStatus = conn.makePayment(pb);
+            String errorMsg = "";
+            for (Map.Entry<String, Integer> entry : successStatus.entrySet()) {
+                int value = (Integer) entry.getValue().intValue();
+                String key = entry.getKey();
+                if (value != 1) {
+                    errorMsg = errorMsg + "," + key;
+                }
             }
-            if(x==1){
-                JOptionPane.showMessageDialog(new JFrame(), "Payment Successfully Updated");
+
+            if (errorMsg.equals("")) {
+                JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
+            } else {
+                JOptionPane.showMessageDialog(new JFrame(), "Fail Make payment for following Months(" + errorMsg + ").Try again");
             }
         } catch (Exception ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(new JFrame(), "error");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -499,7 +525,7 @@ public class paymentPOPUP extends javax.swing.JFrame {
             int paymentResult = new com.institute_management.payment_mgt.PaymentDbConnection().checkPaymentYear(tableID);
             if (paymentResult == 0) {
                 JOptionPane.showMessageDialog(new JFrame(), "No Records Found");
-                cmbYear.setSelectedItem(Calendar.getInstance().get(Calendar.YEAR)+"");
+                cmbYear.setSelectedItem(Calendar.getInstance().get(Calendar.YEAR) + "");
             }
 
         } catch (Exception ex) {

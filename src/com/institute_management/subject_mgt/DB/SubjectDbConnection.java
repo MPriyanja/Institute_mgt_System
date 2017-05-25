@@ -80,7 +80,9 @@ public class SubjectDbConnection {
         return count;
     }
 
-    public int deleteSubjectClasses(String code) throws Exception {
+    
+    
+     public int deleteSubjectClasses(String code) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         int success;
@@ -89,6 +91,7 @@ public class SubjectDbConnection {
 
             stmt = connection.prepareStatement(query);
             stmt.setString(1, code);
+            
 
             success = stmt.executeUpdate();
 

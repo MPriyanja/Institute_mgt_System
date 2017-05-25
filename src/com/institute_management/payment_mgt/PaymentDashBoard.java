@@ -5,23 +5,24 @@
  */
 package com.institute_management.payment_mgt;
 
+import com.institute_management.course_mgt.CourseDbConnection;
 import com.institute_management.course_mgt.courseBean;
-
 import com.institute_management.course_mgt.selectCourse;
 import static com.institute_management.course_mgt.test.oneTimeStudentID;
+import com.institute_management.util.autoSuggest;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import com.institute_management.course_mgt.CourseDbConnection;
-import com.institute_management.util.autoSuggest;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -31,15 +32,18 @@ import javax.swing.SwingUtilities;
  */
 public class PaymentDashBoard extends javax.swing.JFrame {
 
+    NewPaymentDbConnection conn = new com.institute_management.payment_mgt.NewPaymentDbConnection();
+    public static paymentBean pb = new paymentBean();
+
     public PaymentDashBoard() {
         initComponents();
-        
+
         //Auto Suggest
         final JTextField textfieldID = (JTextField) cmbStdIDReg.getEditor().getEditorComponent();
         final JTextField textfieldName = (JTextField) cmbStdNameReg.getEditor().getEditorComponent();
         final JTextField textfieldNIC = (JTextField) cmbStdNICReg.getEditor().getEditorComponent();
         final JTextField textfieldMobile = (JTextField) cmbStdMobReg.getEditor().getEditorComponent();
-        
+
         textfieldID.addKeyListener(new KeyAdapter() {
             public void keyReleased(KeyEvent ke) {
                 SwingUtilities.invokeLater(new Runnable() {
@@ -106,7 +110,7 @@ public class PaymentDashBoard extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         lblLecturerName = new javax.swing.JLabel();
-        lblfirstMonth = new javax.swing.JLabel();
+        lblThirdMonth = new javax.swing.JLabel();
         lblSecondMonth = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -123,6 +127,7 @@ public class PaymentDashBoard extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         lblvrification = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
+        lblFirstMonth = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -187,7 +192,7 @@ public class PaymentDashBoard extends javax.swing.JFrame {
 
         lblLecturerName.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
-        lblfirstMonth.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        lblThirdMonth.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         lblSecondMonth.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
@@ -294,6 +299,8 @@ public class PaymentDashBoard extends javax.swing.JFrame {
         jLabel58.setForeground(new java.awt.Color(0, 0, 255));
         jLabel58.setText(":");
 
+        lblFirstMonth.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -391,7 +398,8 @@ public class PaymentDashBoard extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lblLecturerName, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblfirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(lblThirdMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblFirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(679, 679, 679)
                             .addComponent(jButton3))))
@@ -485,12 +493,14 @@ public class PaymentDashBoard extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(27, 27, 27)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblfirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblThirdMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addComponent(jLabel42)
                                                 .addGap(10, 10, 10)
                                                 .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(108, 108, 108)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblFirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton1)
                                     .addComponent(jButton3)))
@@ -517,20 +527,38 @@ public class PaymentDashBoard extends javax.swing.JFrame {
             boolean studentExistancy = new com.institute_management.course_mgt.CourseDbConnection().checkstudentExistancy(cmbStdIDReg.getEditor().getItem().toString());
             //check paymenttable
             if (studentExistancy) {
-                new com.institute_management.payment_mgt.PaymentDbConnection().createPaymentTableForNewCourse(cmbCourseID.getSelectedItem().toString());
-                HashMap<String, String> a = new com.institute_management.payment_mgt.PaymentDbConnection().getLastTwoPaymentStatus(cmbStdIDReg.getEditor().getItem().toString(), cmbCourseID.getSelectedItem().toString());
-                int count = 0;
-                for (Map.Entry<String, String> entry : a.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-                    if (count == 0) {
-                        lblfirstMonth.setText(key + " : " + value);
-                        count++;
-                    } else {
-                        lblSecondMonth.setText(key + " : " + value);
-                    }
-                }
 
+                pb.setCourseID(cmbCourseID.getSelectedItem().toString());
+                pb.setS_id(cmbStdIDReg.getEditor().getItem().toString());
+                pb.setAmount(conn.getCourseFee(cmbCourseID.getSelectedItem().toString()));
+
+                LinkedHashMap<String, String> paymentMap = conn.getPaymentDetails(cmbCourseID.getSelectedItem().toString(), cmbStdIDReg.getEditor().getItem().toString(), 6);
+                int count = 0;
+                for (Map.Entry<String, String> entry : paymentMap.entrySet()) {
+                    String value = entry.getValue().toString();
+                    String key = entry.getKey().toString();
+
+                    if (count == 2) {
+                        lblThirdMonth.setForeground(new java.awt.Color(0,153,51));
+                        if (value.contains("not")) {
+                            lblThirdMonth.setForeground(new java.awt.Color(255, 0, 0));
+                        }
+                        lblThirdMonth.setText(key + "  :   " + value);
+                    } else if (count == 1) {
+                        lblSecondMonth.setForeground(new java.awt.Color(0,153,51));
+                        if (value.contains("not")) {
+                            lblSecondMonth.setForeground(new java.awt.Color(255, 0, 0));
+                        }
+                        lblSecondMonth.setText(key + "  :   " + value);
+                    } else if (count == 0) {
+                        lblFirstMonth.setForeground(new java.awt.Color(0,153,51));
+                        if (value.contains("not")) {
+                            lblFirstMonth.setForeground(new java.awt.Color(255, 0, 0));
+                        }
+                        lblFirstMonth.setText(key + "  :   " + value);
+                    }
+                    count++;
+                }
                 String aa[] = new com.institute_management.course_mgt.CourseDbConnection().getStudentData(cmbStdIDReg.getEditor().getItem().toString(), cmbCourseID.getSelectedItem().toString());
                 lblStudentName.setText(aa[0]);
                 lblcardType.setText(aa[1]);
@@ -539,6 +567,7 @@ public class PaymentDashBoard extends javax.swing.JFrame {
                 lblCourse.setText(cmbCourseID.getSelectedItem().toString());
                 lblLecturerName.setText(x.getLecturerName());
                 lblPayment.setText(Double.toString(x.getMonthlyFee()));
+
             } else {
                 JOptionPane.showMessageDialog(new JFrame(), "There is no such ID.Please check the number");
             }
@@ -553,15 +582,36 @@ public class PaymentDashBoard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            ArrayList<String> a = new ArrayList<String>();
+            HashMap<String, Integer> successStatus = new HashMap<String, Integer>();
+            ArrayList<String> months = new ArrayList<String>();
+
             Calendar cal = Calendar.getInstance();
-            String curMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
-            a.add(curMonth);
-            int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(cmbCourseID.getSelectedItem().toString(), cmbStdIDReg.getEditor().getItem().toString(), a);
-            if (x == 1) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            String currentDate = dateFormat.format(cal.getTime());
+            String curMonth = (new SimpleDateFormat("MMMM").format(cal.getTime())).toLowerCase();
+            String curYear = (new SimpleDateFormat("yyyy").format(cal.getTime())).toLowerCase();
+            months.add(curMonth);
+            int paymentAmount = conn.getCourseFee(cmbCourseID.getSelectedItem().toString());
+            pb.setAmount(paymentAmount);
+            pb.setCourseID(cmbCourseID.getSelectedItem().toString());
+            pb.setDate(currentDate);
+            pb.setMonth(months);
+            pb.setS_id(cmbStdIDReg.getEditor().getItem().toString());
+            pb.setYear(curYear);
+            successStatus = conn.makePayment(pb);
+            String errorMsg = "";
+            for (Map.Entry<String, Integer> entry : successStatus.entrySet()) {
+                int value = (Integer) entry.getValue().intValue();
+                String key = entry.getKey();
+                if (value != 1) {
+                    errorMsg = errorMsg + "," + key;
+                }
+            }
+
+            if (errorMsg.equals("")) {
                 JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
             } else {
-                JOptionPane.showMessageDialog(new JFrame(), "Fail to save data.Try again");
+                JOptionPane.showMessageDialog(new JFrame(), "Fail Make payment for following Months(" + errorMsg + ").Try again");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(new JFrame(), "error");
@@ -721,12 +771,13 @@ public class PaymentDashBoard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCourse;
     private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblFirstMonth;
     private javax.swing.JLabel lblLecturerName;
     private javax.swing.JLabel lblPayment;
     private javax.swing.JLabel lblSecondMonth;
     private javax.swing.JLabel lblStudentName;
+    private javax.swing.JLabel lblThirdMonth;
     private javax.swing.JLabel lblcardType;
-    private javax.swing.JLabel lblfirstMonth;
     private static javax.swing.JLabel lblvrification;
     // End of variables declaration//GEN-END:variables
 }
