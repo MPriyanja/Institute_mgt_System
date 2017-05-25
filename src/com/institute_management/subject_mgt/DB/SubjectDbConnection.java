@@ -101,24 +101,7 @@ public class SubjectDbConnection {
         }
     }
     
-     public int deleteSubjectClasses(String code) throws Exception {
-        PreparedStatement stmt;
-        ResultSet result;
-        int success;
-        try {
-            String query = "delete from subject where SUBJECT_CODE = ? ";
-
-            stmt = connection.prepareStatement(query);
-            stmt.setString(1, code);
-            
-
-            success = stmt.executeUpdate();
-
-            return success;
-        } catch (Exception ex) {
-            throw ex;
-        }
-    }
+    
 
     /**
      *

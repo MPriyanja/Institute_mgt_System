@@ -2103,8 +2103,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-                      <Component id="jPanel23" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="232" max="32767" attributes="0"/>
+                      <Component id="jPanel23" min="-2" pref="955" max="-2" attributes="0"/>
+                      <EmptySpace pref="163" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2150,10 +2150,6 @@
                               <Component id="lblPayment" pref="192" max="32767" attributes="0"/>
                               <Component id="lblcardType" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="jButton12" min="-2" pref="203" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jButton20" min="-2" pref="207" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -2187,7 +2183,7 @@
                                           <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                           <Component id="jLabel81" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Component id="lblvrification4" min="-2" pref="168" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2210,23 +2206,26 @@
                                               <Component id="cmbStdNameReg4" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblFirstMonth" min="-2" pref="195" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="lblLecturerName" max="32767" attributes="0"/>
-                                                  <Component id="lblThirdMonth" max="32767" attributes="0"/>
-                                                  <Component id="lblSecondMonth" min="-2" pref="195" max="-2" attributes="0"/>
-                                              </Group>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblLecturerName" max="32767" attributes="0"/>
+                                              <Component id="lblfirstMonth" max="32767" attributes="0"/>
+                                              <Component id="lblSecondMonth" min="-2" pref="195" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                          <Component id="jButton12" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jButton20" min="-2" pref="207" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="395" max="32767" attributes="0"/>
+                                  <EmptySpace min="301" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2285,7 +2284,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel42" max="32767" attributes="0"/>
-                                      <Component id="lblThirdMonth" max="32767" attributes="0"/>
+                                      <Component id="lblfirstMonth" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblSecondMonth" min="-2" pref="14" max="-2" attributes="0"/>
@@ -2308,29 +2307,21 @@
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblFirstMonth" min="-2" pref="14" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel46" max="32767" attributes="0"/>
                               <Component id="lblPayment" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel45" max="32767" attributes="0"/>
-                                      <Component id="lblcardType" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" pref="37" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel45" max="32767" attributes="0"/>
+                              <Component id="lblcardType" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2388,7 +2379,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblLecturerName">
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblThirdMonth">
+                <Component class="javax.swing.JLabel" name="lblfirstMonth">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSecondMonth">
                 </Component>
@@ -2561,8 +2552,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblFirstMonth">
                 </Component>
               </SubComponents>
             </Container>
