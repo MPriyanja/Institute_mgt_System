@@ -6,6 +6,7 @@
 package com.institute_management.course_mgt;
 
 import static com.institute_management.course_mgt.selectCourse.OnlyForCourseEditBean;
+import static com.institute_management.payment_mgt.PaymentDashBoard.pb;
 import com.institute_management.student.BEAN.Student;
 import com.institute_management.util.autoSuggest;
 
@@ -17,11 +18,13 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -526,7 +529,7 @@ public class test extends javax.swing.JFrame {
         lblStudentName = new javax.swing.JLabel();
         lblPayment = new javax.swing.JLabel();
         lblLecturerName = new javax.swing.JLabel();
-        lblfirstMonth = new javax.swing.JLabel();
+        lblThirdMonth = new javax.swing.JLabel();
         lblSecondMonth = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         lblcardType = new javax.swing.JLabel();
@@ -545,6 +548,7 @@ public class test extends javax.swing.JFrame {
         jLabel80 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
         lblvrification4 = new javax.swing.JLabel();
+        lblFirstMonth = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -2019,6 +2023,10 @@ public class test extends javax.swing.JFrame {
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblPayment, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                     .addComponent(lblcardType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(82, 82, 82)
+                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
@@ -2045,7 +2053,7 @@ public class test extends javax.swing.JFrame {
                                 .addComponent(jLabel80)
                                 .addGap(13, 13, 13)
                                 .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                                 .addComponent(lblvrification4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(31, 31, 31)
                         .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2067,15 +2075,12 @@ public class test extends javax.swing.JFrame {
                                     .addComponent(jLabel42)
                                     .addComponent(jLabel41))
                                 .addGap(53, 53, 53)
-                                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblLecturerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblfirstMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel23Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblLecturerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblThirdMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -2123,7 +2128,7 @@ public class test extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblfirstMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblThirdMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSecondMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel23Layout.createSequentialGroup()
@@ -2139,18 +2144,20 @@ public class test extends javax.swing.JFrame {
                             .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblStudentName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblFirstMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblcardType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12)
-                    .addComponent(jButton20))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblcardType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton12)
+                        .addComponent(jButton20)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
@@ -2159,8 +2166,8 @@ public class test extends javax.swing.JFrame {
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(142, 142, 142)
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2819,22 +2826,45 @@ public class test extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        oneTimeStudentID = cmbStdIDReg4.getSelectedItem().toString();
-        paymentPOPUP ppu = new paymentPOPUP();
+        oneTimeStudentID = cmbStdIDReg.getEditor().getItem().toString();
+        com.institute_management.payment_mgt.paymentPOPUP ppu = new com.institute_management.payment_mgt.paymentPOPUP();
         ppu.setVisible(true);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         try {
-            ArrayList<String> a = new ArrayList<String>();
+            HashMap<String, Integer> successStatus = new HashMap<String, Integer>();
+            ArrayList<String> months = new ArrayList<String>();
+
             Calendar cal = Calendar.getInstance();
-            String curMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
-            a.add(curMonth);
-            int x = new com.institute_management.payment_mgt.PaymentDbConnection().makeBatchPayment(selectCourse.OnlyForCourseEditBean.getCourseID(), cmbStdIDReg4.getSelectedItem().toString(), a);
-            if (x == 1) {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            String currentDate = dateFormat.format(cal.getTime());
+            String curMonth = (new SimpleDateFormat("MMMM").format(cal.getTime())).toLowerCase();
+            String curYear = (new SimpleDateFormat("yyyy").format(cal.getTime())).toLowerCase();
+            months.add(curMonth);
+
+            double i = (Double) OnlyForCourseEditBean.getMonthlyFee();
+
+            pb.setAmount((int) i);
+            pb.setCourseID(OnlyForCourseEditBean.getCourseID());
+            pb.setDate(currentDate);
+            pb.setMonth(months);
+            pb.setS_id(cmbStdIDReg4.getEditor().getItem().toString());
+            pb.setYear(curYear);
+            successStatus = new com.institute_management.payment_mgt.NewPaymentDbConnection().makePayment(pb);
+            String errorMsg = "";
+            for (Map.Entry<String, Integer> entry : successStatus.entrySet()) {
+                int value = (Integer) entry.getValue().intValue();
+                String key = entry.getKey();
+                if (value != 1) {
+                    errorMsg = errorMsg + "," + key;
+                }
+            }
+
+            if (errorMsg.equals("")) {
                 JOptionPane.showMessageDialog(new JFrame(), "Successfully Inserted");
             } else {
-                JOptionPane.showMessageDialog(new JFrame(), "Fail to save data.Try again");
+                JOptionPane.showMessageDialog(new JFrame(), "Fail Make payment for following Months(" + errorMsg + ").Try again");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(new JFrame(), "error");
@@ -2843,34 +2873,51 @@ public class test extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-            boolean studentExistancy = conn.checkstudentExistancy(cmbStdIDReg4.getSelectedItem().toString());
+            boolean studentExistancy = new com.institute_management.course_mgt.CourseDbConnection().checkstudentExistancy(cmbStdIDReg4.getEditor().getItem().toString());
             //check paymenttable
             if (studentExistancy) {
-                new com.institute_management.payment_mgt.PaymentDbConnection().createPaymentTableForNewCourse(OnlyForCourseEditBean.getCourseID());
-                HashMap<String, String> a = new com.institute_management.payment_mgt.PaymentDbConnection().getLastTwoPaymentStatus(cmbStdIDReg4.getSelectedItem().toString(), OnlyForCourseEditBean.getCourseID());
+
+                pb.setCourseID(OnlyForCourseEditBean.getCourseID());
+                pb.setS_id(cmbStdIDReg4.getEditor().getItem().toString());
+                double i = (Double) OnlyForCourseEditBean.getMonthlyFee();
+                pb.setAmount((int) i);
+
+                LinkedHashMap<String, String> paymentMap = new com.institute_management.payment_mgt.NewPaymentDbConnection().getPaymentDetails(OnlyForCourseEditBean.getCourseID(), cmbStdIDReg4.getEditor().getItem().toString(), 6);
                 int count = 0;
-                if (a.size() != 0) {
-                    for (Map.Entry<String, String> entry : a.entrySet()) {
-                        String key = entry.getKey();
-                        String value = entry.getValue();
-                        if (count == 0) {
-                            lblfirstMonth.setText(key + " : " + value);
-                            count++;
-                        } else {
-                            lblSecondMonth.setText(key + " : " + value);
+                for (Map.Entry<String, String> entry : paymentMap.entrySet()) {
+                    String value = entry.getValue().toString();
+                    String key = entry.getKey().toString();
+
+                    if (count == 2) {
+                        lblThirdMonth.setForeground(new java.awt.Color(0, 153, 51));
+                        if (value.contains("not")) {
+                            lblThirdMonth.setForeground(new java.awt.Color(255, 0, 0));
                         }
+                        lblThirdMonth.setText(key + "  :   " + value);
+                    } else if (count == 1) {
+                        lblSecondMonth.setForeground(new java.awt.Color(0, 153, 51));
+                        if (value.contains("not")) {
+                            lblSecondMonth.setForeground(new java.awt.Color(255, 0, 0));
+                        }
+                        lblSecondMonth.setText(key + "  :   " + value);
+                    } else if (count == 0) {
+                        lblFirstMonth.setForeground(new java.awt.Color(0, 153, 51));
+                        if (value.contains("not")) {
+                            lblFirstMonth.setForeground(new java.awt.Color(255, 0, 0));
+                        }
+                        lblFirstMonth.setText(key + "  :   " + value);
                     }
-                } else {
-                    lblfirstMonth.setText("No Payment History");
+                    count++;
                 }
-
-                String aa[] = conn.getStudentData(cmbStdIDReg4.getSelectedItem().toString(), OnlyForCourseEditBean.getCourseID());
-                lblName.setText(aa[0]);
+                String aa[] = new com.institute_management.course_mgt.CourseDbConnection().getStudentData(cmbStdIDReg4.getEditor().getItem().toString(), OnlyForCourseEditBean.getCourseID());
+                lblStudentName.setText(aa[0]);
                 lblcardType.setText(aa[1]);
-
+                courseBean x = new com.institute_management.course_mgt.CourseDbConnection().getCourseDetails(OnlyForCourseEditBean.getCourseID());
+                selectCourse.OnlyForCourseEditBean = x;
                 lblCourse.setText(OnlyForCourseEditBean.getCourseID());
-                lblLecturerName.setText(OnlyForCourseEditBean.getLecturerName());
-                lblPayment.setText(Double.toString(OnlyForCourseEditBean.getMonthlyFee()));
+                lblLecturerName.setText(x.getLecturerName());
+                lblPayment.setText(Double.toString(x.getMonthlyFee()));
+
             } else {
                 JOptionPane.showMessageDialog(new JFrame(), "There is no such ID.Please check the number");
             }
@@ -3385,14 +3432,14 @@ public class test extends javax.swing.JFrame {
 
                         if (xx != 1) {
                             JOptionPane.showMessageDialog(new JFrame(), "StudentID " + st.getStudentID() + " is not Registered with this course");
-                            
+
                         } else {
                             JOptionPane.showMessageDialog(new JFrame(), "StudentID " + st.getStudentID() + " Successfully Removed.");
-                           
+
                         }
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(new JFrame(), "Error Occured when deleting..");
-                        
+
                     }
                 } else {
                     JOptionPane.showMessageDialog(new JFrame(), "Student ID " + cmbStdIDRem.getEditor().getItem().toString() + " is not registered with this course");
@@ -3828,6 +3875,7 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JLabel lblBatchNo;
     private javax.swing.JLabel lblCourse;
     private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblFirstMonth;
     private javax.swing.JLabel lblGrade;
     private javax.swing.JLabel lblHalf;
     private javax.swing.JLabel lblLecturerName;
@@ -3837,9 +3885,9 @@ public class test extends javax.swing.JFrame {
     private javax.swing.JLabel lblSecondMonth;
     private javax.swing.JLabel lblStudentName;
     private javax.swing.JLabel lblSubject;
+    private javax.swing.JLabel lblThirdMonth;
     private javax.swing.JLabel lblTotalFee;
     private javax.swing.JLabel lblcardType;
-    private javax.swing.JLabel lblfirstMonth;
     private javax.swing.JLabel lblfree;
     private javax.swing.JLabel lbltotalStudent;
     private static javax.swing.JLabel lblvrification;
