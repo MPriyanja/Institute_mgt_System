@@ -7,13 +7,20 @@ package com.institute_management.subject_mgt.DB;
 
 import com.institute_management.student.BEAN.Student;
 import com.institute_management.subject_mgt.BEAN.SubjectBean;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -72,8 +79,8 @@ public class SubjectDbConnection {
         }
         return count;
     }
-    
-     public int deleteSubjectClasses(String code) throws Exception {
+
+    public int deleteSubjectClasses(String code) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         int success;
@@ -82,7 +89,6 @@ public class SubjectDbConnection {
 
             stmt = connection.prepareStatement(query);
             stmt.setString(1, code);
-            
 
             success = stmt.executeUpdate();
 
@@ -383,6 +389,27 @@ public class SubjectDbConnection {
 
     }
 
+    public BufferedImage getImageById(String id) {
+        String query = "select S_IMAGE from student where S_ID = ?";
+        BufferedImage img = null;
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, id);
+            ResultSet result = stmt.executeQuery();
+            byte[] bytes = null;
+            if (result.next()) {
+                bytes = result.getBytes(1);
+            }
+            if (bytes != null) {
+                img = ImageIO.read(new ByteArrayInputStream(bytes));
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return img;
+    }
+
     public ArrayList<String> getCourseList() throws Exception {
         ArrayList<String> courseList = new ArrayList<String>();
         try {
@@ -549,7 +576,7 @@ public class SubjectDbConnection {
 
     }
 
-    public ArrayList<String> getCourseListOnStudent(String studentID)throws Exception{
+    public ArrayList<String> getCourseListOnStudent(String studentID) throws Exception {
         ArrayList<String> courseList = new ArrayList<String>();
         try {
             query = "SELECT `course_id` FROM `student-course` WHERE `S_ID`=? AND `status` IN ('ACT');";
@@ -568,5 +595,49 @@ public class SubjectDbConnection {
             throw e;
         }
         return courseList;
+    }
+
+    public int markAttendence(String selectedCourseId, String sid, Date date, int i) throws Exception {
+        int count = 0;
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-YYYY-HH:mm:ss");
+        DateFormat dateFormat1 = new SimpleDateFormat("EEEE");
+        String dateattendence = dateFormat.format(new Date());
+        String dateattendence1 = dateFormat1.format(new Date()).toLowerCase();
+        System.out.println(dateattendence1);
+
+        String[] s = dateattendence.split("\\-");
+        System.out.println("helo");
+
+        try {
+            query = "INSERT INTO `attendence`(`s_id`, `c_id`, `year`, `month`, `date`, `day`, `time`, `attendence`) VALUES (?,?,?,?,?,?,?,?)";
+            pst = connection.prepareStatement(query);
+            pst.setString(1, sid);
+            pst.setString(2, selectedCourseId);
+            pst.setString(3, s[2]);
+            pst.setString(4, s[1]);
+            pst.setString(5, s[0]);
+            pst.setString(6, dateattendence1);
+            pst.setString(7, s[3]);
+            pst.setInt(8, i);
+
+            count = pst.executeUpdate();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                if (pst != null) {
+                    try {
+                        pst.close();
+                    } catch (SQLException e) {
+                        throw e;
+                    }
+                }
+            } catch (Exception ee) {
+                throw ee;
+            }
+        }
+        return count;
+
     }
 }

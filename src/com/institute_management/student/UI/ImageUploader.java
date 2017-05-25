@@ -224,8 +224,7 @@ public Image toImage(BufferedImage bufferedImage) {
             //insert data and image from specified address. 
             int s = psmnt.executeUpdate();
             if (s > 0) {
-                System.out.println("Uploaded successfully !");
- 
+                System.out.println("Uploaded successfully !"); 
                 JOptionPane.showMessageDialog(rootPane, "Uploaded successfully !");
             } else {
                 System.out.println("unsucessfull to upload image.");

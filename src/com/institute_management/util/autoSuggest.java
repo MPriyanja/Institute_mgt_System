@@ -86,7 +86,7 @@ public class autoSuggest extends javax.swing.JFrame {
             jComboBox.hidePopup();
         }
     }
-    
+
     public void comboFilterCourse(String enteredText, JComboBox jComboBox, int x) {
         List<String> filterArray = new ArrayList<String>();
 
@@ -215,4 +215,36 @@ public class autoSuggest extends javax.swing.JFrame {
 // Variables declaration - do not modify
     private javax.swing.JComboBox jComboBox1;
 // End of variables declaration
+
+    public void comboFilterOnCouresStudent(String text, JComboBox jSID, String selectedCourseId) {
+        int x = 0;
+        List<String> filterArray = new ArrayList<String>();
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = null;
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/institute_management", "root", "");
+            String str1 = "";
+            String str = "";
+
+            str = "SELECT `S_ID` FROM `student-course` WHERE `S_ID` LIKE '"+ text +"%' and `course_id`  in('" + selectedCourseId + "')";
+            System.out.println(str);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(str);
+            while (rs.next()) {
+                str1 = rs.getString("S_ID");
+                filterArray.add(str1);
+            }
+
+        } catch (Exception ex) {
+            System.out.println("error" + ex);
+        }
+        if (filterArray.size() > 0) {
+            jSID.setModel(new DefaultComboBoxModel(filterArray.toArray()));
+            jSID.setSelectedItem(text);
+            jSID.showPopup();
+        } else {
+            jSID.hidePopup();
+        }
+    }
 }

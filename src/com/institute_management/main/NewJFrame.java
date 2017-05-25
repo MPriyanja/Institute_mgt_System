@@ -6,6 +6,7 @@
 
 package com.institute_management.main;
 
+import com.institute_management.attendence.attendenceCourse;
 import com.institute_management.course_mgt.coursePOPUPNEW;
 import com.institute_management.course_mgt.selectCourse;
 import com.institute_management.lecture_mgt.lecturerPOPUPNEW;
@@ -211,6 +212,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
         lblAttendance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE ATTANDANCE.jpg"))); // NOI18N
         lblAttendance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAttendanceMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblAttendanceMouseEntered(evt);
             }
@@ -415,6 +419,13 @@ public class NewJFrame extends javax.swing.JFrame {
         subjectPOPUPNEW spp = new subjectPOPUPNEW();
        spp.setVisible(true);
     }//GEN-LAST:event_lblSubjectMouseClicked
+
+    private void lblAttendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseClicked
+        // TODO add your handling code here:
+        attendenceCourse ac=new attendenceCourse();
+        ac.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblAttendanceMouseClicked
 
     /**
      * @param args the command line arguments
