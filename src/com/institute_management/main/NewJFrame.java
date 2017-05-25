@@ -41,7 +41,7 @@ public class NewJFrame extends javax.swing.JFrame {
             lblTotalCourses.setText(dbM.getTotalCourses() + "");
             lblTotalLectures.setText(dbM.getTotalLecturers() + "");
             lblTotalStudents.setText(dbM.getTotalStudents() + "");
-            lblTotalIncome.setText("Rs "+dbM.getTotalIncome() + "");
+            //lblTotalIncome.setText("Rs "+dbM.getTotalIncome() + "");
         } catch (Exception ex) {
             throw ex;
         }

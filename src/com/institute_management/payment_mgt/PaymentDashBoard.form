@@ -164,7 +164,8 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblSecondMonth" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                                           <Component id="lblLecturerName" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                          <Component id="lblfirstMonth" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                          <Component id="lblThirdMonth" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                          <Component id="lblFirstMonth" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -292,7 +293,7 @@
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblfirstMonth" alignment="0" min="-2" pref="14" max="-2" attributes="0"/>
+                                              <Component id="lblThirdMonth" alignment="0" min="-2" pref="14" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -301,7 +302,9 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblFirstMonth" min="-2" pref="14" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -457,7 +460,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblfirstMonth">
+        <Component class="javax.swing.JLabel" name="lblThirdMonth">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="12" style="1"/>
@@ -648,6 +651,13 @@
               <Color blue="ff" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value=":"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblFirstMonth">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="12" style="1"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
