@@ -100,27 +100,34 @@ public class attendenceCourse extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblDate = new javax.swing.JLabel();
         lblDay = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblsname = new javax.swing.JLabel();
+        lblsid = new javax.swing.JLabel();
         txtSName = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jSID = new javax.swing.JComboBox();
         ilbCName = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lblcn = new javax.swing.JLabel();
+        lblCM = new javax.swing.JLabel();
+        lblcf = new javax.swing.JLabel();
+        lblcg = new javax.swing.JLabel();
         lblCName = new javax.swing.JLabel();
         lblCMedium = new javax.swing.JLabel();
         lblCfee = new javax.swing.JLabel();
         lblCGrade = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        lblcl = new javax.swing.JLabel();
         lblCLec = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -194,6 +201,12 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jLabel4.setText("jLabel2");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel4MouseExited(evt);
             }
@@ -201,6 +214,9 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel1");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel3MouseEntered(evt);
             }
@@ -211,6 +227,12 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jLabel6.setText("jLabel2");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel6MouseExited(evt);
             }
@@ -218,6 +240,12 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jLabel5.setText("jLabel1");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel5MouseExited(evt);
             }
@@ -225,6 +253,12 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jLabel7.setText("jLabel2");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel7MouseExited(evt);
             }
@@ -232,8 +266,105 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jLabel8.setText("jLabel2");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel8MouseExited(evt);
+            }
+        });
+
+        jLabel9.setText("jLabel2");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel9MouseExited(evt);
+            }
+        });
+
+        jLabel10.setText("jLabel2");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel10MouseExited(evt);
+            }
+        });
+
+        jLabel11.setText("jLabel2");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel11MouseExited(evt);
+            }
+        });
+
+        jLabel12.setText("jLabel2");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel12MouseExited(evt);
+            }
+        });
+
+        jLabel13.setText("jLabel2");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+        });
+
+        jLabel14.setText("jLabel2");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel14MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel14MouseExited(evt);
+            }
+        });
+
+        jLabel15.setText("jLabel2");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel15MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel15MouseExited(evt);
             }
         });
 
@@ -244,6 +375,13 @@ public class attendenceCourse extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -256,7 +394,7 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel10, jLabel11, jLabel12, jLabel13, jLabel14, jLabel15, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,10 +417,24 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dateAttendence, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dateAttendence, jLabel1, jLabel10, jLabel11, jLabel12, jLabel13, jLabel14, jLabel15, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9});
 
         lblDate.setBackground(new java.awt.Color(0, 0, 0));
         lblDate.setText("jLabjel5");
@@ -325,9 +477,9 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblDate, lblDay, lblTime});
 
-        jLabel11.setText("Student Name");
+        lblsname.setText("Student Name");
 
-        jLabel10.setText("Student Id");
+        lblsid.setText("Student Id");
 
         jButton1.setText("Check In");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -357,15 +509,15 @@ public class attendenceCourse extends javax.swing.JFrame {
 
         ilbCName.setBorder(javax.swing.BorderFactory.createTitledBorder("Course Details"));
 
-        jLabel12.setText("Name        :");
+        lblcn.setText("Name        :");
 
-        jLabel13.setText("Medium    :");
+        lblCM.setText("Medium    :");
 
-        jLabel14.setText("Fee            :");
+        lblcf.setText("Fee            :");
 
-        jLabel15.setText("Grade       :");
+        lblcg.setText("Grade       :");
 
-        jLabel20.setText("Lecturer  :");
+        lblcl.setText("Lecturer  :");
 
         javax.swing.GroupLayout ilbCNameLayout = new javax.swing.GroupLayout(ilbCName);
         ilbCName.setLayout(ilbCNameLayout);
@@ -375,11 +527,11 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel14)
-                        .addComponent(jLabel15)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel20))
+                        .addComponent(lblcf)
+                        .addComponent(lblcg)
+                        .addComponent(lblcn, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                        .addComponent(lblCM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblcl))
                 .addGap(18, 18, 18)
                 .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCLec, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,22 +542,22 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        ilbCNameLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel13, jLabel14, jLabel15});
+        ilbCNameLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCM, lblcf, lblcg});
 
         ilbCNameLayout.setVerticalGroup(
             ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ilbCNameLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblcn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
+                    .addComponent(lblCM)
                     .addComponent(lblCMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblcf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCfee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(ilbCNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,9 +566,9 @@ public class attendenceCourse extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblCLec, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ilbCNameLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
+                        .addComponent(lblcg)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel20)))
+                        .addComponent(lblcl)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -444,8 +596,8 @@ public class attendenceCourse extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblsname, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblsid, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSName)
@@ -458,10 +610,10 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(lblsid))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                    .addComponent(lblsname)
                     .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -675,7 +827,15 @@ public class attendenceCourse extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1KeyPressed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
+        selectedCourseId = jLabel2.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
@@ -728,43 +888,299 @@ public class attendenceCourse extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       // PaymentDashBoard 
+        // PaymentDashBoard 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        jLabel2.setBorder(null);     
+        jLabel2.setBorder(null);
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
- jLabel3.setBorder(null);        // TODO add your handling code here:
+        jLabel3.setBorder(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseExited
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
- jLabel4.setBorder(null);        // TODO add your handling code here:
+        jLabel4.setBorder(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
- jLabel5.setBorder(null);        // TODO add your handling code here:
+        jLabel5.setBorder(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
- jLabel6.setBorder(null);        // TODO add your handling code here:
+        jLabel6.setBorder(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
- jLabel7.setBorder(null);        // TODO add your handling code here:
+        jLabel7.setBorder(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
- jLabel8.setBorder(null);        // TODO add your handling code here:
+        jLabel8.setBorder(null);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseExited
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-    if (subjectList.size() > 2) {
+        if (subjectList.size() > 2) {
             jLabel3.setBorder(border);
         }         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        if (subjectList.size() > 3) {
+            jLabel4.setBorder(border);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        if (subjectList.size() > 4) {
+            jLabel5.setBorder(border);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        if (subjectList.size() > 5) {
+            jLabel6.setBorder(border);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        if (subjectList.size() > 6) {
+            jLabel7.setBorder(border);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
+        if (subjectList.size() > 7) {
+            jLabel8.setBorder(border);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseEntered
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        selectedCourseId = jLabel3.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        selectedCourseId = jLabel4.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        selectedCourseId = jLabel5.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        selectedCourseId = jLabel6.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        selectedCourseId = jLabel7.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        selectedCourseId = jLabel8.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        selectedCourseId = jLabel9.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        if (subjectList.size() > 8) {
+            jLabel9.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseEntered
+
+    private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
+        jLabel9.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseExited
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        selectedCourseId = jLabel10.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+        if (subjectList.size() > 9) {
+            jLabel10.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+        jLabel10.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseExited
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        selectedCourseId = jLabel11.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        if (subjectList.size() > 10) {
+            jLabel11.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        jLabel11.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseExited
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        selectedCourseId = jLabel12.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
+        if (subjectList.size() > 11) {
+            jLabel12.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseEntered
+
+    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+        jLabel12.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseExited
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        selectedCourseId = jLabel13.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        if (subjectList.size() > 12) {
+            jLabel13.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+        jLabel13.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseExited
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        selectedCourseId = jLabel14.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
+        if (subjectList.size() > 13) {
+            jLabel14.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14MouseEntered
+
+    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
+        jLabel14.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14MouseExited
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        selectedCourseId = jLabel15.getText();
+        try {
+            CourseBean = new CourseDbConnection().getCourseDetails(selectedCourseId);
+            this.test();
+            this.setCourseLable(CourseBean);
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseEntered
+        if (subjectList.size() > 14) {
+            jLabel15.setBorder(border);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel15MouseEntered
+
+    private void jLabel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseExited
+        jLabel15.setBorder(null);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel15MouseExited
 
     /**
      * @param args the command line arguments
@@ -815,13 +1231,13 @@ public class attendenceCourse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -837,6 +1253,7 @@ public class attendenceCourse extends javax.swing.JFrame {
     private javax.swing.JLabel lblA5;
     private javax.swing.JLabel lblCGrade;
     private javax.swing.JLabel lblCLec;
+    private javax.swing.JLabel lblCM;
     private javax.swing.JLabel lblCMedium;
     private javax.swing.JLabel lblCName;
     private javax.swing.JLabel lblCfee;
@@ -849,6 +1266,12 @@ public class attendenceCourse extends javax.swing.JFrame {
     private javax.swing.JLabel lblP4;
     private javax.swing.JLabel lblP5;
     private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblcf;
+    private javax.swing.JLabel lblcg;
+    private javax.swing.JLabel lblcl;
+    private javax.swing.JLabel lblcn;
+    private javax.swing.JLabel lblsid;
+    private javax.swing.JLabel lblsname;
     private javax.swing.JTextField txtSName;
     // End of variables declaration//GEN-END:variables
 
@@ -864,6 +1287,13 @@ public class attendenceCourse extends javax.swing.JFrame {
             jlableList.add(jLabel6);
             jlableList.add(jLabel7);
             jlableList.add(jLabel8);
+            jlableList.add(jLabel9);
+            jlableList.add(jLabel10);
+            jlableList.add(jLabel11);
+            jlableList.add(jLabel12);
+            jlableList.add(jLabel13);
+            jlableList.add(jLabel14);
+            jlableList.add(jLabel15);
 
             int count = 0;
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
@@ -878,7 +1308,7 @@ public class attendenceCourse extends javax.swing.JFrame {
                     //  jlableList.get(i).setText(subjectList.get(i)[0] + " Time :" + subjectList.get(i)[1]);
                     jlableList.get(i).setBackground(Color.darkGray);
                 }
-                for (int i = count; i < 8; i++) {
+                for (int i = count; i < 15; i++) {
                     count++;
                     jlableList.get(i).setText(null);
                 }
