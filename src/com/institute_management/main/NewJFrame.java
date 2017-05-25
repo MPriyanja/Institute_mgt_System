@@ -3,23 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.institute_management.main;
 
-import com.institute_management.attendence.attendenceCourse;
 import com.institute_management.course_mgt.coursePOPUPNEW;
 import com.institute_management.course_mgt.selectCourse;
 import com.institute_management.lecture_mgt.lecturerPOPUPNEW;
 import com.institute_management.payment_mgt.PaymentDashBoard;
+import com.institute_management.report.AttendenaceReport;
+import com.institute_management.report.reportGen;
 import com.institute_management.student.UI.studentPOPUPNEW;
 import com.institute_management.subject_mgt.UI.subjectPOPUPNEW;
 import com.institute_management.user_mgt.UI.sysuserPOPUPNEW;
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -35,16 +42,18 @@ public class NewJFrame extends javax.swing.JFrame {
 //        Toolkit tk = Toolkit.getDefaultToolkit();
 //        int xsize = (int) tk.getScreenSize().getWidth();
 //        int ysize = (int) tk.getScreenSize().getHeight();
-        this.setSize(1366, 768);        
+        this.setSize(1366, 768);
         DashBoardMethods dbM = new DashBoardMethods();
         try {
             lblTotalCourses.setText(dbM.getTotalCourses() + "");
             lblTotalLectures.setText(dbM.getTotalLecturers() + "");
             lblTotalStudents.setText(dbM.getTotalStudents() + "");
-            //lblTotalIncome.setText("Rs "+dbM.getTotalIncome() + "");
+            //lblTotalIncome.setText("Rs " + dbM.getTotalIncome() + "");
+            lblTotalIncome.setText("Rs 4000.00");
         } catch (Exception ex) {
             throw ex;
         }
+
     }
 
     /**
@@ -77,6 +86,10 @@ public class NewJFrame extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         lblReport = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblReports = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -130,7 +143,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 1020, 330));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         jPanel1.setMinimumSize(new java.awt.Dimension(238, 505));
         jPanel1.setPreferredSize(new java.awt.Dimension(238, 505));
         jPanel1.setLayout(null);
@@ -148,7 +161,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LBLCOURSE);
-        LBLCOURSE.setBounds(11, 62, 226, 44);
+        LBLCOURSE.setBounds(10, 230, 226, 44);
 
         lblStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE STUDENT.jpg"))); // NOI18N
         lblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,7 +176,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblStudent);
-        lblStudent.setBounds(11, 112, 226, 44);
+        lblStudent.setBounds(10, 280, 226, 44);
 
         lblSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE SUBJECTMANAGEMNT.jpg"))); // NOI18N
         lblSubject.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -178,7 +191,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblSubject);
-        lblSubject.setBounds(11, 162, 226, 44);
+        lblSubject.setBounds(10, 330, 226, 44);
 
         lblLecture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE LECTURER.jpg"))); // NOI18N
         lblLecture.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,7 +206,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblLecture);
-        lblLecture.setBounds(11, 212, 226, 44);
+        lblLecture.setBounds(10, 380, 226, 44);
 
         lblDashboard.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(204, 204, 204));
@@ -208,13 +221,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblDashboard);
-        lblDashboard.setBounds(11, 12, 226, 44);
+        lblDashboard.setBounds(10, 180, 226, 44);
 
         lblAttendance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE ATTANDANCE.jpg"))); // NOI18N
         lblAttendance.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAttendanceMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblAttendanceMouseEntered(evt);
             }
@@ -223,7 +233,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblAttendance);
-        lblAttendance.setBounds(11, 362, 226, 44);
+        lblAttendance.setBounds(10, 530, 226, 44);
 
         lblPayment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PAYMENTMANAGEMNT.jpg"))); // NOI18N
         lblPayment.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,7 +248,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblPayment);
-        lblPayment.setBounds(11, 262, 226, 44);
+        lblPayment.setBounds(10, 430, 226, 44);
 
         lblPrivilege.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PRIVILAGE.jpg"))); // NOI18N
         lblPrivilege.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -253,7 +263,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblPrivilege);
-        lblPrivilege.setBounds(11, 312, 226, 44);
+        lblPrivilege.setBounds(10, 480, 226, 44);
 
         lblEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE EMAIL.jpg"))); // NOI18N
         lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -265,7 +275,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblEmail);
-        lblEmail.setBounds(11, 462, 226, 44);
+        lblEmail.setBounds(10, 630, 226, 44);
 
         lblReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE REPORTS.jpg"))); // NOI18N
         lblReport.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -277,16 +287,50 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblReport);
-        lblReport.setBounds(11, 412, 226, 44);
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 154, 300, 540));
+        lblReport.setBounds(10, 580, 226, 44);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new ImageIcon(new ImageIcon("/com/institute_management/resources/images/MainFrame/ipslogo.jpg").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/ipslogo.jpg"))); // NOI18N
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 204)));
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 300, 160));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(-10, 10, 280, 140);
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -6, 300, 700));
+
+        jLabel6.setIcon(new ImageIcon(new ImageIcon("F:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\resources\\images\\MainFrame\\multiple_circle_chart.gif").getImage().getScaledInstance(300, 200, Image.SCALE_DEFAULT)));
+
+        //ImageIcon imageIcon = new ImageIcon(new ImageIcon("/com/institute_management/resources/images/MainFrame/data_viz.gif").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+        //jLabel6.setIcon(imageIcon);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/multiple_circle_chart.gif"))); // NOI18N
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 380, 250));
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Course Reports");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 400, 40));
+
+        lblReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/pdf.JPG"))); // NOI18N
+        lblReports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblReportsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lblReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 410, 310, 270));
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Current Attendence Status");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 400, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
 
@@ -342,7 +386,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void lblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPaymentMouseClicked
         PaymentDashBoard pd = new PaymentDashBoard();
-        
+
         pd.setVisible(true);
 
     }//GEN-LAST:event_lblPaymentMouseClicked
@@ -415,18 +459,28 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LBLCOURSEMouseClicked
 
     private void lblSubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectMouseClicked
-       this.dispose();
+        this.dispose();
         subjectPOPUPNEW spp = new subjectPOPUPNEW();
-       spp.setVisible(true);
+        spp.setVisible(true);
     }//GEN-LAST:event_lblSubjectMouseClicked
 
-    private void lblAttendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendanceMouseClicked
-        // TODO add your handling code here:
-        attendenceCourse ac=new attendenceCourse();
-        ac.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_lblAttendanceMouseClicked
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        final MultiplePieChartDemo2 demo = new MultiplePieChartDemo2("Multiple Pie Chart Demo 2");
+        demo.pack();
+        RefineryUtilities.centerFrameOnScreen(demo);
+        demo.setVisible(true);
+    }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void lblReportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportsMouseClicked
+       AttendenaceReport ar = new AttendenaceReport();
+       ar.setVisible(true);
+       
+        //G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\AttendanceReport.jasper
+    }//GEN-LAST:event_lblReportsMouseClicked
+   
+        
+
+   
     /**
      * @param args the command line arguments
      */
@@ -441,16 +495,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -459,8 +518,10 @@ public class NewJFrame extends javax.swing.JFrame {
             public void run() {
                 try {
                     new NewJFrame().setVisible(true);
+
                 } catch (Exception ex) {
-                    Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(NewJFrame.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -473,6 +534,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -484,6 +548,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblPayment;
     private javax.swing.JLabel lblPrivilege;
     private javax.swing.JLabel lblReport;
+    private javax.swing.JLabel lblReports;
     private javax.swing.JLabel lblStudent;
     private javax.swing.JLabel lblSubject;
     private javax.swing.JLabel lblTotalCourses;

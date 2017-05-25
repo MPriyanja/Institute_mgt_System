@@ -3,21 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.institute_management.report;
 
+import com.institute_management.util.Configurations;
+import java.awt.Container;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.export.JRTextExporter;
+import net.sf.jasperreports.engine.export.JRTextExporterParameter;
 
 /**
  *
  * @author Malinda Ranabahu
  */
 public class reportDbConnection {
-   Connection con = getConnection();
+
+    Connection con = getConnection();
 
     public Connection getConnection() {
         Connection conn = null;
@@ -29,8 +40,8 @@ public class reportDbConnection {
         }
         return conn;
     }
-    
-    public HashMap getStudentDetails(String studentID) throws Exception{
+
+    public HashMap getStudentDetails(String studentID) throws Exception {
         PreparedStatement stmt;
         ResultSet result;
         HashMap map = new HashMap();
@@ -45,7 +56,7 @@ public class reportDbConnection {
             stmt.setString(4, studentID);
             stmt.setString(5, studentID);
             result = stmt.executeQuery();
-            while(result.next()){
+            while (result.next()) {
                 map.put("student_name", result.getString("S_NAME"));
                 map.put("nic", result.getString("S_NIC"));
                 map.put("address", result.getString("S_ADDRESS"));
@@ -58,14 +69,12 @@ public class reportDbConnection {
                 map.put("HalfFree", result.getString("HalfFree"));
                 map.put("NormalCards", result.getString("normalCards"));
                 map.put("totalCourses", result.getString("TotalCourses"));
-  
+
             }
 
             return map;
         } catch (Exception ex) {
             throw ex;
         }
-
-        
     }
 }

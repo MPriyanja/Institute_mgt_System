@@ -116,11 +116,13 @@ public class DashBoardMethods {
         double amount = 0;
         String tName;
         Calendar c = Calendar.getInstance();
+
         String thisMonth = c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH).toLowerCase();
         String curYear = (new SimpleDateFormat("yyyy").format(c.getTime())).toLowerCase();
         try {
 
             String query = "select amount from payments where month = " + thisMonth +" and year = "+curYear;
+
             stmt = con.prepareStatement(query);
             result = stmt.executeQuery();
             while (result.next()) {
