@@ -48,7 +48,8 @@ public class NewJFrame extends javax.swing.JFrame {
             lblTotalCourses.setText(dbM.getTotalCourses() + "");
             lblTotalLectures.setText(dbM.getTotalLecturers() + "");
             lblTotalStudents.setText(dbM.getTotalStudents() + "");
-          //  lblTotalIncome.setText("Rs " + dbM.getTotalIncome() + "");
+            //lblTotalIncome.setText("Rs " + dbM.getTotalIncome() + "");
+            lblTotalIncome.setText("Rs 4000.00");
         } catch (Exception ex) {
             throw ex;
         }
@@ -142,7 +143,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 1020, 330));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         jPanel1.setMinimumSize(new java.awt.Dimension(238, 505));
         jPanel1.setPreferredSize(new java.awt.Dimension(238, 505));
         jPanel1.setLayout(null);
@@ -160,7 +161,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LBLCOURSE);
-        LBLCOURSE.setBounds(11, 62, 226, 44);
+        LBLCOURSE.setBounds(10, 230, 226, 44);
 
         lblStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE STUDENT.jpg"))); // NOI18N
         lblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,7 +176,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblStudent);
-        lblStudent.setBounds(11, 112, 226, 44);
+        lblStudent.setBounds(10, 280, 226, 44);
 
         lblSubject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE SUBJECTMANAGEMNT.jpg"))); // NOI18N
         lblSubject.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,7 +191,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblSubject);
-        lblSubject.setBounds(11, 162, 226, 44);
+        lblSubject.setBounds(10, 330, 226, 44);
 
         lblLecture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE LECTURER.jpg"))); // NOI18N
         lblLecture.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,7 +206,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblLecture);
-        lblLecture.setBounds(11, 212, 226, 44);
+        lblLecture.setBounds(10, 380, 226, 44);
 
         lblDashboard.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(204, 204, 204));
@@ -220,7 +221,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblDashboard);
-        lblDashboard.setBounds(11, 12, 226, 44);
+        lblDashboard.setBounds(10, 180, 226, 44);
 
         lblAttendance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE ATTANDANCE.jpg"))); // NOI18N
         lblAttendance.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +233,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblAttendance);
-        lblAttendance.setBounds(11, 362, 226, 44);
+        lblAttendance.setBounds(10, 530, 226, 44);
 
         lblPayment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PAYMENTMANAGEMNT.jpg"))); // NOI18N
         lblPayment.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,7 +248,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblPayment);
-        lblPayment.setBounds(11, 262, 226, 44);
+        lblPayment.setBounds(10, 430, 226, 44);
 
         lblPrivilege.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE PRIVILAGE.jpg"))); // NOI18N
         lblPrivilege.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,7 +263,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblPrivilege);
-        lblPrivilege.setBounds(11, 312, 226, 44);
+        lblPrivilege.setBounds(10, 480, 226, 44);
 
         lblEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE EMAIL.jpg"))); // NOI18N
         lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -274,7 +275,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblEmail);
-        lblEmail.setBounds(11, 462, 226, 44);
+        lblEmail.setBounds(10, 630, 226, 44);
 
         lblReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/BLUE REPORTS.jpg"))); // NOI18N
         lblReport.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -286,16 +287,16 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblReport);
-        lblReport.setBounds(11, 412, 226, 44);
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 154, 300, 540));
+        lblReport.setBounds(10, 580, 226, 44);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new ImageIcon(new ImageIcon("/com/institute_management/resources/images/MainFrame/ipslogo.jpg").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/institute_management/resources/images/MainFrame/ipslogo.jpg"))); // NOI18N
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 204)));
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 300, 160));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(-10, 10, 280, 140);
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -6, 300, 700));
 
         jLabel6.setIcon(new ImageIcon(new ImageIcon("F:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\resources\\images\\MainFrame\\multiple_circle_chart.gif").getImage().getScaledInstance(300, 200, Image.SCALE_DEFAULT)));
 

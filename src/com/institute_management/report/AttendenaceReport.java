@@ -499,7 +499,7 @@ public class AttendenaceReport extends javax.swing.JFrame {
             HashMap param = new HashMap();
         reportGen rg;
         try {
-            rg = new reportGen("G:\\new version\\Institute_mgt_System\\src\\com\\institute_management\\report\\AttendanceReport.jasper", param);
+            rg = new reportGen("reports/AttendanceReport.jasper", param);
              rg.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
