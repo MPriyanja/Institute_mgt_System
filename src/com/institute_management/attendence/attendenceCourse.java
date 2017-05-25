@@ -7,12 +7,15 @@ package com.institute_management.attendence;
 
 import com.institute_management.course_mgt.CourseDbConnection;
 import com.institute_management.course_mgt.courseBean;
+import com.institute_management.payment_mgt.NewPaymentDbConnection;
 import com.institute_management.payment_mgt.PaymentDashBoard;
+import com.institute_management.payment_mgt.paymentBean;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import com.institute_management.util.ClockLabel;
 import com.institute_management.util.autoSuggest;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
@@ -26,9 +29,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -54,8 +60,12 @@ public class attendenceCourse extends javax.swing.JFrame {
     static String selectedCourseId;
     static ArrayList<String[]> subjectList = null;
     Border border = BorderFactory.createLineBorder(Color.BLUE, 1);
+    Border border1 = BorderFactory.createLineBorder(Color.GREEN, 2);
+    Border border2 = BorderFactory.createLineBorder(Color.RED, 2);
     static courseBean CourseBean;
     static BufferedImage img;
+    NewPaymentDbConnection db = new NewPaymentDbConnection();
+    Font f = new Font("ITALIC", Font.BOLD, 14);
 
     public attendenceCourse() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -136,18 +146,23 @@ public class attendenceCourse extends javax.swing.JFrame {
         lblA2 = new javax.swing.JLabel();
         lblA3 = new javax.swing.JLabel();
         lblA4 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         lblA5 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        lblP3 = new javax.swing.JLabel();
         lblP1 = new javax.swing.JLabel();
         lblP2 = new javax.swing.JLabel();
+        lblP3 = new javax.swing.JLabel();
         lblP4 = new javax.swing.JLabel();
         lblP5 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lblImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -632,6 +647,14 @@ public class attendenceCourse extends javax.swing.JFrame {
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Attendence"));
         jPanel7.setPreferredSize(new java.awt.Dimension(450, 600));
 
+        jLabel16.setText("Date");
+
+        jLabel17.setText("DAY");
+
+        jLabel18.setText("TIME");
+
+        jLabel19.setText("ATTENDENCE");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -640,6 +663,15 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblA5)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel16)
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel19))
                     .addComponent(lblA4)
                     .addComponent(lblA3)
                     .addComponent(lblA1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -652,7 +684,13 @@ public class attendenceCourse extends javax.swing.JFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19))
+                .addGap(18, 18, 18)
                 .addComponent(lblA1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblA2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -662,13 +700,17 @@ public class attendenceCourse extends javax.swing.JFrame {
                 .addComponent(lblA4)
                 .addGap(18, 18, 18)
                 .addComponent(lblA5)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jPanel7Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblA1, lblA2, lblA3, lblA4, lblA5});
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Payment"));
         jPanel8.setPreferredSize(new java.awt.Dimension(450, 600));
+
+        jLabel20.setText("MONTH");
+
+        jLabel21.setText("STATUS");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -683,6 +725,12 @@ public class attendenceCourse extends javax.swing.JFrame {
                     .addComponent(lblP2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblP1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addGap(81, 81, 81))
         );
 
         jPanel8Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblP1, lblP2, lblP3, lblP4, lblP5});
@@ -690,7 +738,11 @@ public class attendenceCourse extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblP1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblP2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -850,38 +902,62 @@ public class attendenceCourse extends javax.swing.JFrame {
     }//GEN-LAST:event_jSIDActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-YYYY");
-            Date x = dateAttendence.getDate();
-            String day = sdf.format(x);
-
-            String[] dayArray = new String[4];
-            String[] date = day.split("\\-");
-            String sid = jSID.getSelectedItem().toString();
-            if (sid.equals("")) {
-                JOptionPane.showMessageDialog(new JFrame(), "Please Select a Student first");
-            } else {
-                //dbcon.insertIntoAttendence();
-                JOptionPane.showMessageDialog(new JFrame(), "Success");
-            }
-        } catch (Exception e) {
-        }
+//        // TODO add your handling code here:
+//
+//        try {
+//            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-YYYY");
+//            Date x = dateAttendence.getDate();
+//            String day = sdf.format(x);
+//
+//            String[] dayArray = new String[4];
+//            String[] date = day.split("\\-");
+//            String sid = jSID.getSelectedItem().toString();
+//            if (sid.equals("")) {
+//                JOptionPane.showMessageDialog(new JFrame(), "Please Select a Student first");
+//            } else {
+//                //dbcon.insertIntoAttendence();
+//                JOptionPane.showMessageDialog(new JFrame(), "Success");
+//            }
+//        } catch (Exception e) {
+//        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.getImageById(jSID.getSelectedItem().toString());
+        LinkedHashMap<String, String> paymentMap = null;
 
+        if (jSID.getSelectedItem().toString().trim().equals("")) {
+            JOptionPane.showMessageDialog(new JFrame(), "Please Select a Student first");
+        } else {
+
+            this.getImageById(jSID.getSelectedItem().toString());
+            ArrayList<AttendBean> attendList = null;
+            try {
+                attendList = dbcon.getattendencHistory(jSID.getSelectedItem().toString(), selectedCourseId);
+                paymentMap = db.getPaymentDetails(selectedCourseId, jSID.getSelectedItem().toString().trim(), 5);
+                this.loadAttendLabel(attendList);
+                this.loadPaymentlabel(paymentMap);
+
+            } catch (Exception e) {
+                System.out.println("error" + e);
+            }
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        try {
-            dbcon.markAttendence(selectedCourseId, jSID.getSelectedItem().toString().trim(), new Date(), 1);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(new JFrame(), "Error In Attendence Marking" + e);
+        ArrayList<AttendBean> attendList = null;
+
+        if (jSID.getSelectedItem().toString().trim().equals("")) {
+            JOptionPane.showMessageDialog(new JFrame(), "Please Select a Student first");
+        } else {
+            // TODO add your handling code here:
+            try {
+                dbcon.markAttendence(selectedCourseId, jSID.getSelectedItem().toString().trim(), new Date(), 1);
+                attendList = dbcon.getattendencHistory(jSID.getSelectedItem().toString(), selectedCourseId);
+                this.loadAttendLabel(attendList);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(new JFrame(), "Error In Attendence Marking" + e);
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -889,6 +965,36 @@ public class attendenceCourse extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         // PaymentDashBoard 
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMMM-YYYY");
+        DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
+        DateFormat dateFormat1 = new SimpleDateFormat("EEEE");
+        String dateattendence = dateFormat.format(new Date());
+        String dateattendence1 = dateFormat1.format(new Date()).toLowerCase();
+        System.out.println(dateattendence1);
+        ArrayList<String> s1 = new ArrayList<>();
+
+        String[] s = dateattendence.split("\\-");
+        s1.add(s[1].toLowerCase());
+
+        if (jSID.getSelectedItem().toString().trim().equals("")) {
+            JOptionPane.showMessageDialog(new JFrame(), "Please Select a Student first");
+        } else {
+            paymentBean paybean = new paymentBean();
+            paybean.setAmount(CourseBean.getMonthlyFee());
+            paybean.setCourseID(selectedCourseId);
+            paybean.setDate(dateFormat2.format(new Date()).toString());
+            paybean.setMonth(s1);
+            paybean.setS_id(jSID.getSelectedItem().toString().trim());
+            paybean.setYear(s[2]);
+            //  paybean.se
+
+            try {
+                db.makePayment(paybean);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(new JFrame(), "Error In Payment Marking" + e);
+            }
+
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
@@ -1230,7 +1336,13 @@ public class attendenceCourse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1406,4 +1518,94 @@ public class attendenceCourse extends javax.swing.JFrame {
 //            Data.picture.setIcon(ik);
 //        }
 //    }
+    private void loadAttendLabel(ArrayList<AttendBean> attendList) {
+        ArrayList<JLabel> label = new ArrayList<>();
+        label.add(lblA1);
+        label.add(lblA2);
+        label.add(lblA3);
+        label.add(lblA4);
+        label.add(lblA5);
+        AttendBean a;
+        String b;
+        int i = 0;
+
+        for (int j = 1; j <= attendList.size(); j++) {
+
+            if (i <= 5) {
+                a = attendList.get(i);
+                if (a.getAttend() == 0) {
+                    label.get(i).setBorder(border2);
+                    b = "Not Attend";
+                } else {
+                    label.get(i).setBorder(border1);
+                    b = "Attend";
+                }
+                label.get(i).setText(a.getDate() + "         " + a.getDay() + "                          " + a.getTime() + "                " + b);
+
+                label.get(i).setFont(f);
+                i++;
+            } else {
+                break;
+            }
+
+        }
+    }
+
+    private void loadPaymentlabel(LinkedHashMap<String, String> paymentMap) throws Exception {
+        ArrayList<JLabel> label = new ArrayList<>();
+        label.add(lblP1);
+        label.add(lblA2);
+        label.add(lblP3);
+        label.add(lblP4);
+        label.add(lblP5);
+
+        int count = 0;
+        for (Map.Entry<String, String> entry : paymentMap.entrySet()) {
+            String value = entry.getValue().toString();
+            String key = entry.getKey().toString();
+            if (count == 0) {
+                lblP1.setBorder(border1);
+                if (value.contains("not")) {
+                    lblP1.setBorder(border2);
+                }
+                lblP1.setText(key + "                             " + value);
+                lblP1.setFont(f);
+            }
+            if (count == 1) {
+                lblP2.setBorder(border1);
+                if (value.contains("not")) {
+                    lblP2.setBorder(border2);
+                }
+                lblP2.setText(key + "                             " + value);
+                lblP2.setFont(f);
+            }
+            if (count == 2) {
+                lblP3.setBorder(border1);
+                if (value.contains("not")) {
+                    lblP3.setBorder(border2);
+                }
+                lblP3.setText(key + "                             " + value);
+                lblP3.setFont(f);
+            }
+            if (count == 3) {
+                lblP4.setBorder(border1);
+                if (value.contains("not")) {
+                    lblP4.setBorder(border2);
+                }
+                lblP4.setText(key + "                             " + value);
+                lblP4.setFont(f);
+            }
+            if (count == 4) {
+                lblP5.setBorder(border1);
+                if (value.contains("not")) {
+                    lblP5.setBorder(border2);
+                }
+                lblP5.setText(key + "                              " + value);
+                lblP5.setFont(f);
+            }
+
+            count++;
+        }
+    }
+
 }

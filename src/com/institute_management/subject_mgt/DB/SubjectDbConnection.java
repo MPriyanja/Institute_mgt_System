@@ -5,6 +5,7 @@
  */
 package com.institute_management.subject_mgt.DB;
 
+import com.institute_management.attendence.AttendBean;
 import com.institute_management.student.BEAN.Student;
 import com.institute_management.subject_mgt.BEAN.SubjectBean;
 import java.awt.image.BufferedImage;
@@ -552,7 +553,7 @@ public class SubjectDbConnection {
         PreparedStatement stmt;
         ResultSet result;
         try {
-            String query = "select cd.course_id as course_id,cd." + day + " as time  FROM `student-course` sc left join `courses_dates` cd on cd.course_id=sc.course_id  WHERE  cd." + day + "<> ''";
+            String query = "select cd.course_id as course_id,cd." + day + " as time  FROM  `courses_dates` cd   WHERE  cd." + day + "<> ''";
 
             stmt = connection.prepareStatement(query);
             //stmt.setString(1, sid);
@@ -642,5 +643,38 @@ public class SubjectDbConnection {
         }
         return count;
 
+    }
+
+    public ArrayList<AttendBean> getattendencHistory(String sid, String selectedCourseId) throws Exception{
+  
+     ArrayList<AttendBean> courseList = new ArrayList<AttendBean>();
+        try {
+            query = "SELECT `time`,`date`,`day`,`attendence`from attendence WHERE `s_id` in(?) AND `c_id` in(?) ORDER BY `id`";
+
+            pst = connection.prepareStatement(query);
+            pst.setString(1, sid);
+             pst.setString(2, selectedCourseId);
+            rs = pst.executeQuery();
+          
+
+            while (rs.next()) {
+
+               AttendBean ab=new AttendBean();
+               ab.setAttend(rs.getInt("attendence"));
+               ab.setDay(rs.getString("day"));
+               ab.setTime(rs.getString("time"));
+               ab.setDate(rs.getInt("date"));
+               
+               courseList.add(ab);
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return courseList;
+    
+    
+    
+    
     }
 }
