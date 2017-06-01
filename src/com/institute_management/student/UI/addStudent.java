@@ -9,12 +9,16 @@ import com.institute_management.student.BEAN.Student;
 import com.institute_management.student.BL.StudentDetails;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
 import com.institute_management.user_mgt.UI.mainFrame;
+import com.institute_management.util.autoSuggest;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -35,7 +39,16 @@ public class addStudent extends javax.swing.JFrame {
         loadStudent();
         jDOB.setDate(new Date());
         jYOR.setDate(new Date());
-        
+        final JTextField textfieldID = (JTextField) txtSchool.getEditor().getEditorComponent();
+        textfieldID.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldID.getText(), txtSchool, 5);
+                    }
+                });
+            }
+        });
 
     }
 
@@ -61,28 +74,28 @@ public class addStudent extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtMail = new javax.swing.JTextField();
-        txtAddrs = new javax.swing.JTextField();
-        comboGender = new javax.swing.JComboBox();
-        txtTele = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtSchool = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtpcontact = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jDOB = new com.toedter.calendar.JDateChooser();
-        jYOR = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        txtSchool = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jDOB = new com.toedter.calendar.JDateChooser();
+        txtAddrs = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtMail = new javax.swing.JTextField();
+        comboGender = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtpcontact = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtTele = new javax.swing.JTextField();
+        jYOR = new com.toedter.calendar.JDateChooser();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewStudent = new javax.swing.JTable();
@@ -92,54 +105,56 @@ public class addStudent extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Student"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("ADD STUDENT");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 150, 25));
+
+        txtSchool.setEditable(true);
+        jPanel3.add(txtSchool, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 188, -1));
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Name         ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 60, 102, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Date of Birth ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 92, 102, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Address       ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 131, 102, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("Telephone              ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 130, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Email    ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 156, 102, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("Gender     ");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 190, 102, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText("School                      ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 130, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 102, -1));
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 60, 186, -1));
+        jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 186, -1));
 
-        txtMail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 153, 186, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Date of Birth ");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 102, -1));
+
+        jDOB.setDateFormatString("yyyy-MM-dd");
+        jDOB.setPreferredSize(new java.awt.Dimension(6, 20));
+        jPanel3.add(jDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 186, 25));
 
         txtAddrs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddrsActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAddrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 123, 186, -1));
+        jPanel3.add(txtAddrs, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 186, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Address       ");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 102, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Email    ");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 102, -1));
+
+        txtMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMailActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 186, -1));
 
         comboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female" }));
         comboGender.addActionListener(new java.awt.event.ActionListener() {
@@ -147,34 +162,39 @@ public class addStudent extends javax.swing.JFrame {
                 comboGenderActionPerformed(evt);
             }
         });
-        jPanel1.add(comboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 187, 109, -1));
-        jPanel1.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 98, 188, -1));
+        jPanel3.add(comboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 109, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Year of Registration  ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, -1, 20));
-
-        txtSchool.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSchoolActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtSchool, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 130, 188, -1));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Gender     ");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 102, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Parent Contact NO");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 140, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 140, -1));
 
         txtpcontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpcontactActionPerformed(evt);
             }
         });
-        jPanel1.add(txtpcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 168, 188, -1));
+        jPanel3.add(txtpcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 188, -1));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setText("Clear");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(893, 236, 80, -1));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("School                      ");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 130, -1));
+        jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 188, -1));
+
+        jYOR.setDateFormatString("yyyy-MM-dd");
+        jYOR.setPreferredSize(new java.awt.Dimension(6, 20));
+        jPanel3.add(jYOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 188, 25));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Year of Registration  ");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, -1, 20));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Telephone              ");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 130, -1));
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Add");
@@ -183,38 +203,13 @@ public class addStudent extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(792, 236, 83, -1));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 260, 83, -1));
 
-        jDOB.setDateFormatString("yyyy-MM-dd");
-        jDOB.setPreferredSize(new java.awt.Dimension(6, 20));
-        jPanel1.add(jDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 90, 186, 25));
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setText("Clear");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, 80, -1));
 
-        jYOR.setDateFormatString("yyyy-MM-dd");
-        jYOR.setPreferredSize(new java.awt.Dimension(6, 20));
-        jPanel1.add(jYOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 60, 188, 25));
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Student"));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Add Student");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(392, 392, 392)
-                .addComponent(jLabel1)
-                .addContainerGap(526, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 215, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1040, 260));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 13, 1020, 310));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("View Student"));
 
@@ -262,7 +257,7 @@ public class addStudent extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -302,7 +297,7 @@ public class addStudent extends javax.swing.JFrame {
             st.setEmail(txtMail.getText());
             st.setGender(comboGender.getSelectedItem().toString());
             st.setName(txtName.getText());
-            st.setSchool(txtSchool.getText());
+            st.setSchool(txtSchool.getSelectedItem().toString());
 //            st.setTelephn(txtTele.getText());
 //             if(jYOR.getDate()==null){
 //             JOptionPane.showMessageDialog(new JFrame(), "Please enter Registration year ");
@@ -315,6 +310,8 @@ public class addStudent extends javax.swing.JFrame {
             //SubjectDbConnection dbCon = new SubjectDbConnection();
             int count = dbCon.insertStudent(st);
             if (count > 0) {
+                
+                dbCon.insertSchool(st.getSchool());
                 JOptionPane.showMessageDialog(new JFrame(), "Successfully inserted ");
 
                 loadStudent();
@@ -322,7 +319,7 @@ public class addStudent extends javax.swing.JFrame {
                 jDOB.setDate(null);
                 txtMail.setText(null);
                 txtName.setText(null);
-                txtSchool.setText(null);
+                txtSchool.setSelectedItem(null);
                 txtTele.setText(null);
                 jYOR.setDate(null);
                 txtpcontact.setText(null);
@@ -333,10 +330,6 @@ public class addStudent extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtSchoolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSchoolActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSchoolActionPerformed
 
     private void txtpcontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpcontactActionPerformed
         // TODO add your handling code here:
@@ -401,7 +394,7 @@ public class addStudent extends javax.swing.JFrame {
     private javax.swing.JTextField txtAddrs;
     private javax.swing.JTextField txtMail;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtSchool;
+    private javax.swing.JComboBox txtSchool;
     private javax.swing.JTextField txtTele;
     private javax.swing.JTextField txtpcontact;
     // End of variables declaration//GEN-END:variables

@@ -72,8 +72,15 @@ public class autoSuggest extends javax.swing.JFrame {
                     str1 = rs.getString("S_TELEPHONE");
                     filterArray.add(str1);
                 }
+            } else if (x == 5) {
+                str = "SELECT `school` FROM `school` WHERE `school`  LIKE '" + enteredText + "%'";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(str);
+                while (rs.next()) {
+                    str1 = rs.getString("school");
+                    filterArray.add(str1);
+                }
             }
-
         } catch (Exception ex) {
             System.out.println("error" + ex);
         }
@@ -227,7 +234,7 @@ public class autoSuggest extends javax.swing.JFrame {
             String str1 = "";
             String str = "";
 
-            str = "SELECT `S_ID` FROM `student-course` WHERE `S_ID` LIKE '"+ text +"%' and `course_id`  in('" + selectedCourseId + "')";
+            str = "SELECT `S_ID` FROM `student-course` WHERE `S_ID` LIKE '" + text + "%' and `course_id`  in('" + selectedCourseId + "')";
             System.out.println(str);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(str);

@@ -250,7 +250,7 @@ public class SubjectDbConnection {
             query = "UPDATE student SET S_NAME=?,S_DOB=?,"
                     + "S_ADDRESS=?,S_EMAIL=?,S_GENDER=?,"
                     + "S_YOR=?,S_TELEPHONE=?,S_SCHOOL=?"
-                    + "WHERE S_NAME=? AND S_TELEPHONE=?";
+                    + "WHERE S_ID=?";
             pst = connection.prepareStatement(query);
             pst.setString(1, st.getName());
             pst.setString(2, st.getDob());
@@ -260,8 +260,8 @@ public class SubjectDbConnection {
             pst.setString(6, st.getYearOfReg());
             pst.setString(7, st.getTelephn());
             pst.setString(8, st.getSchool());
-            pst.setString(9, st.getName());
-            pst.setString(10, st.getTelephn());
+            pst.setString(9, st.getStudentID());
+           // pst.setString(10, st.getTelephn());
             count = pst.executeUpdate();
 
         } catch (Exception e) {
@@ -679,4 +679,43 @@ public class SubjectDbConnection {
     
     
     }
+
+    public void insertSchool(String school) throws Exception{
+    int count = 0;
+
+        try {
+            query = "SELECT  `school` FROM `school` WHERE `school` in (?);";
+            pst = connection.prepareStatement(query);
+            pst.setString(1, school);
+//            pst.setString(2, studentID);
+//            pst.setInt(3, cardType);
+
+            rs = pst.executeQuery();
+            
+            while (rs.next()) {                
+                return;
+            }
+            
+            query = "INSERT INTO `school`(`school`) VALUES (?)";
+            pst = connection.prepareStatement(query);
+            pst.setString(1, school);
+            count=pst.executeUpdate();
+
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            try {
+                if (pst != null) {
+                    try {
+                        pst.close();
+                    } catch (SQLException e) {
+                        throw e;
+                    }
+                }
+            } catch (Exception ee) {
+                throw ee;
+            }
+        }
+       // return count;
+ }
 }

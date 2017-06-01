@@ -360,9 +360,9 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtTpUpdate" max="32767" attributes="0"/>
                                       <Component id="txtNameUpdate" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtSchoolUpdate" alignment="1" max="32767" attributes="0"/>
                                       <Component id="txtAddressUpdate" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtEmailUpdate" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="txtEmailUpdate" alignment="0" pref="227" max="32767" attributes="0"/>
+                                      <Component id="txtSchoolUpdate" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -381,7 +381,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel13" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtSchoolUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSchoolUpdate" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -429,11 +429,6 @@
                     <Property name="text" type="java.lang.String" value="Address           "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtSchoolUpdate">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSchoolUpdateActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JTextField" name="txtAddressUpdate">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAddressUpdateActionPerformed"/>
@@ -474,6 +469,14 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="txtSchoolUpdate">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="true"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

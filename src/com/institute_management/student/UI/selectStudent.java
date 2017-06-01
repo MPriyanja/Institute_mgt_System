@@ -29,16 +29,16 @@ public class selectStudent extends javax.swing.JFrame {
 
     public selectStudent() {
         initComponents();
-          final JTextField textfieldID = (JTextField) jregID.getEditor().getEditorComponent();
-           textfieldID.addKeyListener(new KeyAdapter() {
-           public void keyReleased(KeyEvent ke) {
-               SwingUtilities.invokeLater(new Runnable() {
-                   public void run() {
-                      new autoSuggest().comboFilter(textfieldID.getText(), jregID, 1);
-                   }
-               });
-           }
-       });
+        final JTextField textfieldID = (JTextField) jregID.getEditor().getEditorComponent();
+        textfieldID.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldID.getText(), jregID, 1);
+                    }
+                });
+            }
+        });
     }
 
     /**
@@ -237,12 +237,12 @@ public class selectStudent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-             String regId = jregID.getSelectedItem().toString().trim();
+            String regId = jregID.getSelectedItem().toString().trim();
             //get details 
             selectStudent(regId);
         } catch (Exception e) {
         }
-         
+
         studentUpdate su = new studentUpdate();
         su.setVisible(true);
         this.dispose();
@@ -257,9 +257,9 @@ public class selectStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3KeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-addStudent as=new addStudent();
-as.setVisible(true);
-this.dispose();// TODO add your handling code here:
+        addStudent as = new addStudent();
+        as.setVisible(true);
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

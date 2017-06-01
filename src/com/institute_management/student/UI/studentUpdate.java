@@ -9,11 +9,16 @@ import com.institute_management.course_mgt.CourseDbConnection;
 import com.institute_management.student.BEAN.Student;
 import static com.institute_management.student.UI.selectStudent.studentDont;
 import com.institute_management.subject_mgt.DB.SubjectDbConnection;
+import com.institute_management.util.autoSuggest;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,6 +38,16 @@ public class studentUpdate extends javax.swing.JFrame {
         loadStudentUpdate();
         loadCourseComboBox();
         loadTextBoxCourseName();
+         final JTextField textfieldID = (JTextField) txtSchoolUpdate.getEditor().getEditorComponent();
+        textfieldID.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent ke) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new autoSuggest().comboFilter(textfieldID.getText(), txtSchoolUpdate, 5);
+                    }
+                });
+            }
+        });
         loadtblStudentCourese();
     }
 
@@ -51,7 +66,7 @@ public class studentUpdate extends javax.swing.JFrame {
         txtPnameUpdate.setText(st.getParentName());
         txtRegNo.setText(st.getStudentID());
         txtSchool.setText(st.getSchool());
-        txtSchoolUpdate.setText(st.getSchool());
+        txtSchoolUpdate.setSelectedItem(st.getSchool());
         txtTele.setText(st.getTelephn());
         txtTpUpdate.setText(st.getTelephn());
         txtYor.setText(st.getYearOfReg().toString());
@@ -97,7 +112,6 @@ public class studentUpdate extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtSchoolUpdate = new javax.swing.JTextField();
         txtAddressUpdate = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtEmailUpdate = new javax.swing.JTextField();
@@ -105,6 +119,7 @@ public class studentUpdate extends javax.swing.JFrame {
         txtTpUpdate = new javax.swing.JTextField();
         studentUpdat = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        txtSchoolUpdate = new javax.swing.JComboBox();
         jPanel7 = new javax.swing.JPanel();
         txtPnameUpdate = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -331,12 +346,6 @@ public class studentUpdate extends javax.swing.JFrame {
 
         jLabel14.setText("Address           ");
 
-        txtSchoolUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSchoolUpdateActionPerformed(evt);
-            }
-        });
-
         txtAddressUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressUpdateActionPerformed(evt);
@@ -373,6 +382,8 @@ public class studentUpdate extends javax.swing.JFrame {
             }
         });
 
+        txtSchoolUpdate.setEditable(true);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -396,9 +407,9 @@ public class studentUpdate extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtTpUpdate)
                             .addComponent(txtNameUpdate, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSchoolUpdate, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtAddressUpdate, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtEmailUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtEmailUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(txtSchoolUpdate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(124, 124, 124))
         );
 
@@ -887,11 +898,16 @@ public class studentUpdate extends javax.swing.JFrame {
 
         try {
             st.setName(txtNameUpdate.getText());
-            st.setSchool(txtSchoolUpdate.getText());
+            st.setSchool(txtSchoolUpdate.getSelectedItem().toString());
             st.setAddress(txtAddressUpdate.getText());
             st.setEmail(txtEmailUpdate.getText());
             st.setTelephn(txtTpUpdate.getText());
-            dbConnn.updateStudent(st);
+            int count = dbConnn.updateStudent(st);
+            if (count > 0) {
+                dbConnn.insertSchool(st.getSchool());
+                JOptionPane.showMessageDialog(new JFrame(), "Successfully Updated");
+            }
+
             loadStudentUpdate();
 
         } catch (Exception e) {
@@ -912,10 +928,6 @@ public class studentUpdate extends javax.swing.JFrame {
     private void txtAddressUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressUpdateActionPerformed
-
-    private void txtSchoolUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSchoolUpdateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSchoolUpdateActionPerformed
 
     private void txtNameUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameUpdateActionPerformed
         // TODO add your handling code here:
@@ -959,9 +971,9 @@ public class studentUpdate extends javax.swing.JFrame {
             cardType = 2;
         }
         try {
-           new CourseDbConnection().studentRegistrationForCourse(st.getStudentID(),txtCName.getText(), cardType);
+            new CourseDbConnection().studentRegistrationForCourse(st.getStudentID(), txtCName.getText(), cardType);
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(new JFrame(), "Error In Add course to Student"+ e);
+            JOptionPane.showMessageDialog(new JFrame(), "Error In Add course to Student" + e);
         }
         loadtblStudentCourese();
 
@@ -977,7 +989,7 @@ public class studentUpdate extends javax.swing.JFrame {
 
     private void comboCourseId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCourseId1ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_comboCourseId1ActionPerformed
 
     private void txtCName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCName2ActionPerformed
@@ -994,10 +1006,10 @@ public class studentUpdate extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ImageUploader im=new ImageUploader(st.getStudentID());
+        ImageUploader im = new ImageUploader(st.getStudentID());
         im.setVisible(true);
         this.disable();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public String getCourseName(String CourseId) {
@@ -1102,7 +1114,7 @@ public class studentUpdate extends javax.swing.JFrame {
     private javax.swing.JTextField txtPnameUpdate;
     private javax.swing.JTextField txtRegNo;
     private javax.swing.JTextField txtSchool;
-    private javax.swing.JTextField txtSchoolUpdate;
+    private javax.swing.JComboBox txtSchoolUpdate;
     private javax.swing.JTextField txtTele;
     private javax.swing.JTextField txtTpUpdate;
     private javax.swing.JTextField txtYor;
@@ -1122,7 +1134,7 @@ public class studentUpdate extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(new JFrame(), "Error in selecting Course Id" + e);
         }
     }
-    
+
     private void loadCourseComboBoxOnStudent() {
         try {
             ArrayList<String> courselist = null;
