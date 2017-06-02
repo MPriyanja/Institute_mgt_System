@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class StudentDetails extends AbstractTableModel {
 
     private static final String[] column = {"Name",
-        "Date of Birth",
+        "Registration No",
         "Address",
         "Email",
         "Gender",
@@ -51,7 +51,7 @@ public class StudentDetails extends AbstractTableModel {
             case 0:
                 return list.get(rowIndex).getName();
             case 1:
-                return list.get(rowIndex).getDob();
+                return list.get(rowIndex).getStudentID();
             case 2:
                 return list.get(rowIndex).getAddress();
             case 3:

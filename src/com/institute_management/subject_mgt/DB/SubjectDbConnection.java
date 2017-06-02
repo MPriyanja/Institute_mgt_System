@@ -191,7 +191,7 @@ public class SubjectDbConnection {
         ArrayList<Student> studentList = new ArrayList<Student>();
         Object[] tableData = null;
         try {
-            query = "SELECT  S_NAME,S_DOB,S_ADDRESS,S_EMAIL,S_GENDER,S_YOR,S_TELEPHONE,S_SCHOOL FROM student";
+            query = "SELECT  S_NAME,S_ID,S_DOB,S_ADDRESS,S_EMAIL,S_GENDER,S_YOR,S_TELEPHONE,S_SCHOOL FROM student";
 
             pst = connection.prepareStatement(query);
 
@@ -200,6 +200,7 @@ public class SubjectDbConnection {
                 Student st = new Student();
                 //tableData[0] = false;
                 st.setName(rs.getString("S_NAME"));
+                st.setStudentID(rs.getString("S_ID"));
                 st.setDob(rs.getString("S_DOB"));
 //                tableData[2] = rs.getString("S_ADDRESS");
 //                tableData[3] = rs.getString("S_EMAIL");
