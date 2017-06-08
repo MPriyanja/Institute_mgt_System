@@ -199,9 +199,6 @@ public class selectLecturer extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnCheck))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(559, 559, 559)
-                        .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -249,7 +246,10 @@ public class selectLecturer extends javax.swing.JFrame {
                                         .addComponent(rbMale)
                                         .addGap(31, 31, 31)
                                         .addComponent(rbFemale))
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(559, 559, 559)
+                        .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(66, 66, 66))
         );
 

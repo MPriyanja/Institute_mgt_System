@@ -43,7 +43,7 @@ public class NewJFrame extends javax.swing.JFrame {
 //        Toolkit tk = Toolkit.getDefaultToolkit();
 //        int xsize = (int) tk.getScreenSize().getWidth();
 //        int ysize = (int) tk.getScreenSize().getHeight();
-        this.setSize(1366, 768);
+        this.setSize(1366, 780);
         DashBoardMethods dbM = new DashBoardMethods();
         try {
             lblTotalCourses.setText(dbM.getTotalCourses() + "");
@@ -105,13 +105,13 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("INSTITUTE OF PROFESSIONAL STUDIES");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-27, 70, 1060, 40));
 
-        jLabel5.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 102, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("STUDENT MANAGEMENT SYSTEM");
@@ -311,6 +311,12 @@ public class NewJFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
+            }
         });
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 380, 250));
 
@@ -326,8 +332,14 @@ public class NewJFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblReportsMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblReportsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblReportsMouseExited(evt);
+            }
         });
-        jPanel2.add(lblReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 410, 310, 270));
+        jPanel2.add(lblReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 410, 310, 270));
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 255));
@@ -488,6 +500,22 @@ public class NewJFrame extends javax.swing.JFrame {
         this.dispose();
                 
     }//GEN-LAST:event_lblAttendanceMouseClicked
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+       jLabel6.setBorder(null);
+    }//GEN-LAST:event_jLabel6MouseExited
+
+    private void lblReportsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportsMouseEntered
+        lblReports.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255))); 
+    }//GEN-LAST:event_lblReportsMouseEntered
+
+    private void lblReportsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReportsMouseExited
+         lblReports.setBorder(null);
+    }//GEN-LAST:event_lblReportsMouseExited
    
         
 

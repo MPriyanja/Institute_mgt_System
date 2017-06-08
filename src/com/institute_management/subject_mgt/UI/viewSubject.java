@@ -62,7 +62,6 @@ public class viewSubject extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Subjects");
-        setPreferredSize(new java.awt.Dimension(600, 400));
 
         tblViewSubject.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,10 +185,11 @@ public class viewSubject extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-        int x = 0;
+       int x = 0;
         int count = 0;
         for (int i = 0; i < tblViewSubject.getRowCount(); i++) {
-            Boolean isChecked = Boolean.valueOf(tblViewSubject.getValueAt(i, 3).toString());
+            if(tblViewSubject.getValueAt(i, 3)!=null){
+             Boolean isChecked = Boolean.valueOf(tblViewSubject.getValueAt(i, 3).toString());
 
             if (isChecked) {
                 String code = tblViewSubject.getValueAt(i, 1).toString();
@@ -205,22 +205,29 @@ public class viewSubject extends javax.swing.JFrame {
                 }
             }
         }
+        }
         if (x == 1) {
-            JOptionPane.showMessageDialog(new JFrame(), count + " Extra classes Delete Successfully");
+            JOptionPane.showMessageDialog(new JFrame(), count + " subject Delete Successfully");
         } else {
             JOptionPane.showMessageDialog(new JFrame(), "error Occured. Try again");
         }
         
-            DefaultTableModel model = (DefaultTableModel) tblViewSubject.getModel();
+           
+        try {
+             DefaultTableModel model = (DefaultTableModel) tblViewSubject.getModel();
             model.setRowCount(0);
 
             ArrayList<Object[]> tableData;//=new Object[3];
             SubjectDbConnection dbCon = new SubjectDbConnection();
-        try {
             tableData = dbCon.selectAllSubject();
+
+            for (Object[] subjectList : tableData) {
+                model.addRow(subjectList);
+            }
         } catch (Exception ex) {
             Logger.getLogger(viewSubject.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_btndeleteActionPerformed
 
     /**

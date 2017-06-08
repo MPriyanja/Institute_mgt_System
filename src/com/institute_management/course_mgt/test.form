@@ -143,7 +143,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel9" pref="356" max="32767" attributes="0"/>
+                          <Component id="jPanel9" pref="391" max="32767" attributes="0"/>
                           <Component id="jPanel8" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="127" max="32767" attributes="0"/>
@@ -601,7 +601,7 @@
                               <Component id="jButton14" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton21" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" pref="40" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblvrificationDel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="jLabel59" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
@@ -1561,7 +1561,7 @@
                                   <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="46" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="rEditFree" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="rEdit50Free" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2104,7 +2104,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                       <Component id="jPanel23" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="232" max="32767" attributes="0"/>
+                      <EmptySpace pref="219" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2187,7 +2187,7 @@
                                           <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                           <Component id="jLabel81" min="-2" pref="15" max="-2" attributes="0"/>
-                                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                                          <EmptySpace pref="16" max="32767" attributes="0"/>
                                           <Component id="lblvrification4" min="-2" pref="168" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>

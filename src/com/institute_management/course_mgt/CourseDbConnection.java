@@ -691,16 +691,16 @@ public class CourseDbConnection {
 
             result = stmt.executeQuery();
             while (result.next()) {
-                map.put("name", (result.getString("S_NAME").equals("")) ? "--" : result.getString("S_NAME"));
-                map.put("address", (result.getString("S_ADDRESS").equals("")) ? "--" : result.getString("S_ADDRESS"));
-                map.put("email", (result.getString("S_EMAIL").equals("")) ? "--" : result.getString("S_EMAIL"));
-                map.put("gender", (result.getString("S_GENDER").equals("")) ? "--" : result.getString("S_GENDER"));
-                map.put("mobile", (result.getString("S_TELEPHONE").equals("")) ? "--" : result.getString("S_TELEPHONE"));
-                map.put("school", (result.getString("S_SCHOOL").equals("")) ? "--" : result.getString("S_SCHOOL"));
-                map.put("nic", (result.getString("S_NIC").equals("")) ? "--" : result.getString("S_NIC"));
-                map.put("regID", (result.getString("S_ID").equals("")) ? "--" : result.getString("S_ID"));
-                map.put("pContact", (result.getString("S_PARENT_CONTACT_NO").equals("")) ? "--" : result.getString("S_PARENT_CONTACT_NO"));
-                map.put("regDate", (result.getString("S_YOR").equals("")) ? "--" : result.getString("S_YOR"));
+                map.put("name", (result.getString("S_NAME")==null) ? "--" : result.getString("S_NAME"));
+                map.put("address", (result.getString("S_ADDRESS")==null) ? "--" : result.getString("S_ADDRESS"));
+                map.put("email", (result.getString("S_EMAIL")==null) ? "--" : result.getString("S_EMAIL"));
+                map.put("gender", (result.getString("S_GENDER")==null) ? "--" : result.getString("S_GENDER"));
+                map.put("mobile", (result.getString("S_TELEPHONE")==null) ? "--" : result.getString("S_TELEPHONE"));
+                map.put("school", (result.getString("S_SCHOOL")==null) ? "--" : result.getString("S_SCHOOL"));
+                map.put("nic", (result.getString("S_NIC")==null) ? "--" : result.getString("S_NIC"));
+                map.put("regID", (result.getString("S_ID")==null) ? "--" : result.getString("S_ID"));
+                map.put("pContact", (result.getString("S_PARENT_CONTACT_NO")==null) ? "--" : result.getString("S_PARENT_CONTACT_NO"));
+                map.put("regDate", (result.getString("S_YOR")==null) ? "--" : result.getString("S_YOR"));
 
             }
 

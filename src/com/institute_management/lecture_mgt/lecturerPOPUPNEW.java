@@ -163,7 +163,7 @@ public class lecturerPOPUPNEW extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAddMouseClicked
 
     private void lblUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMouseClicked
-        updateLecturerDetails up = new updateLecturerDetails();
+        selectLecturer up = new selectLecturer();
         up.setVisible(true);
     }//GEN-LAST:event_lblUpdateMouseClicked
 
@@ -173,6 +173,7 @@ public class lecturerPOPUPNEW extends javax.swing.JFrame {
         try {
             nf = new NewJFrame();
              nf.setVisible(true);
+             this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(lecturerPOPUPNEW.class.getName()).log(Level.SEVERE, null, ex);
         }
