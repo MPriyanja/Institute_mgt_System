@@ -3,8 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/new%20version/Institute_mgt_System/src/com/institute_management/main/NewJFrame.java</file>
-            <file>file:/G:/new%20version/Institute_mgt_System/src/com/institute_management/main/DashBoardMethods.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/createCourse.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/payment_mgt/PaymentDashBoard.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/payment_mgt/PaymentDbConnection.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/paymentPOPUP.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/payment_mgt/paymentPOPUP.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/main/DashBoardMethods.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/course_mgt/test.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/attendence/attendenceMain.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/attendence/attendenceCourse.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/student/UI/studentUpdate.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/main/NewJFrame.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/lecture_mgt/updateLecturerDetails.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/lecture_mgt/LectureDbConnection.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/lecture_mgt/selectLecturer.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/lecture_mgt/lecturerPOPUPNEW.java</file>
+            <file>file:/F:/IMS/Institute_mgt_System/src/com/institute_management/report/courseReport.java</file>
         </group>
     </open-files>
 </project-private>
